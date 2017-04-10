@@ -60,11 +60,11 @@ repositories {
 
 dependencies {
 
-    compile name: 'Chisel-MC1.11.2-0.0.9.11'
-    compile name: 'mcflux-2.5.1-dev'
-    deobfCompile 'com.wayoftime.bloodmagic:BloodMagic:1.11-2.1.7-76'
-    compile "mezz.jei:jei_1.11.2:4.2.9.247:api"
-    deobfCompile "info.amerifrance.guideapi:Guide-API:1.11-2.1.0-51"
+    //compile name: 'Chisel-MC1.11.2-0.0.9.11'
+    //compile name: 'mcflux-2.5.1-dev'
+    //deobfCompile 'com.wayoftime.bloodmagic:BloodMagic:1.11-2.1.7-76'
+    //compile "mezz.jei:jei_1.11.2:4.2.9.247:api"
+    //deobfCompile "info.amerifrance.guideapi:Guide-API:1.11-2.1.0-51"
 
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.1.1'
     compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'

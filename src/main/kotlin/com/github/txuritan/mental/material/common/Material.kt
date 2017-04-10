@@ -24,6 +24,7 @@
 
 package com.github.txuritan.mental.material.common
 
+import com.github.txuritan.mental.core.common.util.References
 import com.github.txuritan.mental.material.common.element.Adamantine
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
@@ -36,6 +37,7 @@ object Material {
 
     @JvmStatic
     fun preInit(event: FMLPreInitializationEvent) {
+        References.LOGGER.info("Material preInit")
         Adamantine.preInit(event)
     }
 

@@ -34,6 +34,7 @@ import com.github.txuritan.mental.core.common.item.weapons.ItemArmorBase
 import com.github.txuritan.mental.core.common.item.weapons.ItemBowBase
 import com.github.txuritan.mental.core.common.item.weapons.ItemSwordBase
 import com.github.txuritan.mental.core.common.util.RecipeUtils
+import com.github.txuritan.mental.core.common.util.References
 import com.github.txuritan.mental.core.common.util.References.MENTAL_CREATIVE_TAB
 import com.github.txuritan.mental.core.common.util.References.MOD_ID
 import com.github.txuritan.mental.core.common.util.RegisterUtils
@@ -72,7 +73,6 @@ object Adamantine {
     private val ELEMENT_ORE_DIC_WHOLE = "${ELEMENT}Block"
 
     internal class AdamantineOre(hardness: Float?, resistance: Float?, private val itemDropped: Item) : BlockBase(Material.ROCK, "adamantine_ore", arrayOf(ELEMENT_ORE_DIC_ORE)) {
-
         init {
             setHardness(hardness!!)
             setResistance(resistance!!)
@@ -330,7 +330,7 @@ object Adamantine {
         )
 
         toolMaterial = EnumHelper.addToolMaterial(
-                ELEMENT + "_tool_material",
+                "${ELEMENT}_tool_material",
                 materialToolHarvest!!,
                 materialToolDurability!!,
                 materialToolMining!!.toFloat(),
@@ -362,6 +362,8 @@ object Adamantine {
 
     @Suppress("UNUSED_PARAMETER")
     fun preInit(event: FMLPreInitializationEvent) {
+        References.LOGGER.info("Adamantine preInit")
+        References.LOGGER.info(enabled);
         if (enabled!!) {
             if (enabledItems!!) {
                 chunk = RegisterUtils.registerItem(AdamantineChunk())
@@ -370,7 +372,7 @@ object Adamantine {
                 nugget = RegisterUtils.registerItem(AdamantineNugget())
             }
 
-            if (enabledBlocks!!) {
+            if (enabledBlocks!! && enabledItems!!) {
                 ore = RegisterUtils.registerBlock(AdamantineOre(blockOreHardness, blockOreResistance, chunk!!))
                 whole = RegisterUtils.registerBlock(AdamantineWhole(blockWholeHardness, blockWholeResistance))
             }
@@ -438,7 +440,7 @@ object Adamantine {
                     GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsSword!!))
                 }
             } catch (e: RecipeException) {
-                e.printStackTrace()
+                References.LOGGER.error("Recipe Exception in ${ELEMENT.capitalize()}", e)
             }
         } else {
             if (enabledBlocks!!) {

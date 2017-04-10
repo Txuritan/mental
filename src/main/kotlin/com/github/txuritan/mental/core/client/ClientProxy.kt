@@ -36,7 +36,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 class ClientProxy : CommonProxy() {
 
     override fun registerItemRenderer(item: Item, meta: Int, id: String) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, ModelResourceLocation(References.MOD_ID + ":" + id, "inventory"))
+        super.registerItemRenderer(item, meta, id)
+        ModelLoader.setCustomModelResourceLocation(item, meta, ModelResourceLocation("${References.MOD_ID}:$id", "inventory"))
     }
 
     override fun preInit(event: FMLPreInitializationEvent) {

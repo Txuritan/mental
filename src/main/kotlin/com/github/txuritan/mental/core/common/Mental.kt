@@ -53,6 +53,7 @@ object Mental {
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
+        References.LOGGER.info("Mental preInit")
         proxy.preInit(event)
     }
 

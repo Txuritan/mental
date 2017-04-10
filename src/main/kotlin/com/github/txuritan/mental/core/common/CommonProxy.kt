@@ -26,6 +26,7 @@ package com.github.txuritan.mental.core.common
 
 import com.github.txuritan.mental.core.common.config.ConfigHandler
 import com.github.txuritan.mental.core.common.handler.EventHandlers
+import com.github.txuritan.mental.core.common.util.References
 import com.github.txuritan.mental.material.common.Material
 import com.github.txuritan.mental.tree.common.Tree
 import net.minecraft.item.Item
@@ -44,6 +45,7 @@ open class CommonProxy {
     }
 
     open fun preInit(event: FMLPreInitializationEvent) {
+        References.LOGGER.info("CommonProxy preInit")
         ConfigHandler.config(Configuration(event.suggestedConfigurationFile))
 
         Material.preInit(event)
