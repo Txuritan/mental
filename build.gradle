@@ -1,0 +1,179 @@
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+    }
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'kotlin'
+
+ext.configFile = file('build.properties')
+ext.config = parseConfig(configFile)
+
+version = "${config.mc_version}-${config.year}.${config.month}.${config.build_number}"
+group = "com.github.txuritan"
+archivesBaseName = "memtal"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+minecraft {
+    version = "1.11.2-13.20.0.2228"
+    runDir = "run"
+    mappings = "snapshot_20170301"
+    makeObfSourceJar = true
+
+    replace 'GRADLE:BUILD', project.version
+
+    useDepAts = true
+}
+
+repositories {
+    flatDir { dirs 'libs' }
+    maven { url "https://raw.githubusercontent.com/Txuritan/maven-repository/master/" }
+    maven { url "http://dvs1.progwml6.com/files/maven" }
+    maven { url "http://tehnut.info/maven" }
+    maven { url "http://mvn.rx14.co.uk/list/repo/" }
+}
+
+dependencies {
+
+    compile name: 'Chisel-MC1.11.2-0.0.9.11'
+    compile name: 'mcflux-2.5.1-dev'
+    deobfCompile 'com.wayoftime.bloodmagic:BloodMagic:1.11-2.1.7-76'
+    compile "mezz.jei:jei_1.11.2:4.2.9.247:api"
+    deobfCompile "info.amerifrance.guideapi:Guide-API:1.11-2.1.0-51"
+
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.1.1'
+    compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'
+    compile 'org.jetbrains.kotlin:kotlin-runtime:1.1.1'
+
+    //shade 'com.getsentry.raven:raven:7.8.6'
+    //shade 'com.google.apis:google-api-services-analytics:v3-rev139-1.22.0'
+}
+
+jar {
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)){
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
+
+    manifest {
+        attributes "FMLCorePlugin": "com.github.txuritan.mental.kotlin.preloader.KotlinPlugin",
+                "FMLCorePluginContainsFMLMod": "true"
+    }
+}
+
+shadowJar {
+    classifier = ""
+    dependencies {
+        include(dependency("org.jetbrains.kotlin:kotlin-stdlib:1.1.1"))
+        include(dependency("org.jetbrains.kotlin:kotlin-reflect:1.1.1"))
+        include(dependency("org.jetbrains.kotlin:kotlin-runtime:1.1.1"))
+    }
+    relocate 'kotlin', 'com.github.txuritan.mental.kotlin'
+    manifest {
+        attributes "FMLCorePlugin": "com.github.txuritan.mental.kotlin.preloader.KotlinPlugin",
+                "FMLCorePluginContainsFMLMod": "true"
+    }
+    exclude 'dummyThing'
+}
+
+tasks.build.dependsOn shadowJar
+
+reobf {
+    jar {
+        extraLines += ["PK: com/getsentry/raven com/getsentry/raven"]
+        extraLines += ["PK: com/google/api/services/analytics com/google/api/services/analytics"]
+    }
+    shadowJar {
+        mappingType = "SEARGE"
+    }
+}
+
+tasks.reobfShadowJar.mustRunAfter shadowJar
+tasks.build.dependsOn reobfShadowJar
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+task txDeobfJar(type: Jar, dependsOn: "reobfJar") {
+    from sourceSets.main.output
+    classifier = "dev"
+}
+
+task txSourcesJar(type: Jar, dependsOn: "sourceJar") {
+    from sourceSets.main.allJava
+    classifier = "sources"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId "com.github.txuritan"
+            artifactId "metnal"
+            version "${config.mc_version}-${config.year}.${config.month}.${config.build_number}"
+
+            from components.java
+            artifact txDeobfJar
+            artifact txSourcesJar
+        }
+    }
+    repositories {
+        maven {
+            url "file://C:/Users/txurt/maven-repository"
+        }
+    }
+}
+
+def parseConfig(File config) {
+    config.withReader {
+        def prop = new Properties()
+        prop.load(it)
+        return (new ConfigSlurper().parse(prop))
+    }
+}
+
+task incrementBuildNumber {
+    config.build_number = (config.build_number.toString().toInteger()) + 1
+    configFile.withWriter {
+        config.toProperties().store(it, "")
+    }
+}
+
+defaultTasks 'clean', 'build', 'incrementBuildNumber'

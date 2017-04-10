@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2017 Ian Cronkright
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<html>
+
+<head>
+    <title>Metal Progress</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #ECF0F1;
+        }
+
+        table {
+            color: #ECF0F1;
+            font-family: "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: none;
+            width: 100%;
+        }
+
+        table, td, th {
+            border: 0 solid #95A5A6;
+            padding: 0;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid #2B2B2B;
+            padding: 5px;
+        }
+
+        td.green {
+            background-color: #2ECC71;
+        }
+
+        td.orange {
+            background-color: #E67E22;
+        }
+
+        td.red {
+            background-color: #E74C3C;
+        }
+
+        td.disabled {
+            background-color: #745EC5;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Metal Progress</h1>
+
+    <h2>Key</h2>
+
+    <table>
+        <tbody>
+            <tr>
+                <td class="disabled">Not being added</td>
+                <td class="red">No Progress</td>
+                <td class="orange">Some Progress</td>
+                <td class="green">Done</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Progress</h2>
+
+    <script>
+
+        Element.prototype.remove = function () {
+            this.parentElement.removeChild(this);
+        };
+
+        var oreData = [
+            {
+                "name": "Adamantine",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            }
+        ];
+
+        function loadMobile() {
+            var tableElements = document.createElement("table");
+            var tableElementsBody = document.createElement("tbody");
+
+            for (var elementKey in oreData) {
+                if (oreData.hasOwnProperty(elementKey)) {
+                    var tr1 = document.createElement("tr");
+                    var tr1_td1 = document.createElement("td");
+                    tr1_td1.setAttribute("class", oreData[elementKey].class);
+                    tr1_td1.appendChild(document.createTextNode(oreData[elementKey].name));
+                    tr1.appendChild(tr1_td1);
+                    var tr2_td1 = document.createElement("td");
+                    var table1 = document.createElement("table");
+                    var table1Body = document.createElement("tbody");
+
+                    var blocks_tr1 = document.createElement("tr");
+                    var blocks_td1 = document.createElement("td");
+                    blocks_td1.setAttribute("class", oreData[elementKey].blocks_class);
+                    blocks_td1.appendChild(document.createTextNode("Blocks"));
+                    var blocks_td2 = document.createElement("td");
+                    var blocks_td2_table = document.createElement("table");
+                    var blocks_td2_table_body = document.createElement("tbody");
+                    for (var blockKey in oreData[elementKey].blocks) {
+                        if (oreData[elementKey].blocks.hasOwnProperty(blockKey)) {
+                            var blocks_tr2 = document.createElement("tr");
+                            var blocks_td = document.createElement("td");
+                            blocks_td.setAttribute("class", oreData[elementKey].blocks[blockKey].class);
+                            blocks_td.appendChild(document.createTextNode(oreData[elementKey].blocks[blockKey].name));
+                            blocks_tr2.appendChild(blocks_td);
+                            blocks_td2_table_body.appendChild(blocks_tr2);
+                        }
+                    }
+                    blocks_td2_table.appendChild(blocks_td2_table_body);
+                    blocks_td2.appendChild(blocks_td2_table);
+                    blocks_tr1.appendChild(blocks_td1);
+                    blocks_tr1.appendChild(blocks_td2);
+                    table1Body.appendChild(blocks_tr1);
+
+                    var items_tr1 = document.createElement("tr");
+                    var items_td1 = document.createElement("td");
+                    items_td1.setAttribute("class", oreData[elementKey].items_class);
+                    items_td1.appendChild(document.createTextNode("Items"));
+                    var items_td2 = document.createElement("td");
+                    var items_td2_table = document.createElement("table");
+                    var items_td2_table_body = document.createElement("tbody");
+                    for (var itemKey in oreData[elementKey].items) {
+                        if (oreData[elementKey].items.hasOwnProperty(itemKey)) {
+                            var items_tr2 = document.createElement("tr");
+                            var items_td = document.createElement("td");
+                            items_td.setAttribute("class", oreData[elementKey].items[itemKey].class);
+                            items_td.appendChild(document.createTextNode(oreData[elementKey].items[itemKey].name));
+                            items_tr2.appendChild(items_td);
+                            items_td2_table_body.appendChild(items_tr2);
+                        }
+                    }
+                    items_td2_table.appendChild(items_td2_table_body);
+                    items_td2.appendChild(items_td2_table);
+                    items_tr1.appendChild(items_td1);
+                    items_tr1.appendChild(items_td2);
+                    table1Body.appendChild(items_tr1);
+
+                    var tools_tr1 = document.createElement("tr");
+                    var tools_td1 = document.createElement("td");
+                    tools_td1.setAttribute("class", oreData[elementKey].tools_class);
+                    tools_td1.appendChild(document.createTextNode("Tools"));
+                    var tools_td2 = document.createElement("td");
+                    var tools_td2_table = document.createElement("table");
+                    var tools_td2_table_body = document.createElement("tbody");
+                    for (var toolKey in oreData[elementKey].tools) {
+                        if (oreData[elementKey].tools.hasOwnProperty(toolKey)) {
+                            var tools_tr2 = document.createElement("tr");
+                            var tools_td = document.createElement("td");
+                            tools_td.setAttribute("class", oreData[elementKey].tools[toolKey].class);
+                            tools_td.appendChild(document.createTextNode(oreData[elementKey].tools[toolKey].name));
+                            tools_tr2.appendChild(tools_td);
+                            tools_td2_table_body.appendChild(tools_tr2);
+                        }
+                    }
+                    tools_td2_table.appendChild(tools_td2_table_body);
+                    tools_td2.appendChild(tools_td2_table);
+                    tools_tr1.appendChild(tools_td1);
+                    tools_tr1.appendChild(tools_td2);
+                    table1Body.appendChild(tools_tr1);
+
+                    var weapons_tr1 = document.createElement("tr");
+                    var weapons_td1 = document.createElement("td");
+                    weapons_td1.setAttribute("class", oreData[elementKey].weapons_class);
+                    weapons_td1.appendChild(document.createTextNode("Weapons"));
+                    var weapons_td2 = document.createElement("td");
+                    var weapons_td2_table = document.createElement("table");
+                    var weapons_td2_table_body = document.createElement("tbody");
+                    for (var weaponKey in oreData[elementKey].weapons) {
+                        if (oreData[elementKey].weapons.hasOwnProperty(weaponKey)) {
+                            var weapons_tr2 = document.createElement("tr");
+                            var weapons_td = document.createElement("td");
+                            weapons_td.setAttribute("class", oreData[elementKey].weapons[weaponKey].class);
+                            weapons_td.appendChild(document.createTextNode(oreData[elementKey].weapons[weaponKey].name));
+                            weapons_tr2.appendChild(weapons_td);
+                            weapons_td2_table_body.appendChild(weapons_tr2);
+                        }
+                    }
+                    weapons_td2_table.appendChild(weapons_td2_table_body);
+                    weapons_td2.appendChild(weapons_td2_table);
+                    weapons_tr1.appendChild(weapons_td1);
+                    weapons_tr1.appendChild(weapons_td2);
+                    table1Body.appendChild(weapons_tr1);
+
+                    table1.appendChild(table1Body);
+                    tr2_td1.appendChild(table1);
+                    tr1.appendChild(tr2_td1);
+                    tableElementsBody.appendChild(tr1);
+                }
+            }
+
+            tableElements.appendChild(tableElementsBody);
+            tableElements.setAttribute("id", "elements");
+            document.body.appendChild(tableElements);
+        }
+
+        function loadDesktop() {
+            var tableElements = document.createElement("table");
+            var tableElementsBody = document.createElement("tbody");
+
+            for (var elementKey in oreData) {
+                if (oreData.hasOwnProperty(elementKey)) {
+                    var tr1 = document.createElement("tr");
+                    var tr1_td1 = document.createElement("td");
+                    tr1_td1.setAttribute("class", oreData[elementKey].class);
+                    tr1_td1.appendChild(document.createTextNode(oreData[elementKey].name));
+                    tr1.appendChild(tr1_td1);
+                    var tr2_td1 = document.createElement("td");
+                    var table1 = document.createElement("table");
+                    var table1Body = document.createElement("tbody");
+
+                    var blocks_tr = document.createElement("tr");
+                    var blocks_td1 = document.createElement("td");
+                    blocks_td1.setAttribute("class", oreData[elementKey].blocks_class);
+                    blocks_td1.appendChild(document.createTextNode("Blocks"));
+                    var blocks_td2 = document.createElement("td");
+                    var blocks_td2_table = document.createElement("table");
+                    var blocks_td2_table_body = document.createElement("tbody");
+                    var blocks_td2_table_body_tr = document.createElement("tr");
+                    for (var blockKey in oreData[elementKey].blocks) {
+                        if (oreData[elementKey].blocks.hasOwnProperty(blockKey)) {
+                            var blocks_td = document.createElement("td");
+                            blocks_td.setAttribute("class", oreData[elementKey].blocks[blockKey].class);
+                            blocks_td.appendChild(document.createTextNode(oreData[elementKey].blocks[blockKey].name));
+                            blocks_td2_table_body_tr.appendChild(blocks_td);
+                        }
+                    }
+                    blocks_td2_table_body.appendChild(blocks_td2_table_body_tr);
+                    blocks_td2_table.appendChild(blocks_td2_table_body);
+                    blocks_td2.appendChild(blocks_td2_table);
+                    blocks_tr.appendChild(blocks_td1);
+                    blocks_tr.appendChild(blocks_td2);
+                    table1Body.appendChild(blocks_tr);
+
+                    var items_tr = document.createElement("tr");
+                    var items_td1 = document.createElement("td");
+                    items_td1.setAttribute("class", oreData[elementKey].items_class);
+                    items_td1.appendChild(document.createTextNode("Items"));
+                    var items_td2 = document.createElement("td");
+                    var items_td2_table = document.createElement("table");
+                    var items_td2_table_body = document.createElement("tbody");
+                    var items_td2_table_body_tr = document.createElement("tr");
+                    for (var itemKey in oreData[elementKey].items) {
+                        if (oreData[elementKey].items.hasOwnProperty(itemKey)) {
+                            var items_td = document.createElement("td");
+                            items_td.setAttribute("class", oreData[elementKey].items[itemKey].class);
+                            items_td.appendChild(document.createTextNode(oreData[elementKey].items[itemKey].name));
+                            items_td2_table_body_tr.appendChild(items_td);
+                        }
+                    }
+                    items_td2_table_body.appendChild(items_td2_table_body_tr);
+                    items_td2_table.appendChild(items_td2_table_body);
+                    items_td2.appendChild(items_td2_table);
+                    items_tr.appendChild(items_td1);
+                    items_tr.appendChild(items_td2);
+                    table1Body.appendChild(items_tr);
+
+                    var tools_tr = document.createElement("tr");
+                    var tools_td1 = document.createElement("td");
+                    tools_td1.setAttribute("class", oreData[elementKey].tools_class);
+                    tools_td1.appendChild(document.createTextNode("Tools"));
+                    var tools_td2 = document.createElement("td");
+                    var tools_td2_table = document.createElement("table");
+                    var tools_td2_table_body = document.createElement("tbody");
+                    var tools_td2_table_body_tr = document.createElement("tr");
+                    for (var toolKey in oreData[elementKey].tools) {
+                        if (oreData[elementKey].tools.hasOwnProperty(toolKey)) {
+                            var tools_td = document.createElement("td");
+                            tools_td.setAttribute("class", oreData[elementKey].tools[toolKey].class);
+                            tools_td.appendChild(document.createTextNode(oreData[elementKey].tools[toolKey].name));
+                            tools_td2_table_body_tr.appendChild(tools_td);
+                        }
+                    }
+                    tools_td2_table_body.appendChild(tools_td2_table_body_tr);
+                    tools_td2_table.appendChild(tools_td2_table_body);
+                    tools_td2.appendChild(tools_td2_table);
+                    tools_tr.appendChild(tools_td1);
+                    tools_tr.appendChild(tools_td2);
+                    table1Body.appendChild(tools_tr);
+
+                    var weapons_tr = document.createElement("tr");
+                    var weapons_td1 = document.createElement("td");
+                    weapons_td1.setAttribute("class", oreData[elementKey].weapons_class);
+                    weapons_td1.appendChild(document.createTextNode("Weapons"));
+                    var weapons_td2 = document.createElement("td");
+                    var weapons_td2_table = document.createElement("table");
+                    var weapons_td2_table_body = document.createElement("tbody");
+                    var weapons_td2_table_body_tr = document.createElement("tr");
+                    for (var weaponKey in oreData[elementKey].weapons) {
+                        if (oreData[elementKey].weapons.hasOwnProperty(weaponKey)) {
+                            var weapons_td = document.createElement("td");
+                            weapons_td.setAttribute("class", oreData[elementKey].weapons[weaponKey].class);
+                            weapons_td.appendChild(document.createTextNode(oreData[elementKey].weapons[weaponKey].name));
+                            weapons_td2_table_body_tr.appendChild(weapons_td);
+                        }
+                    }
+                    weapons_td2_table_body.appendChild(weapons_td2_table_body_tr);
+                    weapons_td2_table.appendChild(weapons_td2_table_body);
+                    weapons_td2.appendChild(weapons_td2_table);
+                    weapons_tr.appendChild(weapons_td1);
+                    weapons_tr.appendChild(weapons_td2);
+                    table1Body.appendChild(weapons_tr);
+
+                    table1.appendChild(table1Body);
+                    tr2_td1.appendChild(table1);
+                    tr1.appendChild(tr2_td1);
+                    tableElementsBody.appendChild(tr1);
+                }
+            }
+
+            tableElements.appendChild(tableElementsBody);
+            tableElements.setAttribute("id", "elements");
+            document.body.appendChild(tableElements);
+        }
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth < 600) {
+                document.getElementById("elements").remove();
+                loadMobile();
+            } else {
+                document.getElementById("elements").remove();
+                loadDesktop();
+            }
+        });
+
+        if (window.innerWidth < 600) {
+            loadMobile();
+        } else {
+            loadDesktop();
+        }
+    </script>
+
+</body>
+
+</html>

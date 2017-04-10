@@ -1,0 +1,25 @@
+[
+  {
+    "modid": "mental",
+    "name": "Mental",
+    "description": "Tons of ores.\n\nMoths too.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://txuritan.github.io/mental/",
+    "updateUrl": "https://txuritan.github.io/mental/update.json",
+    "authorList": [
+      "Txuritan",
+      "yu02241"
+    ],
+    "credits": "\n    Choonster\n        * Amazing community help and examples\n    Shadowfacts\n        * Registery system and item/block bases",
+    "logoFile": "assets/mental/textures/logo/logo.png",
+    "screenshots": [
+      "assets/mental/textures/screenshots/1.png"
+    ],
+    "dependencies": [
+
+    ]
+  }
+]
+
+

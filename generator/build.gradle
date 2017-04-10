@@ -1,0 +1,14 @@
+group 'com.github.txuritan'
+version '1.0.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.im4java:im4java:1.4.0'
+}
