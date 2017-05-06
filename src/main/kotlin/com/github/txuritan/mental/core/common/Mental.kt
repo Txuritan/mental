@@ -38,8 +38,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
         modid = References.MOD_ID,
         version = References.VERSION,
         name = References.MOD_NAME,
-        modLanguageAdapter = "com.github.txuritan.mental.kotlin.KotlinAdapter",
-        dependencies = "after:guideapi;after:mcflux;after:bloodmagic;",
+        updateJSON = References.UPDATE_URL,
+        dependencies = "required-after:forgelin@[1.4.1,);",
+        modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
         acceptedMinecraftVersions = "1.11.2"
 )
 object Mental {
@@ -51,9 +52,11 @@ object Mental {
     )
     lateinit var proxy: CommonProxy
 
+    @Mod.Instance(References.MOD_ID)
+    lateinit var instance: Mental
+
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
-        References.LOGGER.info("Mental preInit")
         proxy.preInit(event)
     }
 

@@ -17,37 +17,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/Chisel-MC1.11.2-0.0.9.11.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/mcflux-2.5.1-dev.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/modules-2/files-2.1/mezz.jei/jei_1.11.2/4.2.9.247/855fc16ad180514620cd123decc26dfa6e4320ac/jei_1.11.2-4.2.9.247-api.jar!/"/>
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://C:/Users/txurt/.gradle/caches/modules-2/files-2.1/mezz.jei/jei_1.11.2/4.2.9.247/fe24b5979628995abef8abb613c16db9f31ef43e/jei_1.11.2-4.2.9.247-javadoc.jar!/"/>
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/modules-2/files-2.1/mezz.jei/jei_1.11.2/4.2.9.247/b36ba50e8a47bc3330e8e359e161d79e74cd37de/jei_1.11.2-4.2.9.247-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://C:/Users/txurt/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.1/98e484e67f913e934559f7f55f0c94be5593f03c/kotlin-stdlib-1.1.1.jar!/"/>
         </CLASSES>
         <JAVADOC>
@@ -81,28 +50,6 @@
         </JAVADOC>
         <SOURCES>
           <root url="jar://C:/Users/txurt/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-runtime/1.1.1/a11c8099a3e6be4b15163505ff816aae6ed81b84/kotlin-runtime-1.1.1-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/minecraft/deobfedDeps/deobf/com/wayoftime/bloodmagic/BloodMagic/1.11-2.1.7-76/BloodMagic-1.11-2.1.7-76.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/minecraft/deobfedDeps/deobf/com/wayoftime/bloodmagic/BloodMagic/1.11-2.1.7-76/BloodMagic-1.11-2.1.7-76-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/minecraft/deobfedDeps/deobf/info/amerifrance/guideapi/Guide-API/1.11-2.1.0-51/Guide-API-1.11-2.1.0-51.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES>
-          <root url="jar://C:/Users/txurt/.gradle/caches/minecraft/deobfedDeps/deobf/info/amerifrance/guideapi/Guide-API/1.11-2.1.0-51/Guide-API-1.11-2.1.0-51-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

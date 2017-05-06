@@ -27,10 +27,12 @@ package com.github.txuritan.mental.core.common
 import com.github.txuritan.mental.core.common.config.ConfigHandler
 import com.github.txuritan.mental.core.common.handler.EventHandlers
 import com.github.txuritan.mental.core.common.util.References
+import com.github.txuritan.mental.material.common.Elements
 import com.github.txuritan.mental.material.common.Material
 import com.github.txuritan.mental.tree.common.Tree
 import net.minecraft.item.Item
 import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.ModMetadata
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -45,13 +47,28 @@ open class CommonProxy {
     }
 
     open fun preInit(event: FMLPreInitializationEvent) {
-        References.LOGGER.info("CommonProxy preInit")
         ConfigHandler.config(Configuration(event.suggestedConfigurationFile))
+
+        val modMetadata: ModMetadata = event.modMetadata
+
+        modMetadata.modId = References.MOD_ID
+        modMetadata.name = References.MOD_NAME
+        modMetadata.version = References.VERSION
+        modMetadata.authorList = mutableListOf("Txuritan", "yu02241")
+        modMetadata.credits = "\n    Choonster\n        * Amazing community help and examples\n    Shadowfacts\n        * Registery system and item/block bases"
+        modMetadata.url = "https://txuritan.github.io/mental/"
+        modMetadata.updateJSON = "https://txuritan.github.io/mental/update.json"
 
         Material.preInit(event)
         Tree.preInit(event)
 
-        //GameRegistry.addRecipe(YuRecipes())
+        var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
+
+        Elements.elements.filterIsInstance<IElement>().forEach {
+            description += "    * " + it.ELEMENT.capitalize() + ": " +  if (it.configEnabledAll!!) "§2True§f" else "§4False§f" + "\n"
+        }
+
+        modMetadata.description = description
     }
 
     open fun init(event: FMLInitializationEvent) {

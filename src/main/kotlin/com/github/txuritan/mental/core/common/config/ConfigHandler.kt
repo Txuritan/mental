@@ -24,7 +24,9 @@
 
 package com.github.txuritan.mental.core.common.config
 
+import com.github.txuritan.mental.core.common.IElement
 import com.github.txuritan.mental.core.common.util.References
+import com.github.txuritan.mental.material.common.Elements
 import com.github.txuritan.mental.material.common.element.Adamantine
 import net.minecraftforge.common.config.Configuration
 
@@ -39,7 +41,9 @@ object ConfigHandler {
 
             MentalConfig.setupConfig(configuration)
 
-            Adamantine.setupConfig(configuration)
+            Elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
+
+            //Adamantine.setupConfig(configuration)
 
         } catch (e: Exception) {
             References.LOGGER.error("Error Loading Config", e)

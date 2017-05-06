@@ -31,6 +31,7 @@ import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.Item
+import net.minecraft.util.BlockRenderLayer
 import net.minecraftforge.oredict.OreDictionary
 
 /**
@@ -57,6 +58,10 @@ open class BlockBase(material: Material, private val name: String, private val o
         for (oreName in oreNames) {
             OreDictionary.registerOre(oreName, this)
         }
+    }
+
+    override fun getBlockLayer(): BlockRenderLayer {
+        return BlockRenderLayer.CUTOUT
     }
 
 }

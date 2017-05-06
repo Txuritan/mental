@@ -26,6 +26,7 @@
 
 package com.github.txuritan.mental.material.common.element
 
+import com.github.txuritan.mental.core.common.IElement
 import com.github.txuritan.mental.core.common.block.BlockBase
 import com.github.txuritan.mental.core.common.exceptions.RecipeException
 import com.github.txuritan.mental.core.common.item.ItemBase
@@ -46,6 +47,7 @@ import net.minecraft.init.SoundEvents
 import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.Item
 import net.minecraft.item.ItemArmor
+import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraft.world.chunk.IChunkGenerator
@@ -65,9 +67,9 @@ import java.util.*
 /**
  * @author Ian 'Txuritan' Cronkright
  */
-object Adamantine {
+object Adamantine : IElement {
 
-    private val ELEMENT = "adamantine"
+    override val ELEMENT: String = "adamantine"
 
     private val ELEMENT_ORE_DIC_ORE = "${ELEMENT}Ore"
     private val ELEMENT_ORE_DIC_WHOLE = "${ELEMENT}Block"
@@ -207,135 +209,139 @@ object Adamantine {
         }
     }
 
-    private var blockOreHardness: Float? = null
-    private var blockOreResistance: Float? = null
+    private var configBlockOreHardness: Float? = null
+    private var configBlockOreResistance: Float? = null
 
-    private var blockWholeHardness: Float? = null
-    private var blockWholeResistance: Float? = null
+    private var configBlockWholeHardness: Float? = null
+    private var configBlockWholeResistance: Float? = null
 
-    private var enabled: Boolean? = null
-    private var enabledArmor: Boolean? = null
-    private var enabledBlocks: Boolean? = null
-    private var enabledGen: Boolean? = null
-    private var enabledItems: Boolean? = null
-    private var enabledTools: Boolean? = null
+    override var configEnabledAll: Boolean? = null
+    private var configEnabledArmor: Boolean? = null
+    private var configEnabledBlockOre: Boolean? = null
+    private var configEnabledBlockWhole: Boolean? = null
+    private var configEnabledItemIngot: Boolean? = null
+    private var configEnabledItemTools: Boolean? = null
 
-    private var genMinY: Int? = null
-    private var genMaxY: Int? = null
-    private var genSize: Int? = null
-    private var genSizeBound: Int? = null
-    private var genChance: Int? = null
-    private var genWeight: Int? = null
+    private var configGenerationMinY: Int? = null
+    private var configGenerationMaxY: Int? = null
+    private var configGenerationSize: Int? = null
+    private var configGenerationSizeBound: Int? = null
+    private var configGenerationChance: Int? = null
+    private var configGenerationWeight: Int? = null
 
-    private var materialArmorDurability: Int? = null
+    private var configMaterialArmorDurability: Int? = null
 
-    private var materialArmorReductionBoots: Int? = null
-    private var materialArmorReductionChestplate: Int? = null
-    private var materialArmorReductionHelmet: Int? = null
-    private var materialArmorReductionLeggings: Int? = null
+    private var configMaterialArmorReductionBoots: Int? = null
+    private var configMaterialArmorReductionChestplate: Int? = null
+    private var configMaterialArmorReductionHelmet: Int? = null
+    private var configMaterialArmorReductionLeggings: Int? = null
 
-    private var materialArmorEnchantability: Int? = null
-    private var materialArmorToughness: Float? = null
+    private var configMaterialArmorEnchantability: Int? = null
+    private var configMaterialArmorToughness: Float? = null
 
-    private var materialToolDamage: Int? = null
-    private var materialToolDurability: Int? = null
-    private var materialToolEnchantability: Int? = null
-    private var materialToolHarvest: Int? = null
-    private var materialToolMining: Int? = null
-    private var materialToolMaxDamage: Int? = null
+    private var configMaterialToolDamage: Int? = null
+    private var configMaterialToolDurability: Int? = null
+    private var configMaterialToolEnchantability: Int? = null
+    private var configMaterialToolHarvest: Int? = null
+    private var configMaterialToolMining: Int? = null
+    private var configMaterialToolMaxDamage: Int? = null
 
-    private var recipeEnabled: Boolean? = null
+    private var configEnabledRecipe: Boolean? = null
 
-    private var recipeBlocksWhole: Property? = null
+    private var configRecipeBlocksWhole: Property? = null
 
-    private var recipeArmorHead: Property? = null
-    private var recipeArmorChest: Property? = null
-    private var recipeArmorLegs: Property? = null
-    private var recipeArmorFeet: Property? = null
+    private var configRecipeArmorHead: Property? = null
+    private var configRecipeArmorChest: Property? = null
+    private var configRecipeArmorLegs: Property? = null
+    private var configRecipeArmorFeet: Property? = null
 
-    private var recipeItemsAxe: Property? = null
-    private var recipeItemsBow: Property? = null
-    private var recipeItemsHoe: Property? = null
-    private var recipeItemsPickaxe: Property? = null
-    private var recipeItemsShears: Property? = null
-    private var recipeItemsShovel: Property? = null
-    private var recipeItemsSword: Property? = null
+    private var configRecipeItemsAxe: Property? = null
+    private var configRecipeItemsBow: Property? = null
+    private var configRecipeItemsHoe: Property? = null
+    private var configRecipeItemsPickaxe: Property? = null
+    private var configRecipeItemsShears: Property? = null
+    private var configRecipeItemsShovel: Property? = null
+    private var configRecipeItemsSword: Property? = null
 
-    private var armorMaterial: ItemArmor.ArmorMaterial? = null
-    private var toolMaterial: Item.ToolMaterial? = null
+    private var configMaterialArmor: ItemArmor.ArmorMaterial? = null
+    private var configMaterialTool: Item.ToolMaterial? = null
 
-    @JvmStatic
-    fun setupConfig(configuration: Configuration) {
-        blockOreHardness = configuration.getFloat("hardness", "$MOD_ID.$ELEMENT.whole.ore", 3.0f, 0.0f, 10.0f, "The hardness of the ore whole")
-        blockOreResistance = configuration.getFloat("resistance", "$MOD_ID.$ELEMENT.whole.ore", 5.0f, 0.0f, 10.0f, "The resistance of the ore whole")
+    override fun setupConfig(configuration: Configuration) {
+        configBlockOreHardness = configuration.getFloat("hardness", "$MOD_ID.$ELEMENT.block.ore", 3.0f, 0.0f, 10.0f, "The hardness of the ore whole")
+        configBlockOreResistance = configuration.getFloat("resistance", "$MOD_ID.$ELEMENT.block.ore", 5.0f, 0.0f, 10.0f, "The resistance of the ore whole")
 
-        blockWholeHardness = configuration.getFloat("hardness", "$MOD_ID.$ELEMENT.whole.whole", 3.0f, 0.0f, 10.0f, "The hardness of the whole whole")
-        blockWholeResistance = configuration.getFloat("resistance", "$MOD_ID.$ELEMENT.whole.whole", 5.0f, 0.0f, 10.0f, "The resistance of the whole whole")
+        configBlockWholeHardness = configuration.getFloat("hardness", "$MOD_ID.$ELEMENT.block.whole", 3.0f, 0.0f, 10.0f, "The hardness of the whole whole")
+        configBlockWholeResistance = configuration.getFloat("resistance", "$MOD_ID.$ELEMENT.block.whole", 5.0f, 0.0f, 10.0f, "The resistance of the whole whole")
 
-        enabled = configuration.getBoolean("all", "$MOD_ID.$ELEMENT.enabled", true, "Set to false to disable anything $ELEMENT")
-        enabledArmor = configuration.getBoolean("armor", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT armor")
-        enabledBlocks = configuration.getBoolean("ore", "$MOD_ID.$ELEMENT.enabled.whole.ore", true, "Set to false to disable $ELEMENT ore")
-        enabledGen = configuration.getBoolean("generation", "$MOD_ID.$ELEMENT.enabled.whole.whole", true, "Set to false to disable $ELEMENT world generation")
-        enabledItems = configuration.getBoolean("ingot", "$MOD_ID.$ELEMENT.enabled.item.ingot", true, "Set to false to disable $ELEMENT ingot")
-        enabledTools = configuration.getBoolean("tools", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT tools")
+        configEnabledAll = configuration.getBoolean("all", "$MOD_ID.$ELEMENT.enabled", true, "Set to false to disable anything $ELEMENT")
+        configEnabledArmor = configuration.getBoolean("armor", "$MOD_ID.$ELEMENT.enabled", true, "Set to false to disable $ELEMENT armor")
+        configEnabledBlockOre = configuration.getBoolean("ore", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable $ELEMENT ore")
+        configEnabledBlockWhole = configuration.getBoolean("whole", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable block of $ELEMENT")
+        configEnabledItemIngot = configuration.getBoolean("ingot", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT ingot")
+        configEnabledItemTools = configuration.getBoolean("tools", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT tools")
 
-        genMinY = configuration.getInt("min-y", "$MOD_ID.$ELEMENT.generation", 20, 1, 256, "The lowest the ore can spawn")
-        genMaxY = configuration.getInt("max-y", "$MOD_ID.$ELEMENT.generation", 60, 1, 256, "The highest the ore can spawn")
-        genSize = configuration.getInt("size", "$MOD_ID.$ELEMENT.generation", 4, 1, 256, "Ore vein size")
-        genSizeBound = configuration.getInt("sizeBound", "$MOD_ID.$ELEMENT.generation", 4, 1, 256, "Max value of additional random size")
-        genChance = configuration.getInt("chance", "$MOD_ID.$ELEMENT.generation", 6, 1, 256, "Spawn chance")
-        genWeight = configuration.getInt("weight", "$MOD_ID.$ELEMENT.generation", 3, 1, 256, "Spawn weight (only change if you have spawning problems)")
+        configEnabledRecipe = configuration.getBoolean("configEnabledAll", "$MOD_ID.$ELEMENT.enabled.recipe", false, "Enabled to allow custom recipes")
 
-        materialArmorDurability = configuration.getInt("durability", "$MOD_ID.$ELEMENT.material.armor", 15, 0, 100, "Durability of $ELEMENT armor")
+        configGenerationMinY = configuration.getInt("min-y", "$MOD_ID.$ELEMENT.generation", 20, 1, 256, "The lowest the ore can spawn")
+        configGenerationMaxY = configuration.getInt("max-y", "$MOD_ID.$ELEMENT.generation", 60, 1, 256, "The highest the ore can spawn")
+        configGenerationSize = configuration.getInt("size", "$MOD_ID.$ELEMENT.generation", 4, 1, 256, "Ore vein size")
+        configGenerationSizeBound = configuration.getInt("sizeBound", "$MOD_ID.$ELEMENT.generation", 4, 1, 256, "Max value of additional random size")
+        configGenerationChance = configuration.getInt("chance", "$MOD_ID.$ELEMENT.generation", 6, 1, 256, "Spawn chance")
+        configGenerationWeight = configuration.getInt("weight", "$MOD_ID.$ELEMENT.generation", 3, 1, 256, "Spawn weight (only change if you have spawning problems)")
 
-        materialArmorReductionBoots = configuration.getInt("boots", "$MOD_ID.$ELEMENT.material.armor.reduction", 1, 0, 100, "Boots reduction of $ELEMENT armor")
-        materialArmorReductionChestplate = configuration.getInt("chestplate", "$MOD_ID.$ELEMENT.material.armor.reduction", 5, 0, 100, "Chestplate reduction of $ELEMENT armor")
-        materialArmorReductionHelmet = configuration.getInt("helmet", "$MOD_ID.$ELEMENT.material.armor.reduction", 2, 0, 100, "Helmet reduction of $ELEMENT armor")
-        materialArmorReductionLeggings = configuration.getInt("leggings", "$MOD_ID.$ELEMENT.material.armor.reduction", 4, 0, 100, "Leggings reduction of $ELEMENT armor")
+        configMaterialArmorDurability = configuration.getInt("durability", "$MOD_ID.$ELEMENT.material.armor", 15, 0, 100, "Durability of $ELEMENT armor")
 
-        materialArmorEnchantability = configuration.getInt("enchantability", "$MOD_ID.$ELEMENT.material.armor", 12, 0, 100, "Enchantability of $ELEMENT armor")
-        materialArmorToughness = configuration.getFloat("enchantability", "$MOD_ID.$ELEMENT.material.armor", 2.0f, 0.0f, 100.0f, "Enchantability of $ELEMENT armor")
+        configMaterialArmorReductionBoots = configuration.getInt("boots", "$MOD_ID.$ELEMENT.material.armor.reduction", 1, 0, 100, "Boots reduction of $ELEMENT armor")
+        configMaterialArmorReductionChestplate = configuration.getInt("chestplate", "$MOD_ID.$ELEMENT.material.armor.reduction", 5, 0, 100, "Chestplate reduction of $ELEMENT armor")
+        configMaterialArmorReductionHelmet = configuration.getInt("helmet", "$MOD_ID.$ELEMENT.material.armor.reduction", 2, 0, 100, "Helmet reduction of $ELEMENT armor")
+        configMaterialArmorReductionLeggings = configuration.getInt("leggings", "$MOD_ID.$ELEMENT.material.armor.reduction", 4, 0, 100, "Leggings reduction of $ELEMENT armor")
 
-        materialToolDamage = configuration.getInt("damage", "$MOD_ID.$ELEMENT.material.tool", 4, 0, 1000, "Damage of $ELEMENT tools")
-        materialToolDurability = configuration.getInt("durability", "$MOD_ID.$ELEMENT.material.tool", 200, 0, 1000, "Durability of $ELEMENT tools")
-        materialToolEnchantability = configuration.getInt("enchantability", "$MOD_ID.$ELEMENT.material.tool", 12, 0, 1000, "Enchantability of $ELEMENT tools")
-        materialToolHarvest = configuration.getInt("harvest", "$MOD_ID.$ELEMENT.material.tool", 70, 0, 1000, "Harvest level of $ELEMENT tools")
-        materialToolMining = configuration.getInt("mining", "$MOD_ID.$ELEMENT.material.tool", 9, 0, 1000, "Mining speed of $ELEMENT tools")
-        materialToolMaxDamage = configuration.getInt("maxDamage", "$MOD_ID.$ELEMENT.material.tool", 500, 0, 10000, "Max damage of $ELEMENT shears")
+        configMaterialArmorEnchantability = configuration.getInt("enchantability", "$MOD_ID.$ELEMENT.material.armor", 12, 0, 100, "Enchantability of $ELEMENT armor")
+        configMaterialArmorToughness = configuration.getFloat("enchantability", "$MOD_ID.$ELEMENT.material.armor", 2.0f, 0.0f, 100.0f, "Enchantability of $ELEMENT armor")
 
-        recipeEnabled = configuration.getBoolean("enabled", "$MOD_ID.$ELEMENT.recipe", false, "Enabled to allow custom recipes")
+        configMaterialToolDamage = configuration.getInt("damage", "$MOD_ID.$ELEMENT.material.tool", 4, 0, 1000, "Damage of $ELEMENT tools")
+        configMaterialToolDurability = configuration.getInt("durability", "$MOD_ID.$ELEMENT.material.tool", 200, 0, 1000, "Durability of $ELEMENT tools")
+        configMaterialToolEnchantability = configuration.getInt("enchantability", "$MOD_ID.$ELEMENT.material.tool", 12, 0, 1000, "Enchantability of $ELEMENT tools")
+        configMaterialToolHarvest = configuration.getInt("harvest", "$MOD_ID.$ELEMENT.material.tool", 70, 0, 1000, "Harvest level of $ELEMENT tools")
+        configMaterialToolMining = configuration.getInt("mining", "$MOD_ID.$ELEMENT.material.tool", 9, 0, 1000, "Mining speed of $ELEMENT tools")
+        configMaterialToolMaxDamage = configuration.getInt("maxDamage", "$MOD_ID.$ELEMENT.material.tool", 500, 0, 10000, "Max damage of $ELEMENT shears")
 
-        recipeBlocksWhole = configuration.get("$MOD_ID.$ELEMENT.recipe.blocks", "whole", arrayOf(ELEMENT_ORE_DIC_WHOLE, "iii", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeArmorHead = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "head", arrayOf(ELEMENT_ORE_DIC_ARMOR_HEAD, "iii", "i_i", "___", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeArmorChest = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "chest", arrayOf(ELEMENT_ORE_DIC_ARMOR_CHEST, "i_i", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeArmorLegs = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "legs", arrayOf(ELEMENT_ORE_DIC_ARMOR_LEGS, "iii", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeArmorFeet = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "feet", arrayOf(ELEMENT_ORE_DIC_ARMOR_FEET, "___", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
 
-        recipeArmorHead = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "head", arrayOf(ELEMENT_ORE_DIC_ARMOR_HEAD, "iii", "i_i", "___", "i", ELEMENT_ORE_DIC_INGOT))
-        recipeArmorChest = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "chest", arrayOf(ELEMENT_ORE_DIC_ARMOR_CHEST, "i_i", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
-        recipeArmorLegs = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "legs", arrayOf(ELEMENT_ORE_DIC_ARMOR_LEGS, "iii", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
-        recipeArmorFeet = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "feet", arrayOf(ELEMENT_ORE_DIC_ARMOR_FEET, "___", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeBlocksWhole = configuration.get("$MOD_ID.$ELEMENT.recipe.blocks", "whole", arrayOf(ELEMENT_ORE_DIC_WHOLE, "iii", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
 
-        recipeItemsAxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "axe", arrayOf(ELEMENT_ORE_DIC_AXE, "ii_", "is_", "is_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        recipeItemsBow = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "bow", arrayOf(ELEMENT_ORE_DIC_BOW, "_it", "s_t", "_it", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood", "t", "string"))
-        recipeItemsHoe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "hoe", arrayOf(ELEMENT_ORE_DIC_HOE, "ii_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        recipeItemsPickaxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE, "iii", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        recipeItemsShears = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shears", arrayOf(ELEMENT_ORE_DIC_SHEARS, "___", "i__", "_i_", "i", ELEMENT_ORE_DIC_INGOT))
-        recipeItemsShovel = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL, "_i_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        recipeItemsSword = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "sword", arrayOf(ELEMENT_ORE_DIC_SWORD, "_i_", "_i_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsAxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "axe", arrayOf(ELEMENT_ORE_DIC_AXE, "ii_", "is_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsBow = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "bow", arrayOf(ELEMENT_ORE_DIC_BOW, "_it", "s_t", "_it", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood", "t", "string"))
+        configRecipeItemsHoe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "hoe", arrayOf(ELEMENT_ORE_DIC_HOE, "ii_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsPickaxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE, "iii", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsShears = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shears", arrayOf(ELEMENT_ORE_DIC_SHEARS, "___", "i__", "_i_", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeItemsShovel = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL, "_i_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsSword = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "sword", arrayOf(ELEMENT_ORE_DIC_SWORD, "_i_", "_i_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
 
-        armorMaterial = EnumHelper.addArmorMaterial(
+        configMaterialArmor = EnumHelper.addArmorMaterial(
                 "${ELEMENT}_armor_material",
                 "$MOD_ID:${ELEMENT}_armor",
-                materialArmorDurability!!,
-                intArrayOf(materialArmorReductionHelmet!!, materialArmorReductionChestplate!!, materialArmorReductionLeggings!!, materialArmorReductionBoots!!),
-                materialArmorEnchantability!!, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                materialArmorToughness!!
+                configMaterialArmorDurability!!,
+                intArrayOf(
+                        configMaterialArmorReductionHelmet!!,
+                        configMaterialArmorReductionChestplate!!,
+                        configMaterialArmorReductionLeggings!!,
+                        configMaterialArmorReductionBoots!!),
+                configMaterialArmorEnchantability!!,
+                SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                configMaterialArmorToughness!!
         )
 
-        toolMaterial = EnumHelper.addToolMaterial(
+        configMaterialTool = EnumHelper.addToolMaterial(
                 "${ELEMENT}_tool_material",
-                materialToolHarvest!!,
-                materialToolDurability!!,
-                materialToolMining!!.toFloat(),
-                materialToolDamage!!.toFloat(),
-                materialToolEnchantability!!
+                configMaterialToolHarvest!!,
+                configMaterialToolDurability!!,
+                configMaterialToolMining!!.toFloat(),
+                configMaterialToolDamage!!.toFloat(),
+                configMaterialToolEnchantability!!
         )
     }
 
@@ -361,101 +367,111 @@ object Adamantine {
     private var sword: Item? = null
 
     @Suppress("UNUSED_PARAMETER")
-    fun preInit(event: FMLPreInitializationEvent) {
+    override fun preInit(event: FMLPreInitializationEvent) {
         References.LOGGER.info("Adamantine preInit")
-        References.LOGGER.info(enabled);
-        if (enabled!!) {
-            if (enabledItems!!) {
+        References.LOGGER.info(configEnabledAll)
+        if (configEnabledAll!!) {
+            if (configEnabledItemIngot!!) {
                 chunk = RegisterUtils.registerItem(AdamantineChunk())
                 dust = RegisterUtils.registerItem(AdamantineDust())
                 ingot = RegisterUtils.registerItem(AdamantineIngot())
                 nugget = RegisterUtils.registerItem(AdamantineNugget())
             }
 
-            if (enabledBlocks!! && enabledItems!!) {
-                ore = RegisterUtils.registerBlock(AdamantineOre(blockOreHardness, blockOreResistance, chunk!!))
-                whole = RegisterUtils.registerBlock(AdamantineWhole(blockWholeHardness, blockWholeResistance))
+            if (configEnabledBlockOre!! && configEnabledItemIngot!!) {
+                ore = RegisterUtils.registerBlock(AdamantineOre(configBlockOreHardness, configBlockOreResistance, chunk!!))
+                whole = RegisterUtils.registerBlock(AdamantineWhole(configBlockWholeHardness, configBlockWholeResistance))
             }
 
-            if (enabledArmor!!) {
-                armorHead = RegisterUtils.registerItem(AdamantineArmor(armorMaterial!!, EntityEquipmentSlot.HEAD))
-                armorChest = RegisterUtils.registerItem(AdamantineArmor(armorMaterial!!, EntityEquipmentSlot.CHEST))
-                armorLegs = RegisterUtils.registerItem(AdamantineArmor(armorMaterial!!, EntityEquipmentSlot.LEGS))
-                armorFeet = RegisterUtils.registerItem(AdamantineArmor(armorMaterial!!, EntityEquipmentSlot.FEET))
+            if (configEnabledArmor!!) {
+                armorHead = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.HEAD))
+                armorChest = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.CHEST))
+                armorLegs = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.LEGS))
+                armorFeet = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.FEET))
             }
 
-            if (enabledTools!!) {
-                axe = RegisterUtils.registerItem(AdamantineAxe(toolMaterial!!))
-                bow = RegisterUtils.registerItem(AdamantineBow(materialToolDamage))
-                hoe = RegisterUtils.registerItem(AdamantineHoe(toolMaterial!!))
-                pickaxe = RegisterUtils.registerItem(AdamantinePickaxe(toolMaterial!!))
-                shears = RegisterUtils.registerItem(AdamantineShears(materialToolMaxDamage))
-                shovel = RegisterUtils.registerItem(AdamantineShovel(toolMaterial!!))
-                sword = RegisterUtils.registerItem(AdamantineSword(toolMaterial!!))
+            if (configEnabledItemTools!!) {
+                axe = RegisterUtils.registerItem(AdamantineAxe(configMaterialTool!!))
+                bow = RegisterUtils.registerItem(AdamantineBow(configMaterialToolDamage))
+                hoe = RegisterUtils.registerItem(AdamantineHoe(configMaterialTool!!))
+                pickaxe = RegisterUtils.registerItem(AdamantinePickaxe(configMaterialTool!!))
+                shears = RegisterUtils.registerItem(AdamantineShears(configMaterialToolMaxDamage))
+                shovel = RegisterUtils.registerItem(AdamantineShovel(configMaterialTool!!))
+                sword = RegisterUtils.registerItem(AdamantineSword(configMaterialTool!!))
             }
 
-            if (enabledGen!!) {
-                GameRegistry.registerWorldGenerator(AdamantineWorldGenerator(genMinY, genMaxY, genSize, genSizeBound, genChance), genWeight!!)
+            if (configEnabledBlockWhole!!) {
+                GameRegistry.registerWorldGenerator(
+                        AdamantineWorldGenerator(
+                                configGenerationMinY,
+                                configGenerationMaxY,
+                                configGenerationSize,
+                                configGenerationSizeBound,
+                                configGenerationChance
+                        ),
+                        configGenerationWeight!!
+                )
             }
 
-            recipes(recipeEnabled)
+            recipes(configEnabledRecipe)
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun init(event: FMLInitializationEvent) {
-        if (enabled!!) {
+    override fun init(event: FMLInitializationEvent) {
+        if (configEnabledAll!!) {
 
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun postInit(event: FMLPostInitializationEvent) {
-        if (enabled!!) {
+    override fun postInit(event: FMLPostInitializationEvent) {
+        if (configEnabledAll!!) {
 
         }
     }
 
     private fun recipes(customRecipes: Boolean?) {
+        GameRegistry.addSmelting(ore!!, ItemStack(ingot), 1f)
         if (customRecipes!!) {
             try {
-                if (enabledBlocks!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeBlocksWhole!!))
+                if (configEnabledBlockOre!!) {
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeBlocksWhole!!))
                 }
 
-                if (enabledArmor!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeArmorHead!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeArmorChest!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeArmorLegs!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeArmorFeet!!))
+                if (configEnabledArmor!!) {
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorHead!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorChest!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorLegs!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorFeet!!))
                 }
 
-                if (enabledTools!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsAxe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsBow!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsHoe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsPickaxe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsShears!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsShovel!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(recipeItemsSword!!))
+                if (configEnabledItemTools!!) {
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsAxe!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsBow!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsHoe!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsPickaxe!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShears!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShovel!!))
+                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsSword!!))
                 }
             } catch (e: RecipeException) {
                 References.LOGGER.error("Recipe Exception in ${ELEMENT.capitalize()}", e)
             }
         } else {
-            if (enabledBlocks!!) {
+            if (configEnabledBlockOre!!) {
                 GameRegistry.addRecipe(ShapedOreRecipe(whole, "iii", "iii", "iii", 'i', "adamantineIngot"))
             }
 
-            if (enabledArmor!!) {
+            if (configEnabledArmor!!) {
                 GameRegistry.addRecipe(ShapedOreRecipe(armorHead, "iii", "i_i", "___", 'i', "adamantineIngot"))
                 GameRegistry.addRecipe(ShapedOreRecipe(armorChest, "i_i", "iii", "iii", 'i', "adamantineIngot"))
                 GameRegistry.addRecipe(ShapedOreRecipe(armorLegs, "iii", "i_i", "i_i", 'i', "adamantineIngot"))
                 GameRegistry.addRecipe(ShapedOreRecipe(armorFeet, "___", "i_i", "i_i", 'i', "adamantineIngot"))
             }
 
-            if (enabledTools!!) {
-                GameRegistry.addRecipe(ShapedOreRecipe(axe, "ii_", "is_", "is_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+            if (configEnabledItemTools!!) {
+                GameRegistry.addRecipe(ShapedOreRecipe(axe, "ii_", "is_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
                 GameRegistry.addRecipe(ShapedOreRecipe(bow, "_it", "s_t", "_it", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood", 't', "string"))
                 GameRegistry.addRecipe(ShapedOreRecipe(hoe, "ii_", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
                 GameRegistry.addRecipe(ShapedOreRecipe(pickaxe, "iii", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))

@@ -59,7 +59,7 @@ public object References {
     const val CLIENT_PROXY_CLASS = "com.github.txuritan.mental.core.client.ClientProxy"
     const val COMMON_PROXY_CLASS = "com.github.txuritan.mental.core.common.CommonProxy"
     val URL_BASE = "https://txuritan.github.io/mental/"
-    val UPDATE_URL = "${URL_BASE}update.json"
+    const val UPDATE_URL = "https://txuritan.github.io/mental/update.json"
 
     @JvmStatic
     var MENTAL_CREATIVE_TAB: CreativeTabs = object : CreativeTabs("mental.creativeTab") {

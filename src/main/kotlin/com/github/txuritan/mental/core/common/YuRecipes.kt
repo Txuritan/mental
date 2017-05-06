@@ -40,33 +40,22 @@ import java.util.*
  * @author Ian 'Txuritan' Cronkright
  */
 class YuRecipes : IRecipe {
-    override fun getRemainingItems(p0: InventoryCrafting?): NonNullList<ItemStack> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getRemainingItems(inv: InventoryCrafting?): NonNullList<ItemStack> = TODO("not implemented")
 
     override fun matches(inv: InventoryCrafting, world: World): Boolean {
         val player = findPlayer(inv)
         return player != null && player.uniqueID == UUID.fromString("cff87b25-3d9c-4f44-accf-cecbbf2e4b15") && hasDirt(inv)
     }
 
-    override fun getCraftingResult(inv: InventoryCrafting): ItemStack {
-        return ItemStack(Items.DIAMOND)
-    }
+    override fun getCraftingResult(inv: InventoryCrafting): ItemStack = ItemStack(Items.DIAMOND)
 
-    override fun getRecipeSize(): Int {
-        return 1
-    }
+    override fun getRecipeSize(): Int = 1
 
-    override fun getRecipeOutput(): ItemStack {
-        return ItemStack(Items.DIAMOND)
-    }
+    override fun getRecipeOutput(): ItemStack = ItemStack(Items.DIAMOND)
 
     companion object {
 
-        private fun hasDirt(inv: InventoryCrafting): Boolean {
-            val dirt = Item.getItemFromBlock(Blocks.DIRT)
-            return (0..inv.sizeInventory - 1).map { inv.getStackInSlot(it) }.any { it != null && it.item === dirt }
-        }
+        private fun hasDirt(inv: InventoryCrafting): Boolean = (0..inv.sizeInventory - 1).map { inv.getStackInSlot(it) }.any { it != null && it.item === Item.getItemFromBlock(Blocks.DIRT) }
 
         private val eventHandlerField = ReflectionHelper.findField(InventoryCrafting::class.java, "eventHandler")
         private val containerPlayerPlayerField = ReflectionHelper.findField(ContainerPlayer::class.java, "player")

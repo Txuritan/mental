@@ -24,8 +24,7 @@
 
 package com.github.txuritan.mental.material.common
 
-import com.github.txuritan.mental.core.common.util.References
-import com.github.txuritan.mental.material.common.element.Adamantine
+import com.github.txuritan.mental.core.common.IElement
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -37,17 +36,25 @@ object Material {
 
     @JvmStatic
     fun preInit(event: FMLPreInitializationEvent) {
-        References.LOGGER.info("Material preInit")
-        Adamantine.preInit(event)
+
+        Elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
+
+        //Adamantine.preInit(event)
     }
 
     @JvmStatic
     fun init(event: FMLInitializationEvent) {
-        Adamantine.init(event)
+
+        Elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
+
+        //Adamantine.init(event)
     }
 
     @JvmStatic
     fun postInit(event: FMLPostInitializationEvent) {
-        Adamantine.postInit(event)
+
+        Elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
+
+        //Adamantine.postInit(event)
     }
 }
