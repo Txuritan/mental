@@ -74,7 +74,7 @@ object Adamantine : IElement {
     private val ELEMENT_ORE_DIC_ORE = "${ELEMENT}Ore"
     private val ELEMENT_ORE_DIC_WHOLE = "${ELEMENT}Block"
 
-    internal class AdamantineOre(hardness: Float?, resistance: Float?, private val itemDropped: Item) : BlockBase(Material.ROCK, "adamantine_ore", arrayOf(ELEMENT_ORE_DIC_ORE)) {
+    internal class AdamantineOre(hardness: Float?, resistance: Float?, private val itemDropped: Item) : BlockBase(Material.ROCK, "${ELEMENT}_ore", arrayOf(ELEMENT_ORE_DIC_ORE)) {
         init {
             setHardness(hardness!!)
             setResistance(resistance!!)
@@ -87,7 +87,7 @@ object Adamantine : IElement {
         }
     }
 
-    internal class AdamantineWhole(hardness: Float?, resistance: Float?) : BlockBase(Material.ROCK, "adamantine_block", arrayOf(ELEMENT_ORE_DIC_WHOLE)) {
+    internal class AdamantineWhole(hardness: Float?, resistance: Float?) : BlockBase(Material.ROCK, "${ELEMENT}_block", arrayOf(ELEMENT_ORE_DIC_WHOLE)) {
         init {
             setHardness(hardness!!)
             setResistance(resistance!!)
@@ -96,30 +96,52 @@ object Adamantine : IElement {
         }
     }
 
+    private val ELEMENT_ORE_DIC_CASE = "${ELEMENT}Case"
     private val ELEMENT_ORE_DIC_CHUNK = "${ELEMENT}Chunk"
+    private val ELEMENT_ORE_DIC_DENSE_PLATE = "${ELEMENT}DensePlate"
     private val ELEMENT_ORE_DIC_DUST = "${ELEMENT}Dust"
     private val ELEMENT_ORE_DIC_INGOT = "${ELEMENT}Ingot"
     private val ELEMENT_ORE_DIC_NUGGET = "${ELEMENT}Nugget"
+    private val ELEMENT_ORE_DIC_PLATE = "${ELEMENT}Plate"
 
-    internal class AdamantineChunk : ItemBase("adamantine_chunk", arrayOf(ELEMENT_ORE_DIC_CHUNK)) {
+    internal class AdamantineCase : ItemBase("${ELEMENT}_c" +
+            "ase", arrayOf(ELEMENT_ORE_DIC_CASE)) {
         init {
             setCreativeTab(MENTAL_CREATIVE_TAB)
         }
     }
 
-    internal class AdamantineDust : ItemBase("adamantine_dust", arrayOf(ELEMENT_ORE_DIC_DUST)) {
+    internal class AdamantineChunk : ItemBase("${ELEMENT}_chunk", arrayOf(ELEMENT_ORE_DIC_CHUNK)) {
         init {
             setCreativeTab(MENTAL_CREATIVE_TAB)
         }
     }
 
-    internal class AdamantineIngot : ItemBase("adamantine_ingot", arrayOf(ELEMENT_ORE_DIC_INGOT)) {
+    internal class AdamantineDensePlate : ItemBase("${ELEMENT}_dense_plate", arrayOf(ELEMENT_ORE_DIC_DENSE_PLATE)) {
         init {
             setCreativeTab(MENTAL_CREATIVE_TAB)
         }
     }
 
-    internal class AdamantineNugget : ItemBase("adamantine_nugget", arrayOf(ELEMENT_ORE_DIC_NUGGET)) {
+    internal class AdamantineDust : ItemBase("${ELEMENT}_dust", arrayOf(ELEMENT_ORE_DIC_DUST)) {
+        init {
+            setCreativeTab(MENTAL_CREATIVE_TAB)
+        }
+    }
+
+    internal class AdamantineIngot : ItemBase("${ELEMENT}_ingot", arrayOf(ELEMENT_ORE_DIC_INGOT)) {
+        init {
+            setCreativeTab(MENTAL_CREATIVE_TAB)
+        }
+    }
+
+    internal class AdamantineNugget : ItemBase("${ELEMENT}_nugget", arrayOf(ELEMENT_ORE_DIC_NUGGET)) {
+        init {
+            setCreativeTab(MENTAL_CREATIVE_TAB)
+        }
+    }
+
+    internal class AdamantinePlate : ItemBase("${ELEMENT}_plate", arrayOf(ELEMENT_ORE_DIC_PLATE)) {
         init {
             setCreativeTab(MENTAL_CREATIVE_TAB)
         }
@@ -138,49 +160,49 @@ object Adamantine : IElement {
     private val ELEMENT_ORE_DIC_SHOVEL = "${ELEMENT}Shovel"
     private val ELEMENT_ORE_DIC_SWORD = "${ELEMENT}Sword"
 
-    internal class AdamantineArmor(material: ItemArmor.ArmorMaterial, slot: EntityEquipmentSlot) : ItemArmorBase(material, slot, "adamantine_armor_" + slot.getName(), arrayOf(ELEMENT_ORE_DIC_ARMOR + slot.getName().capitalize())) {
+    internal class AdamantineArmor(material: ItemArmor.ArmorMaterial, slot: EntityEquipmentSlot) : ItemArmorBase(material, slot, "${ELEMENT}_armor_" + slot.getName(), arrayOf(ELEMENT_ORE_DIC_ARMOR + slot.getName().capitalize())) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineAxe(material: Item.ToolMaterial) : ItemAxeBase(material, "adamantine_axe", arrayOf(ELEMENT_ORE_DIC_AXE)) {
+    internal class AdamantineAxe(material: Item.ToolMaterial) : ItemAxeBase(material, "${ELEMENT}_axe", arrayOf(ELEMENT_ORE_DIC_AXE)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineBow(maxDamage: Int?) : ItemBowBase(maxDamage, "adamantine_bow", arrayOf(ELEMENT_ORE_DIC_BOW)) {
+    internal class AdamantineBow(maxDamage: Int?) : ItemBowBase(maxDamage, "${ELEMENT}_bow", arrayOf(ELEMENT_ORE_DIC_BOW)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineHoe(material: Item.ToolMaterial) : ItemHoeBase(material, "adamantine_hoe", arrayOf(ELEMENT_ORE_DIC_HOE)) {
+    internal class AdamantineHoe(material: Item.ToolMaterial) : ItemHoeBase(material, "${ELEMENT}_hoe", arrayOf(ELEMENT_ORE_DIC_HOE)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantinePickaxe(material: Item.ToolMaterial) : ItemPickaxeBase(material, "adamantine_pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE)) {
+    internal class AdamantinePickaxe(material: Item.ToolMaterial) : ItemPickaxeBase(material, "${ELEMENT}_pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineShears(damage: Int?) : ItemShearsBase(damage, "adamantine_shears", arrayOf(ELEMENT_ORE_DIC_SHEARS)) {
+    internal class AdamantineShears(damage: Int?) : ItemShearsBase(damage, "${ELEMENT}_shears", arrayOf(ELEMENT_ORE_DIC_SHEARS)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineShovel(material: Item.ToolMaterial) : ItemShovelBase(material, "adamantine_shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL)) {
+    internal class AdamantineShovel(material: Item.ToolMaterial) : ItemShovelBase(material, "${ELEMENT}_shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
     }
 
-    internal class AdamantineSword(material: Item.ToolMaterial) : ItemSwordBase(material, "adamantine_sword", arrayOf(ELEMENT_ORE_DIC_SWORD)) {
+    internal class AdamantineSword(material: Item.ToolMaterial) : ItemSwordBase(material, "${ELEMENT}_sword", arrayOf(ELEMENT_ORE_DIC_SWORD)) {
         init {
             creativeTab = MENTAL_CREATIVE_TAB
         }
@@ -216,11 +238,34 @@ object Adamantine : IElement {
     private var configBlockWholeResistance: Float? = null
 
     override var configEnabledAll: Boolean? = null
+
     private var configEnabledArmor: Boolean? = null
+    private var configEnabledArmorChest: Boolean? = null
+    private var configEnabledArmorFeet: Boolean? = null
+    private var configEnabledArmorHead: Boolean? = null
+    private var configEnabledArmorLegs: Boolean? = null
+
+    private var configEnabledBlocks: Boolean? = null
     private var configEnabledBlockOre: Boolean? = null
     private var configEnabledBlockWhole: Boolean? = null
+
+    private var configEnabledItems: Boolean? = null
+    private var configEnabledItemCase: Boolean? = null
+    private var configEnabledItemChunk: Boolean? = null
+    private var configEnabledItemDensePlate: Boolean? = null
+    private var configEnabledItemDust: Boolean? = null
     private var configEnabledItemIngot: Boolean? = null
+    private var configEnabledItemNugget: Boolean? = null
+    private var configEnabledItemPlate: Boolean? = null
+
     private var configEnabledItemTools: Boolean? = null
+    private var configEnabledItemToolAxe: Boolean? = null
+    private var configEnabledItemToolBow: Boolean? = null
+    private var configEnabledItemToolHoe: Boolean? = null
+    private var configEnabledItemToolPickaxe: Boolean? = null
+    private var configEnabledItemToolShears: Boolean? = null
+    private var configEnabledItemToolShovel: Boolean? = null
+    private var configEnabledItemToolSword: Boolean? = null
 
     private var configGenerationMinY: Int? = null
     private var configGenerationMaxY: Int? = null
@@ -250,6 +295,8 @@ object Adamantine : IElement {
 
     private var configRecipeBlocksWhole: Property? = null
 
+    private var configRecipeItemsPlate: Property? = null
+
     private var configRecipeArmorHead: Property? = null
     private var configRecipeArmorChest: Property? = null
     private var configRecipeArmorLegs: Property? = null
@@ -274,11 +321,34 @@ object Adamantine : IElement {
         configBlockWholeResistance = configuration.getFloat("resistance", "$MOD_ID.$ELEMENT.block.whole", 5.0f, 0.0f, 10.0f, "The resistance of the whole whole")
 
         configEnabledAll = configuration.getBoolean("all", "$MOD_ID.$ELEMENT.enabled", true, "Set to false to disable anything $ELEMENT")
-        configEnabledArmor = configuration.getBoolean("armor", "$MOD_ID.$ELEMENT.enabled", true, "Set to false to disable $ELEMENT armor")
+
+        configEnabledArmor = configuration.getBoolean("armor", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT armor")
+        configEnabledArmorChest = configuration.getBoolean("chest", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT chestplate")
+        configEnabledArmorFeet = configuration.getBoolean("feet", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT boots")
+        configEnabledArmorHead = configuration.getBoolean("head", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT helmet")
+        configEnabledArmorLegs = configuration.getBoolean("legs", "$MOD_ID.$ELEMENT.enabled.armor", true, "Set to false to disable $ELEMENT boots")
+
+        configEnabledBlocks = configuration.getBoolean("blocks", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable $ELEMENT blocks")
         configEnabledBlockOre = configuration.getBoolean("ore", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable $ELEMENT ore")
         configEnabledBlockWhole = configuration.getBoolean("whole", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable block of $ELEMENT")
+
+        configEnabledItems = configuration.getBoolean("items", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT items")
+        configEnabledItemCase = configuration.getBoolean("case", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT case")
+        configEnabledItemChunk = configuration.getBoolean("chunk", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT chunk")
+        configEnabledItemDensePlate = configuration.getBoolean("densePlate", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT dense plate")
+        configEnabledItemDust = configuration.getBoolean("dust", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT dust")
         configEnabledItemIngot = configuration.getBoolean("ingot", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT ingot")
-        configEnabledItemTools = configuration.getBoolean("tools", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT tools")
+        configEnabledItemNugget = configuration.getBoolean("nugget", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT nugget")
+        configEnabledItemPlate = configuration.getBoolean("plate", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT plate")
+
+        configEnabledItemTools = configuration.getBoolean("tools", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT tools")
+        configEnabledItemToolAxe = configuration.getBoolean("axe", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT axe")
+        configEnabledItemToolBow = configuration.getBoolean("bow", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT bow")
+        configEnabledItemToolHoe = configuration.getBoolean("hoe", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT hoe")
+        configEnabledItemToolPickaxe = configuration.getBoolean("pickaxe", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT pickaxe")
+        configEnabledItemToolShears = configuration.getBoolean("shears", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT shears")
+        configEnabledItemToolShovel = configuration.getBoolean("shovel", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT shovel")
+        configEnabledItemToolSword = configuration.getBoolean("sword", "$MOD_ID.$ELEMENT.enabled.item.tool", true, "Set to false to disable $ELEMENT sword")
 
         configEnabledRecipe = configuration.getBoolean("configEnabledAll", "$MOD_ID.$ELEMENT.enabled.recipe", false, "Enabled to allow custom recipes")
 
@@ -311,15 +381,17 @@ object Adamantine : IElement {
         configRecipeArmorLegs = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "legs", arrayOf(ELEMENT_ORE_DIC_ARMOR_LEGS, "iii", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
         configRecipeArmorFeet = configuration.get("$MOD_ID.$ELEMENT.recipe.armor", "feet", arrayOf(ELEMENT_ORE_DIC_ARMOR_FEET, "___", "i_i", "i_i", "i", ELEMENT_ORE_DIC_INGOT))
 
-        configRecipeBlocksWhole = configuration.get("$MOD_ID.$ELEMENT.recipe.blocks", "whole", arrayOf(ELEMENT_ORE_DIC_WHOLE, "iii", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeBlocksWhole = configuration.get("$MOD_ID.$ELEMENT.recipe.block", "whole", arrayOf(ELEMENT_ORE_DIC_WHOLE, "iii", "iii", "iii", "i", ELEMENT_ORE_DIC_INGOT))
 
-        configRecipeItemsAxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "axe", arrayOf(ELEMENT_ORE_DIC_AXE, "ii_", "is_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        configRecipeItemsBow = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "bow", arrayOf(ELEMENT_ORE_DIC_BOW, "_it", "s_t", "_it", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood", "t", "string"))
-        configRecipeItemsHoe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "hoe", arrayOf(ELEMENT_ORE_DIC_HOE, "ii_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        configRecipeItemsPickaxe = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE, "iii", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        configRecipeItemsShears = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shears", arrayOf(ELEMENT_ORE_DIC_SHEARS, "___", "i__", "_i_", "i", ELEMENT_ORE_DIC_INGOT))
-        configRecipeItemsShovel = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL, "_i_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
-        configRecipeItemsSword = configuration.get("$MOD_ID.$ELEMENT.recipe.items", "sword", arrayOf(ELEMENT_ORE_DIC_SWORD, "_i_", "_i_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsPlate = configuration.get("$MOD_ID.$ELEMENT.recipe.item", "plate", arrayOf(ELEMENT_ORE_DIC_PLATE, "___", "iii", "___", "i", ELEMENT_ORE_DIC_INGOT))
+
+        configRecipeItemsAxe = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "axe", arrayOf(ELEMENT_ORE_DIC_AXE, "ii_", "is_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsBow = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "bow", arrayOf(ELEMENT_ORE_DIC_BOW, "_it", "s_t", "_it", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood", "t", "string"))
+        configRecipeItemsHoe = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "hoe", arrayOf(ELEMENT_ORE_DIC_HOE, "ii_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsPickaxe = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "pickaxe", arrayOf(ELEMENT_ORE_DIC_PICKAXE, "iii", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsShears = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "shears", arrayOf(ELEMENT_ORE_DIC_SHEARS, "___", "i__", "_i_", "i", ELEMENT_ORE_DIC_INGOT))
+        configRecipeItemsShovel = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "shovel", arrayOf(ELEMENT_ORE_DIC_SHOVEL, "_i_", "_s_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
+        configRecipeItemsSword = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "sword", arrayOf(ELEMENT_ORE_DIC_SWORD, "_i_", "_i_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
 
         configMaterialArmor = EnumHelper.addArmorMaterial(
                 "${ELEMENT}_armor_material",
@@ -329,7 +401,8 @@ object Adamantine : IElement {
                         configMaterialArmorReductionHelmet!!,
                         configMaterialArmorReductionChestplate!!,
                         configMaterialArmorReductionLeggings!!,
-                        configMaterialArmorReductionBoots!!),
+                        configMaterialArmorReductionBoots!!
+                ),
                 configMaterialArmorEnchantability!!,
                 SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
                 configMaterialArmorToughness!!
@@ -348,10 +421,13 @@ object Adamantine : IElement {
     private var ore: Block? = null
     private var whole: Block? = null
 
+    private var case: Item? = null
     private var chunk: Item? = null
+    private var densePlate: Item? = null
     private var dust: Item? = null
     private var ingot: Item? = null
     private var nugget: Item? = null
+    private var plate: Item? = null
 
     private var armorHead: ItemArmor? = null
     private var armorChest: ItemArmor? = null
@@ -366,41 +442,37 @@ object Adamantine : IElement {
     private var shovel: Item? = null
     private var sword: Item? = null
 
-    @Suppress("UNUSED_PARAMETER")
     override fun preInit(event: FMLPreInitializationEvent) {
-        References.LOGGER.info("Adamantine preInit")
-        References.LOGGER.info(configEnabledAll)
         if (configEnabledAll!!) {
             if (configEnabledItemIngot!!) {
-                chunk = RegisterUtils.registerItem(AdamantineChunk())
-                dust = RegisterUtils.registerItem(AdamantineDust())
-                ingot = RegisterUtils.registerItem(AdamantineIngot())
-                nugget = RegisterUtils.registerItem(AdamantineNugget())
+                if (configEnabledItemCase!!) case = RegisterUtils.registerItem(AdamantineCase())
+                if (configEnabledItemChunk!!) chunk = RegisterUtils.registerItem(AdamantineChunk())
+                if (configEnabledItemDensePlate!!) densePlate = RegisterUtils.registerItem(AdamantineDensePlate())
+                if (configEnabledItemDust!!) dust = RegisterUtils.registerItem(AdamantineDust())
+                if (configEnabledItemIngot!!) ingot = RegisterUtils.registerItem(AdamantineIngot())
+                if (configEnabledItemNugget!!) nugget = RegisterUtils.registerItem(AdamantineNugget())
+                if (configEnabledItemPlate!!) plate = RegisterUtils.registerItem(AdamantinePlate())
             }
-
-            if (configEnabledBlockOre!! && configEnabledItemIngot!!) {
-                ore = RegisterUtils.registerBlock(AdamantineOre(configBlockOreHardness, configBlockOreResistance, chunk!!))
-                whole = RegisterUtils.registerBlock(AdamantineWhole(configBlockWholeHardness, configBlockWholeResistance))
+            if (configEnabledBlockOre!!) {
+                if (configEnabledBlockOre!! && configEnabledItemChunk!!) ore = RegisterUtils.registerBlock(AdamantineOre(configBlockOreHardness, configBlockOreResistance, chunk!!))
+                if (configEnabledBlockWhole!!) whole = RegisterUtils.registerBlock(AdamantineWhole(configBlockWholeHardness, configBlockWholeResistance))
             }
-
             if (configEnabledArmor!!) {
-                armorHead = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.HEAD))
-                armorChest = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.CHEST))
-                armorLegs = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.LEGS))
-                armorFeet = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.FEET))
+                if (configEnabledArmorHead!!) armorHead = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.HEAD))
+                if (configEnabledArmorChest!!) armorChest = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.CHEST))
+                if (configEnabledArmorLegs!!) armorLegs = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.LEGS))
+                if (configEnabledArmorFeet!!) armorFeet = RegisterUtils.registerItem(AdamantineArmor(configMaterialArmor!!, EntityEquipmentSlot.FEET))
             }
-
             if (configEnabledItemTools!!) {
-                axe = RegisterUtils.registerItem(AdamantineAxe(configMaterialTool!!))
-                bow = RegisterUtils.registerItem(AdamantineBow(configMaterialToolDamage))
-                hoe = RegisterUtils.registerItem(AdamantineHoe(configMaterialTool!!))
-                pickaxe = RegisterUtils.registerItem(AdamantinePickaxe(configMaterialTool!!))
-                shears = RegisterUtils.registerItem(AdamantineShears(configMaterialToolMaxDamage))
-                shovel = RegisterUtils.registerItem(AdamantineShovel(configMaterialTool!!))
-                sword = RegisterUtils.registerItem(AdamantineSword(configMaterialTool!!))
+                if (configEnabledItemToolAxe!!) axe = RegisterUtils.registerItem(AdamantineAxe(configMaterialTool!!))
+                if (configEnabledItemToolBow!!) bow = RegisterUtils.registerItem(AdamantineBow(configMaterialToolDamage))
+                if (configEnabledItemToolHoe!!) hoe = RegisterUtils.registerItem(AdamantineHoe(configMaterialTool!!))
+                if (configEnabledItemToolPickaxe!!) pickaxe = RegisterUtils.registerItem(AdamantinePickaxe(configMaterialTool!!))
+                if (configEnabledItemToolShears!!) shears = RegisterUtils.registerItem(AdamantineShears(configMaterialToolMaxDamage))
+                if (configEnabledItemToolShovel!!) shovel = RegisterUtils.registerItem(AdamantineShovel(configMaterialTool!!))
+                if (configEnabledItemToolSword!!) sword = RegisterUtils.registerItem(AdamantineSword(configMaterialTool!!))
             }
-
-            if (configEnabledBlockWhole!!) {
+            if (configEnabledBlockOre!!) {
                 GameRegistry.registerWorldGenerator(
                         AdamantineWorldGenerator(
                                 configGenerationMinY,
@@ -413,72 +485,65 @@ object Adamantine : IElement {
                 )
             }
 
-            recipes(configEnabledRecipe)
+            if (configEnabledBlockOre!! && configEnabledItemIngot!!) GameRegistry.addSmelting(ore!!, ItemStack(ingot), 1f)
+            if (configEnabledRecipe!!) {
+                try {
+                    if (configEnabledBlocks!!) {
+                        if (configEnabledBlockWhole!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeBlocksWhole!!))
+                    }
+                    if (configEnabledArmor!!) {
+                        if (configEnabledArmorHead!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorHead!!))
+                        if (configEnabledArmorChest!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorChest!!))
+                        if (configEnabledArmorLegs!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorLegs!!))
+                        if (configEnabledArmorFeet!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorFeet!!))
+                    }
+                    if (configEnabledItems!!) {
+                        if (configEnabledItemPlate!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsPlate!!))
+                    }
+                    if (configEnabledItemTools!!) {
+                        if (configEnabledItemToolAxe!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsAxe!!))
+                        if (configEnabledItemToolBow!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsBow!!))
+                        if (configEnabledItemToolHoe!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsHoe!!))
+                        if (configEnabledItemToolPickaxe!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsPickaxe!!))
+                        if (configEnabledItemToolShears!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShears!!))
+                        if (configEnabledItemToolShovel!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShovel!!))
+                        if (configEnabledItemToolSword!!) GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsSword!!))
+                    }
+                } catch (e: RecipeException) {
+                    References.LOGGER.error("Recipe Exception in ${ELEMENT.capitalize()}", e)
+                }
+            } else {
+                if (configEnabledBlocks!!) {
+                    if (configEnabledBlockWhole!!) GameRegistry.addRecipe(ShapedOreRecipe(whole, "iii", "iii", "iii", 'i', "adamantineIngot"))
+                }
+                if (configEnabledArmor!!) {
+                    if (configEnabledArmorHead!!) GameRegistry.addRecipe(ShapedOreRecipe(armorHead, "iii", "i_i", "___", 'i', "adamantineIngot"))
+                    if (configEnabledArmorChest!!) GameRegistry.addRecipe(ShapedOreRecipe(armorChest, "i_i", "iii", "iii", 'i', "adamantineIngot"))
+                    if (configEnabledArmorLegs!!) GameRegistry.addRecipe(ShapedOreRecipe(armorLegs, "iii", "i_i", "i_i", 'i', "adamantineIngot"))
+                    if (configEnabledArmorFeet!!) GameRegistry.addRecipe(ShapedOreRecipe(armorFeet, "___", "i_i", "i_i", 'i', "adamantineIngot"))
+                }
+                if (configEnabledItemTools!!) {
+                    if (configEnabledItemToolAxe!!) GameRegistry.addRecipe(ShapedOreRecipe(axe, "ii_", "is_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+                    if (configEnabledItemToolBow!!) GameRegistry.addRecipe(ShapedOreRecipe(bow, "_it", "s_t", "_it", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood", 't', "string"))
+                    if (configEnabledItemToolHoe!!) GameRegistry.addRecipe(ShapedOreRecipe(hoe, "ii_", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+                    if (configEnabledItemToolPickaxe!!) GameRegistry.addRecipe(ShapedOreRecipe(pickaxe, "iii", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+                    if (configEnabledItemToolShears!!) GameRegistry.addRecipe(ShapedOreRecipe(shears, "___", "i__", "_i_", 'i', ELEMENT_ORE_DIC_INGOT))
+                    if (configEnabledItemToolShovel!!) GameRegistry.addRecipe(ShapedOreRecipe(shovel, "_i_", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+                    if (configEnabledItemToolSword!!) GameRegistry.addRecipe(ShapedOreRecipe(sword, "_i_", "_i_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
+                }
+            }
         }
     }
 
-    @Suppress("UNUSED_PARAMETER")
     override fun init(event: FMLInitializationEvent) {
         if (configEnabledAll!!) {
 
         }
     }
 
-    @Suppress("UNUSED_PARAMETER")
     override fun postInit(event: FMLPostInitializationEvent) {
         if (configEnabledAll!!) {
 
-        }
-    }
-
-    private fun recipes(customRecipes: Boolean?) {
-        GameRegistry.addSmelting(ore!!, ItemStack(ingot), 1f)
-        if (customRecipes!!) {
-            try {
-                if (configEnabledBlockOre!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeBlocksWhole!!))
-                }
-
-                if (configEnabledArmor!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorHead!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorChest!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorLegs!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeArmorFeet!!))
-                }
-
-                if (configEnabledItemTools!!) {
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsAxe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsBow!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsHoe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsPickaxe!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShears!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsShovel!!))
-                    GameRegistry.addRecipe(RecipeUtils.configRecipe(configRecipeItemsSword!!))
-                }
-            } catch (e: RecipeException) {
-                References.LOGGER.error("Recipe Exception in ${ELEMENT.capitalize()}", e)
-            }
-        } else {
-            if (configEnabledBlockOre!!) {
-                GameRegistry.addRecipe(ShapedOreRecipe(whole, "iii", "iii", "iii", 'i', "adamantineIngot"))
-            }
-
-            if (configEnabledArmor!!) {
-                GameRegistry.addRecipe(ShapedOreRecipe(armorHead, "iii", "i_i", "___", 'i', "adamantineIngot"))
-                GameRegistry.addRecipe(ShapedOreRecipe(armorChest, "i_i", "iii", "iii", 'i', "adamantineIngot"))
-                GameRegistry.addRecipe(ShapedOreRecipe(armorLegs, "iii", "i_i", "i_i", 'i', "adamantineIngot"))
-                GameRegistry.addRecipe(ShapedOreRecipe(armorFeet, "___", "i_i", "i_i", 'i', "adamantineIngot"))
-            }
-
-            if (configEnabledItemTools!!) {
-                GameRegistry.addRecipe(ShapedOreRecipe(axe, "ii_", "is_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
-                GameRegistry.addRecipe(ShapedOreRecipe(bow, "_it", "s_t", "_it", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood", 't', "string"))
-                GameRegistry.addRecipe(ShapedOreRecipe(hoe, "ii_", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
-                GameRegistry.addRecipe(ShapedOreRecipe(pickaxe, "iii", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
-                GameRegistry.addRecipe(ShapedOreRecipe(shears, "___", "i__", "_i_", 'i', ELEMENT_ORE_DIC_INGOT))
-                GameRegistry.addRecipe(ShapedOreRecipe(shovel, "_i_", "_s_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
-                GameRegistry.addRecipe(ShapedOreRecipe(sword, "_i_", "_i_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))
-            }
         }
     }
 }

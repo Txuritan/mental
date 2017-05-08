@@ -1,0 +1,23 @@
+item.adamantine_armor_head.name=Adamantine Helmet
+item.adamantine_armor_chest.name=Adamantine Chestplate
+item.adamantine_armor_legs.name=Adamantine Leggings
+item.adamantine_armor_feet.name=Adamantine Boots
+
+item.adamantine_case.name=Adamantine Case
+item.adamantine_chunk.name=Adamantine Chunk
+item.adamantine_dense_plate.name=Adamantine Dense Plate
+item.adamantine_dust.name=Adamantine Dust
+item.adamantine_ingot.name=Adamantine Ingot
+item.adamantine_nugget.name=Adamantine Nugget
+item.adamantine_plate.name=Adamantine Plate
+
+item.adamantine_axe.name=Adamantine Axe
+item.adamantine_bow.name=Adamantine Bow
+item.adamantine_hoe.name=Adamantine Hoe
+item.adamantine_pickaxe.name=Adamantine Pickaxe
+item.adamantine_shears.name=Adamantine Shears
+item.adamantine_shovel.name=Adamantine Shovel
+item.adamantine_sword.name=Adamantine Sword
+
+tile.adamantine_block.name=Block of Adamantine
+tile.adamantine_ore.name=Adamantine Ore

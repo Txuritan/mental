@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator.iml" group="generator" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator_main.iml" group="generator" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator_test.iml" group="generator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mental.iml" filepath="$PROJECT_DIR$/.idea/modules/mental.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mental_api.iml" filepath="$PROJECT_DIR$/.idea/modules/mental_api.iml" group="mental" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mental_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mental_main.iml" group="mental" />

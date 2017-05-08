@@ -22,7 +22,9 @@ apply plugin: 'kotlin'
 
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = "1.11.2-17.4"
+// https://mcforge.readthedocs.io/en/latest/conventions/versioning/
+// MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH-RELEASE
+version = "1.11.2-0.0.1.0-beta"
 group = "com.github.txuritan"
 archivesBaseName = "mental"
 

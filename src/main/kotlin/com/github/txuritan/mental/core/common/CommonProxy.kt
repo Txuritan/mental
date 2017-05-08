@@ -52,23 +52,18 @@ open class CommonProxy {
         val modMetadata: ModMetadata = event.modMetadata
 
         modMetadata.modId = References.MOD_ID
-        modMetadata.name = References.MOD_NAME
-        modMetadata.version = References.VERSION
-        modMetadata.authorList = mutableListOf("Txuritan", "yu02241")
-        modMetadata.credits = "\n    Choonster\n        * Amazing community help and examples\n    Shadowfacts\n        * Registery system and item/block bases"
-        modMetadata.url = "https://txuritan.github.io/mental/"
-        modMetadata.updateJSON = "https://txuritan.github.io/mental/update.json"
 
         Material.preInit(event)
-        Tree.preInit(event)
 
         var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
 
         Elements.elements.filterIsInstance<IElement>().forEach {
-            description += "    * " + it.ELEMENT.capitalize() + ": " +  if (it.configEnabledAll!!) "§2True§f" else "§4False§f" + "\n"
+            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll!!) "§2True§f" else "§4False§f"}\n"
         }
 
         modMetadata.description = description
+
+        Tree.preInit(event)
     }
 
     open fun init(event: FMLInitializationEvent) {
