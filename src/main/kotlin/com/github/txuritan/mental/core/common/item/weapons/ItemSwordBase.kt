@@ -32,7 +32,7 @@ import net.minecraft.item.ItemSword
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemSwordBase(material: Item.ToolMaterial, private val name: String, private val oreNames: Array<String>) : ItemSword(material), IItemModelProvider, IItemOreDict {
 

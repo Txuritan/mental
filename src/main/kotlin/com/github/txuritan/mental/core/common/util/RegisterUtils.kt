@@ -32,7 +32,7 @@ import net.minecraft.item.ItemBlock
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object RegisterUtils {
     fun <T : Item> registerItem(item: T): T {

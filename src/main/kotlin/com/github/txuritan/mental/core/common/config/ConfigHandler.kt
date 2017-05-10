@@ -31,7 +31,7 @@ import com.github.txuritan.mental.material.common.element.Adamantine
 import net.minecraftforge.common.config.Configuration
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object ConfigHandler {
 

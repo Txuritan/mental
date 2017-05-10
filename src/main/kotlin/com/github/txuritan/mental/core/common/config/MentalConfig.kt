@@ -28,7 +28,7 @@ import com.github.txuritan.mental.core.common.util.References
 import net.minecraftforge.common.config.Configuration
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object MentalConfig {
 

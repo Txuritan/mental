@@ -29,19 +29,22 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Tree {
+    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun preInit(event: FMLPreInitializationEvent) {
 
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun init(event: FMLInitializationEvent) {
 
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun postInit(event: FMLPostInitializationEvent) {
 

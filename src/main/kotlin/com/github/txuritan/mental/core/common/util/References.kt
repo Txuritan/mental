@@ -34,6 +34,9 @@ import org.apache.logging.log4j.LogManager
 import java.io.File
 import java.io.IOException
 
+/**
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
+ */
 public object References {
 
     @JvmStatic

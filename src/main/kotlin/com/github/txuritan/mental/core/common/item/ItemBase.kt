@@ -30,7 +30,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemBase(private val name: String, private val oreNames: Array<String>) : Item(), IItemModelProvider, IItemOreDict {
 

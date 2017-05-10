@@ -32,7 +32,7 @@ import net.minecraft.item.ItemHoe
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemHoeBase(material: Item.ToolMaterial, private val name: String, private val oreNames: Array<String>) : ItemHoe(material), IItemModelProvider, IItemOreDict {
 

@@ -32,7 +32,7 @@ import net.minecraft.item.ItemAxe
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemAxeBase(material: Item.ToolMaterial, private val name: String, private val oreNames: Array<String>) : ItemAxe(material, 8f, -3.1f), IItemModelProvider, IItemOreDict {
 

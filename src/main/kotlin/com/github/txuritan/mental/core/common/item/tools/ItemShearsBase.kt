@@ -32,12 +32,12 @@ import net.minecraft.item.ItemShears
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemShearsBase(damage: Int?, private val name: String, private val oreNames: Array<String>) : ItemShears(), IItemModelProvider, IItemOreDict {
 
     init {
-        setMaxStackSize(1)
+        this.setMaxStackSize(1)
         maxDamage = damage!!
         setRegistryName(name)
         unlocalizedName = name

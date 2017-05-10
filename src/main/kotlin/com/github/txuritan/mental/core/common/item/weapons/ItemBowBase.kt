@@ -32,13 +32,13 @@ import net.minecraft.item.ItemBow
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemBowBase(maxDamage: Int?, private val name: String, private val oreNames: Array<String>) : ItemBow(), IItemModelProvider, IItemOreDict {
 
     init {
-        setMaxDamage(maxDamage!!)
-        setMaxStackSize(1)
+        this.setMaxDamage(maxDamage!!)
+        this.setMaxStackSize(1)
         setRegistryName(name)
         unlocalizedName = name
     }

@@ -189,5 +189,3 @@ Temporary Items
 run/
 !libs-old/Chisel-MC1.11.2-0.0.9.11.jar
 !libs-old/mcflux-2.5.1-dev.jar
-!/src/main/kotlin/com/github/txuritan/mental/core/common/item/ItemBase.kt
-!/src/main/kotlin/com/github/txuritan/mental/core/common/CommonProxy.kt

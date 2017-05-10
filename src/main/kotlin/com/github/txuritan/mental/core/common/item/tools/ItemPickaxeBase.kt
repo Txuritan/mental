@@ -32,7 +32,7 @@ import net.minecraft.item.ItemPickaxe
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemPickaxeBase(material: Item.ToolMaterial, private val name: String, private val oreNames: Array<String>) : ItemPickaxe(material), IItemModelProvider, IItemOreDict {
 

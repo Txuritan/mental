@@ -25,7 +25,7 @@
 package com.github.txuritan.mental.core.common.exceptions
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 class RecipeException : Exception {
 

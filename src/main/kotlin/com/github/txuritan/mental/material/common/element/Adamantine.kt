@@ -65,7 +65,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe
 import java.util.*
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Adamantine : IElement {
 
@@ -484,8 +484,9 @@ object Adamantine : IElement {
                         configGenerationWeight!!
                 )
             }
-
-            if (configEnabledBlockOre!! && configEnabledItemIngot!!) GameRegistry.addSmelting(ore!!, ItemStack(ingot), 1f)
+            if (configEnabledBlockOre!! && configEnabledItemIngot!!) {
+                GameRegistry.addSmelting(ore!!, ItemStack(ingot), 1f)
+            }
             if (configEnabledRecipe!!) {
                 try {
                     if (configEnabledBlocks!!) {

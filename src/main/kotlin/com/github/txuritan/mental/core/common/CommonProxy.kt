@@ -38,7 +38,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class CommonProxy {
 
@@ -50,17 +50,14 @@ open class CommonProxy {
         ConfigHandler.config(Configuration(event.suggestedConfigurationFile))
 
         val modMetadata: ModMetadata = event.modMetadata
-
         modMetadata.modId = References.MOD_ID
 
         Material.preInit(event)
 
         var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
-
         Elements.elements.filterIsInstance<IElement>().forEach {
             description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll!!) "§2True§f" else "§4False§f"}\n"
         }
-
         modMetadata.description = description
 
         Tree.preInit(event)

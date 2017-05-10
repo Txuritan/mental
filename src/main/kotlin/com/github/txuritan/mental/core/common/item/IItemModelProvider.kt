@@ -27,7 +27,7 @@ package com.github.txuritan.mental.core.common.item
 import net.minecraft.item.Item
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 interface IItemModelProvider {
 

@@ -33,7 +33,7 @@ import net.minecraft.item.ItemArmor
 import net.minecraftforge.oredict.OreDictionary
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 open class ItemArmorBase(material: ItemArmor.ArmorMaterial, slot: EntityEquipmentSlot, private val name: String, private val oreNames: Array<String>) : ItemArmor(material, 0, slot), IItemModelProvider, IItemOreDict {
 

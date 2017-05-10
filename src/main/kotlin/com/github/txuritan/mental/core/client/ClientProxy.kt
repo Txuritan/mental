@@ -33,6 +33,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
+/**
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
+ */
 class ClientProxy : CommonProxy() {
 
     override fun registerItemRenderer(item: Item, meta: Int, id: String) {

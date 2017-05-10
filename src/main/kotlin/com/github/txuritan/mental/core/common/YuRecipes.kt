@@ -37,7 +37,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper
 import java.util.*
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 class YuRecipes : IRecipe {
     override fun getRemainingItems(inv: InventoryCrafting?): NonNullList<ItemStack> = TODO("not implemented")

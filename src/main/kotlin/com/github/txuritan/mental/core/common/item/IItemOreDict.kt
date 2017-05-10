@@ -25,7 +25,7 @@
 package com.github.txuritan.mental.core.common.item
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 interface IItemOreDict {
 

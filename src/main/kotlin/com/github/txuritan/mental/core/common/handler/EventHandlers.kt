@@ -29,7 +29,7 @@ import com.github.txuritan.mental.core.event.LeafBreakEvent
 import net.minecraftforge.common.MinecraftForge
 
 /**
- * @author Ian 'Txuritan' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object EventHandlers {
     fun events() {
