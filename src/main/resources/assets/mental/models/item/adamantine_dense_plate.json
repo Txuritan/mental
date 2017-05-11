@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "mental:items/adamantine_dense_plate"
-  }
-}

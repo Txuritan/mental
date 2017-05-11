@@ -96,28 +96,13 @@ object Adamantine : IElement {
         }
     }
 
-    private val ELEMENT_ORE_DIC_CASE = "${ELEMENT}Case"
     private val ELEMENT_ORE_DIC_CHUNK = "${ELEMENT}Chunk"
-    private val ELEMENT_ORE_DIC_DENSE_PLATE = "${ELEMENT}DensePlate"
     private val ELEMENT_ORE_DIC_DUST = "${ELEMENT}Dust"
     private val ELEMENT_ORE_DIC_INGOT = "${ELEMENT}Ingot"
     private val ELEMENT_ORE_DIC_NUGGET = "${ELEMENT}Nugget"
     private val ELEMENT_ORE_DIC_PLATE = "${ELEMENT}Plate"
 
-    internal class AdamantineCase : ItemBase("${ELEMENT}_c" +
-            "ase", arrayOf(ELEMENT_ORE_DIC_CASE)) {
-        init {
-            setCreativeTab(MENTAL_CREATIVE_TAB)
-        }
-    }
-
     internal class AdamantineChunk : ItemBase("${ELEMENT}_chunk", arrayOf(ELEMENT_ORE_DIC_CHUNK)) {
-        init {
-            setCreativeTab(MENTAL_CREATIVE_TAB)
-        }
-    }
-
-    internal class AdamantineDensePlate : ItemBase("${ELEMENT}_dense_plate", arrayOf(ELEMENT_ORE_DIC_DENSE_PLATE)) {
         init {
             setCreativeTab(MENTAL_CREATIVE_TAB)
         }
@@ -250,9 +235,7 @@ object Adamantine : IElement {
     private var configEnabledBlockWhole: Boolean? = null
 
     private var configEnabledItems: Boolean? = null
-    private var configEnabledItemCase: Boolean? = null
     private var configEnabledItemChunk: Boolean? = null
-    private var configEnabledItemDensePlate: Boolean? = null
     private var configEnabledItemDust: Boolean? = null
     private var configEnabledItemIngot: Boolean? = null
     private var configEnabledItemNugget: Boolean? = null
@@ -333,9 +316,7 @@ object Adamantine : IElement {
         configEnabledBlockWhole = configuration.getBoolean("whole", "$MOD_ID.$ELEMENT.enabled.block", true, "Set to false to disable block of $ELEMENT")
 
         configEnabledItems = configuration.getBoolean("items", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT items")
-        configEnabledItemCase = configuration.getBoolean("case", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT case")
         configEnabledItemChunk = configuration.getBoolean("chunk", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT chunk")
-        configEnabledItemDensePlate = configuration.getBoolean("densePlate", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT dense plate")
         configEnabledItemDust = configuration.getBoolean("dust", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT dust")
         configEnabledItemIngot = configuration.getBoolean("ingot", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT ingot")
         configEnabledItemNugget = configuration.getBoolean("nugget", "$MOD_ID.$ELEMENT.enabled.item", true, "Set to false to disable $ELEMENT nugget")
@@ -421,9 +402,7 @@ object Adamantine : IElement {
     private var ore: Block? = null
     private var whole: Block? = null
 
-    private var case: Item? = null
     private var chunk: Item? = null
-    private var densePlate: Item? = null
     private var dust: Item? = null
     private var ingot: Item? = null
     private var nugget: Item? = null
@@ -445,9 +424,7 @@ object Adamantine : IElement {
     override fun preInit(event: FMLPreInitializationEvent) {
         if (configEnabledAll!!) {
             if (configEnabledItemIngot!!) {
-                if (configEnabledItemCase!!) case = RegisterUtils.registerItem(AdamantineCase())
                 if (configEnabledItemChunk!!) chunk = RegisterUtils.registerItem(AdamantineChunk())
-                if (configEnabledItemDensePlate!!) densePlate = RegisterUtils.registerItem(AdamantineDensePlate())
                 if (configEnabledItemDust!!) dust = RegisterUtils.registerItem(AdamantineDust())
                 if (configEnabledItemIngot!!) ingot = RegisterUtils.registerItem(AdamantineIngot())
                 if (configEnabledItemNugget!!) nugget = RegisterUtils.registerItem(AdamantineNugget())
