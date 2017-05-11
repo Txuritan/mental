@@ -1,4 +1,4 @@
-package com.github.txuritan.mental.core.common
+package com.github.txuritan.mental.tree.common
 
 import net.minecraftforge.common.config.Configuration
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -6,13 +6,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
 /**
- * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
+ * @author Ian 'Txuritan/Captian Daro'Ma'Sohni Tavia' Cronkright
  */
-interface IElement {
-
-    val ELEMENT: String
-
-    var configEnabledAll: Boolean?
+interface ITree {
 
     fun setupConfig(configuration: Configuration)
 

@@ -7,6 +7,6 @@ import com.github.txuritan.mental.material.common.element.Adamantine
  */
 object Elements {
     var elements: MutableList<Any> = mutableListOf(
-            Adamantine
+        Adamantine
     )
 }

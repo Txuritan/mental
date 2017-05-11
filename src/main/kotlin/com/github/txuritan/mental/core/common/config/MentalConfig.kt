@@ -40,10 +40,10 @@ object MentalConfig {
     @JvmStatic
     fun setupConfig(configuration: Configuration) {
 
-        debug = configuration.getBoolean("debug", References.MOD_ID + "", false, "Will log debug information if true")
+        debug = configuration.getBoolean("debug", References.MOD_ID, false, "Will log debug information if true")
 
-        stickDrop = configuration.getBoolean("enabled", References.MOD_ID + ".event.stickDrop", true, "A stick will drop when you break leaves")
-        stickDropChance = configuration.getInt("chance", References.MOD_ID + ".event.stickDrop", 50, 0, 100, "Drop chance")
+        stickDrop = configuration.getBoolean("enabled", "${References.MOD_ID}.event.stickDrop", true, "A stick will drop when you break leaves")
+        stickDropChance = configuration.getInt("chance", "${References.MOD_ID}.event.stickDrop", 50, 0, 100, "Drop chance")
 
     }
 }

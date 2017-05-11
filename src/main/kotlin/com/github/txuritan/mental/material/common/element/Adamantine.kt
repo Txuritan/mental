@@ -26,7 +26,7 @@
 
 package com.github.txuritan.mental.material.common.element
 
-import com.github.txuritan.mental.core.common.IElement
+import com.github.txuritan.mental.material.common.IElement
 import com.github.txuritan.mental.core.common.block.BlockBase
 import com.github.txuritan.mental.core.common.exceptions.RecipeException
 import com.github.txuritan.mental.core.common.item.ItemBase
@@ -375,27 +375,27 @@ object Adamantine : IElement {
         configRecipeItemsSword = configuration.get("$MOD_ID.$ELEMENT.recipe.item.tool", "sword", arrayOf(ELEMENT_ORE_DIC_SWORD, "_i_", "_i_", "_s_", "i", ELEMENT_ORE_DIC_INGOT, "s", "stickWood"))
 
         configMaterialArmor = EnumHelper.addArmorMaterial(
-                "${ELEMENT}_armor_material",
-                "$MOD_ID:${ELEMENT}_armor",
-                configMaterialArmorDurability!!,
-                intArrayOf(
-                        configMaterialArmorReductionHelmet!!,
-                        configMaterialArmorReductionChestplate!!,
-                        configMaterialArmorReductionLeggings!!,
-                        configMaterialArmorReductionBoots!!
-                ),
-                configMaterialArmorEnchantability!!,
-                SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                configMaterialArmorToughness!!
+            "${ELEMENT}_armor_material",
+            "$MOD_ID:${ELEMENT}_armor",
+            configMaterialArmorDurability!!,
+            intArrayOf(
+                configMaterialArmorReductionHelmet!!,
+                configMaterialArmorReductionChestplate!!,
+                configMaterialArmorReductionLeggings!!,
+                configMaterialArmorReductionBoots!!
+            ),
+            configMaterialArmorEnchantability!!,
+            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            configMaterialArmorToughness!!
         )
 
         configMaterialTool = EnumHelper.addToolMaterial(
-                "${ELEMENT}_tool_material",
-                configMaterialToolHarvest!!,
-                configMaterialToolDurability!!,
-                configMaterialToolMining!!.toFloat(),
-                configMaterialToolDamage!!.toFloat(),
-                configMaterialToolEnchantability!!
+            "${ELEMENT}_tool_material",
+            configMaterialToolHarvest!!,
+            configMaterialToolDurability!!,
+            configMaterialToolMining!!.toFloat(),
+            configMaterialToolDamage!!.toFloat(),
+            configMaterialToolEnchantability!!
         )
     }
 
@@ -451,14 +451,14 @@ object Adamantine : IElement {
             }
             if (configEnabledBlockOre!!) {
                 GameRegistry.registerWorldGenerator(
-                        AdamantineWorldGenerator(
-                                configGenerationMinY,
-                                configGenerationMaxY,
-                                configGenerationSize,
-                                configGenerationSizeBound,
-                                configGenerationChance
-                        ),
-                        configGenerationWeight!!
+                    AdamantineWorldGenerator(
+                        configGenerationMinY,
+                        configGenerationMaxY,
+                        configGenerationSize,
+                        configGenerationSizeBound,
+                        configGenerationChance
+                    ),
+                    configGenerationWeight!!
                 )
             }
             if (configEnabledBlockOre!! && configEnabledItemIngot!!) {

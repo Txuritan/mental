@@ -32,21 +32,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Tree {
-    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun preInit(event: FMLPreInitializationEvent) {
-
+        Trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
     }
 
-    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun init(event: FMLInitializationEvent) {
-
+        Trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
     }
 
-    @Suppress("UNUSED_PARAMETER")
     @JvmStatic
     fun postInit(event: FMLPostInitializationEvent) {
-
+        Trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
     }
 }

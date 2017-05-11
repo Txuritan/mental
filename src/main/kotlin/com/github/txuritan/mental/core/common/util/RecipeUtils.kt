@@ -42,128 +42,128 @@ object RecipeUtils {
         if ((recipeLength % 2) == 0) {
             if (recipeLength == 6) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5]
                 )
             } else if (recipeLength == 8) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7]
                 )
             } else if (recipeLength == 10) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9]
                 )
             } else if (recipeLength == 12) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11]
                 )
             } else if (recipeLength == 14) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13]
                 )
             } else if (recipeLength == 16) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13],
-                        recipeList[14][0], recipeList[15]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13],
+                    recipeList[14][0], recipeList[15]
                 )
             } else if (recipeLength == 18) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13],
-                        recipeList[14][0], recipeList[15],
-                        recipeList[16][0], recipeList[17]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13],
+                    recipeList[14][0], recipeList[15],
+                    recipeList[16][0], recipeList[17]
                 )
             } else if (recipeLength == 20) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13],
-                        recipeList[14][0], recipeList[15],
-                        recipeList[16][0], recipeList[17],
-                        recipeList[18][0], recipeList[19]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13],
+                    recipeList[14][0], recipeList[15],
+                    recipeList[16][0], recipeList[17],
+                    recipeList[18][0], recipeList[19]
                 )
             } else if (recipeLength == 22) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13],
-                        recipeList[14][0], recipeList[15],
-                        recipeList[16][0], recipeList[17],
-                        recipeList[18][0], recipeList[19],
-                        recipeList[20][0], recipeList[21]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13],
+                    recipeList[14][0], recipeList[15],
+                    recipeList[16][0], recipeList[17],
+                    recipeList[18][0], recipeList[19],
+                    recipeList[20][0], recipeList[21]
                 )
             } else if (recipeLength == 24) {
                 return ShapedOreRecipe(
-                        OreDictionary.getOres(recipeList[0])[0],
-                        recipeList[1],
-                        recipeList[2],
-                        recipeList[3],
-                        recipeList[4][0], recipeList[5],
-                        recipeList[6][0], recipeList[7],
-                        recipeList[8][0], recipeList[9],
-                        recipeList[10][0], recipeList[11],
-                        recipeList[12][0], recipeList[13],
-                        recipeList[14][0], recipeList[15],
-                        recipeList[16][0], recipeList[17],
-                        recipeList[18][0], recipeList[19],
-                        recipeList[20][0], recipeList[21],
-                        recipeList[22][0], recipeList[23]
+                    OreDictionary.getOres(recipeList[0])[0],
+                    recipeList[1],
+                    recipeList[2],
+                    recipeList[3],
+                    recipeList[4][0], recipeList[5],
+                    recipeList[6][0], recipeList[7],
+                    recipeList[8][0], recipeList[9],
+                    recipeList[10][0], recipeList[11],
+                    recipeList[12][0], recipeList[13],
+                    recipeList[14][0], recipeList[15],
+                    recipeList[16][0], recipeList[17],
+                    recipeList[18][0], recipeList[19],
+                    recipeList[20][0], recipeList[21],
+                    recipeList[22][0], recipeList[23]
                 )
             } else {
                 throw RecipeException("Config recipe for ${property.name} is either a odd number in length or not there or too long (length: $recipeLength)")

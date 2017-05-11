@@ -24,10 +24,11 @@
 
 package com.github.txuritan.mental.core.common.config
 
-import com.github.txuritan.mental.core.common.IElement
+import com.github.txuritan.mental.material.common.IElement
 import com.github.txuritan.mental.core.common.util.References
 import com.github.txuritan.mental.material.common.Elements
 import com.github.txuritan.mental.material.common.element.Adamantine
+import com.github.txuritan.mental.tree.common.Trees
 import net.minecraftforge.common.config.Configuration
 
 /**
@@ -37,13 +38,14 @@ object ConfigHandler {
 
     fun config(configuration: Configuration) {
         try {
+
             configuration.load()
 
             MentalConfig.setupConfig(configuration)
 
             Elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
 
-            //Adamantine.setupConfig(configuration)
+            Trees.trees.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
 
         } catch (e: Exception) {
             References.LOGGER.error("Error Loading Config", e)

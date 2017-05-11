@@ -35,20 +35,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 @Mod(
-        modid = References.MOD_ID,
-        version = References.VERSION,
-        name = References.MOD_NAME,
-        updateJSON = References.UPDATE_URL,
-        dependencies = "required-after:forgelin@[1.4.1,);",
-        modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
-        acceptedMinecraftVersions = "1.11.2"
+    modid = References.MOD_ID,
+    version = References.VERSION,
+    name = References.MOD_NAME,
+    updateJSON = References.UPDATE_URL,
+    dependencies = "required-after:forgelin@[1.4.1,);",
+    modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
+    acceptedMinecraftVersions = "1.11.2"
 )
 object Mental {
 
     @SidedProxy(
-            serverSide = References.COMMON_PROXY_CLASS,
-            clientSide = References.CLIENT_PROXY_CLASS,
-            modId = References.MOD_ID
+        serverSide = References.COMMON_PROXY_CLASS,
+        clientSide = References.CLIENT_PROXY_CLASS,
+        modId = References.MOD_ID
     )
     lateinit var proxy: CommonProxy
 

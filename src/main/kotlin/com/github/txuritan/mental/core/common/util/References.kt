@@ -25,7 +25,6 @@
 package com.github.txuritan.mental.core.common.util
 
 import com.github.txuritan.mental.core.common.Mental
-import com.github.txuritan.mental.core.common.config.MentalConfig
 import net.minecraft.client.Minecraft
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.init.Items
@@ -37,7 +36,7 @@ import java.io.IOException
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-public object References {
+object References {
 
     @JvmStatic
     val LOGGER = LogManager.getLogger(Mental::class.java.simpleName)!!
@@ -52,8 +51,6 @@ public object References {
         }
 
     }
-
-    var DEBUG = MentalConfig.debug
 
     const val MOD_ID = "mental"
     const val MOD_NAME = "Mental"
