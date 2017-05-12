@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captian Daro'Ma'Sohni Tavia' Cronkright
  */
-class TConstructCompatibility : ICompatibility {
+object TConstructCompatibility : ICompatibility {
 
     override fun setupConfig(configuration: Configuration) {
 
