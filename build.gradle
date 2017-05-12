@@ -91,3 +91,8 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+
+task copyDocs(type: Copy) {
+    from 'docs'
+    into 'src/main/resources/assets/mental'
+}
