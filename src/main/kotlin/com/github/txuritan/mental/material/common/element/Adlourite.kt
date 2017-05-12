@@ -22,11 +22,10 @@
  * SOFTWARE.
  */
 
-// gimp colorize h:0 s:78 l:-36
+// gimp colorize h:198 s:34 l:-13
 
 package com.github.txuritan.mental.material.common.element
 
-import com.github.txuritan.mental.material.common.IElement
 import com.github.txuritan.mental.core.common.block.BlockBase
 import com.github.txuritan.mental.core.common.exceptions.RecipeException
 import com.github.txuritan.mental.core.common.item.ItemBase
@@ -39,6 +38,7 @@ import com.github.txuritan.mental.core.common.util.References
 import com.github.txuritan.mental.core.common.util.References.MENTAL_CREATIVE_TAB
 import com.github.txuritan.mental.core.common.util.References.MOD_ID
 import com.github.txuritan.mental.core.common.util.RegisterUtils
+import com.github.txuritan.mental.material.common.IElement
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
@@ -67,9 +67,8 @@ import java.util.*
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Adamantine : IElement {
-
-    override val ELEMENT: String = "adamantine"
+object Adlourite : IElement {
+    override val ELEMENT: String = "adlourite"
 
     private val ELEMENT_ORE_DIC_ORE = "${ELEMENT}Ore"
     private val ELEMENT_ORE_DIC_WHOLE = "${ELEMENT}Block"
@@ -203,7 +202,7 @@ object Adamantine : IElement {
 
         @Suppress("UNUSED_PARAMETER")
         fun generateEnd(random: Random, chunkX: Int, chunkZ: Int, world: World, chunkGenerator: IChunkGenerator, chunkProvider: IChunkProvider) {
-            generateOre(Adamantine.ore!!.defaultState, world, random, chunkX * 16, chunkZ * 16, minY!!, maxY!!, size!! + random.nextInt(sizeBound!!), chance!!)
+            generateOre(Adlourite.ore!!.defaultState, world, random, chunkX * 16, chunkZ * 16, minY!!, maxY!!, size!! + random.nextInt(sizeBound!!), chance!!)
         }
 
         private fun generateOre(ore: IBlockState, world: World, random: Random, x: Int, z: Int, minY: Int, maxY: Int, size: Int, chances: Int) {
@@ -492,13 +491,13 @@ object Adamantine : IElement {
                 }
             } else {
                 if (configEnabledBlocks!!) {
-                    if (configEnabledBlockWhole!!) GameRegistry.addRecipe(ShapedOreRecipe(whole, "iii", "iii", "iii", 'i', "adamantineIngot"))
+                    if (configEnabledBlockWhole!!) GameRegistry.addRecipe(ShapedOreRecipe(whole, "iii", "iii", "iii", 'i', "Ingot"))
                 }
                 if (configEnabledArmor!!) {
-                    if (configEnabledArmorHead!!) GameRegistry.addRecipe(ShapedOreRecipe(armorHead, "iii", "i_i", "___", 'i', "adamantineIngot"))
-                    if (configEnabledArmorChest!!) GameRegistry.addRecipe(ShapedOreRecipe(armorChest, "i_i", "iii", "iii", 'i', "adamantineIngot"))
-                    if (configEnabledArmorLegs!!) GameRegistry.addRecipe(ShapedOreRecipe(armorLegs, "iii", "i_i", "i_i", 'i', "adamantineIngot"))
-                    if (configEnabledArmorFeet!!) GameRegistry.addRecipe(ShapedOreRecipe(armorFeet, "___", "i_i", "i_i", 'i', "adamantineIngot"))
+                    if (configEnabledArmorHead!!) GameRegistry.addRecipe(ShapedOreRecipe(armorHead, "iii", "i_i", "___", 'i', "Ingot"))
+                    if (configEnabledArmorChest!!) GameRegistry.addRecipe(ShapedOreRecipe(armorChest, "i_i", "iii", "iii", 'i', "Ingot"))
+                    if (configEnabledArmorLegs!!) GameRegistry.addRecipe(ShapedOreRecipe(armorLegs, "iii", "i_i", "i_i", 'i', "Ingot"))
+                    if (configEnabledArmorFeet!!) GameRegistry.addRecipe(ShapedOreRecipe(armorFeet, "___", "i_i", "i_i", 'i', "Ingot"))
                 }
                 if (configEnabledItemTools!!) {
                     if (configEnabledItemToolAxe!!) GameRegistry.addRecipe(ShapedOreRecipe(axe, "ii_", "is_", "_s_", 'i', ELEMENT_ORE_DIC_INGOT, 's', "stickWood"))

@@ -3,9 +3,7 @@ item.adamantine_armor_chest.name=Adamantine Chestplate
 item.adamantine_armor_legs.name=Adamantine Leggings
 item.adamantine_armor_feet.name=Adamantine Boots
 
-item.adamantine_case.name=Adamantine Case
 item.adamantine_chunk.name=Adamantine Chunk
-item.adamantine_dense_plate.name=Adamantine Dense Plate
 item.adamantine_dust.name=Adamantine Dust
 item.adamantine_ingot.name=Adamantine Ingot
 item.adamantine_nugget.name=Adamantine Nugget
@@ -19,5 +17,29 @@ item.adamantine_shears.name=Adamantine Shears
 item.adamantine_shovel.name=Adamantine Shovel
 item.adamantine_sword.name=Adamantine Sword
 
-tile.adamantine_block.name=Block of Adamantine
+tile.adamantine_block.name=Adamantine Block
 tile.adamantine_ore.name=Adamantine Ore
+
+
+
+item.adlourite_armor_head.name=Adlourite Helmet
+item.adlourite_armor_chest.name=Adlourite Chestplate
+item.adlourite_armor_legs.name=Adlourite Leggings
+item.adlourite_armor_feet.name=Adlourite Boots
+
+item.adlourite_chunk.name=Adlourite Chunk
+item.adlourite_dust.name=Adlourite Dust
+item.adlourite_ingot.name=Adlourite Ingot
+item.adlourite_nugget.name=Adlourite Nugget
+item.adlourite_plate.name=Adlourite Plate
+
+item.adlourite_axe.name=Adlourite Axe
+item.adlourite_bow.name=Adlourite Bow
+item.adlourite_hoe.name=Adlourite Hoe
+item.adlourite_pickaxe.name=Adlourite Pickaxe
+item.adlourite_shears.name=Adlourite Shears
+item.adlourite_shovel.name=Adlourite Shovel
+item.adlourite_sword.name=Adlourite Sword
+
+tile.adlourite_block.name=Adlourite Block
+tile.adlourite_ore.name=Adlourite Ore

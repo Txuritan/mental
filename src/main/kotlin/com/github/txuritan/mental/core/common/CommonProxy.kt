@@ -43,6 +43,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 open class CommonProxy {
 
+    var modules: Modules = Modules
+
     open fun registerItemRenderer(item: Item, meta: Int, id: String) {
 
     }
@@ -50,29 +52,16 @@ open class CommonProxy {
     open fun preInit(event: FMLPreInitializationEvent) {
         ConfigHandler.config(Configuration(event.suggestedConfigurationFile))
 
-        val modMetadata: ModMetadata = event.modMetadata
-        modMetadata.modId = References.MOD_ID
-
-        Material.preInit(event)
-
-        var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
-        Elements.elements.filterIsInstance<IElement>().forEach {
-            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll!!) "§2True§f" else "§4False§f"}\n"
-        }
-        modMetadata.description = description
-
-        Tree.preInit(event)
+        modules.modules.filterIsInstance<IModule>().forEach { it.preInit(event) }
     }
 
     open fun init(event: FMLInitializationEvent) {
         EventHandlers.events()
 
-        Material.init(event)
-        Tree.init(event)
+        modules.modules.filterIsInstance<IModule>().forEach { it.init(event) }
     }
 
     open fun postInit(event: FMLPostInitializationEvent) {
-        Material.postInit(event)
-        Tree.postInit(event)
+        modules.modules.filterIsInstance<IModule>().forEach { it.postInit(event) }
     }
 }

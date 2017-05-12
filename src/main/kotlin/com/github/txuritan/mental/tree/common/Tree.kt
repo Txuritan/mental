@@ -24,6 +24,8 @@
 
 package com.github.txuritan.mental.tree.common
 
+import com.github.txuritan.mental.core.common.IModule
+import net.minecraftforge.common.config.Configuration
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -31,19 +33,25 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Tree {
-    @JvmStatic
-    fun preInit(event: FMLPreInitializationEvent) {
-        Trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
+object Tree : IModule {
+
+    var trees: Trees = Trees
+
+    override fun setupConfig(configuration: Configuration) {
+
     }
 
-    @JvmStatic
-    fun init(event: FMLInitializationEvent) {
-        Trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
+    override fun preInit(event: FMLPreInitializationEvent) {
+        trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
     }
 
-    @JvmStatic
-    fun postInit(event: FMLPostInitializationEvent) {
-        Trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
+
+    override fun init(event: FMLInitializationEvent) {
+        trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
+    }
+
+
+    override fun postInit(event: FMLPostInitializationEvent) {
+        trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
     }
 }

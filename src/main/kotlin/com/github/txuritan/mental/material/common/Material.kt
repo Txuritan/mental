@@ -24,7 +24,10 @@
 
 package com.github.txuritan.mental.material.common
 
-import com.github.txuritan.mental.material.common.IElement
+import com.github.txuritan.mental.core.common.IModule
+import com.github.txuritan.mental.core.common.util.References
+import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.ModMetadata
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -32,20 +35,32 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Material {
+object Material : IModule {
 
-    @JvmStatic
-    fun preInit(event: FMLPreInitializationEvent) {
-        Elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
+    var elements: Elements = Elements
+
+    override fun setupConfig(configuration: Configuration) {
+        elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
     }
 
-    @JvmStatic
-    fun init(event: FMLInitializationEvent) {
-        Elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
+    override fun preInit(event: FMLPreInitializationEvent) {
+        elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
+
+        val modMetadata: ModMetadata = event.modMetadata
+        modMetadata.modId = References.MOD_ID
+        var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
+        elements.elements.filterIsInstance<IElement>().forEach {
+            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll!!) "§2True§f" else "§4False§f"}\n"
+        }
+        modMetadata.description = description
     }
 
-    @JvmStatic
-    fun postInit(event: FMLPostInitializationEvent) {
-        Elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
+    override fun init(event: FMLInitializationEvent) {
+        elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
     }
+
+    override fun postInit(event: FMLPostInitializationEvent) {
+        elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
+    }
+
 }
