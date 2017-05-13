@@ -8,14 +8,12 @@
     "url": "https://txuritan.github.io/mental/",
     "updateUrl": "https://txuritan.github.io/mental/update.json",
     "authorList": [
-      "Ian \"Txuritan/Captian Daro'Ma'Sohni Tavia\" Cronkright",
+      "Ian \"Txuritan/Captain Daro'Ma'Sohni Tavia\" Cronkright",
       "yu02241"
     ],
     "credits": "\n    Choonster\n        * Amazing community help and examples\n    Shadowfacts\n        * Registery system and item/block bases",
-    "logoFile": "assets/mental/textures/logo/logo.png",
-    "screenshots": [
-      "assets/mental/textures/screenshots/1.png"
-    ],
+    "logoFile": "",
+    "screenshots": [],
     "dependencies": [
 
     ]

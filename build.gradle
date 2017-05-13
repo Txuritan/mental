@@ -40,7 +40,7 @@ minecraft {
     version = "1.11.2-13.20.0.2228"
     runDir = "run"
     mappings = "snapshot_20170301"
-    makeObfSourceJar = true
+    makeObfSourceJar = false
 
     replace 'GRADLE:BUILD', project.version
 }
@@ -90,9 +90,4 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-}
-
-task copyDocs(type: Copy) {
-    from 'docs'
-    into 'src/main/resources/assets/mental'
 }

@@ -1,3 +1,9 @@
+## Mod
+
+itemGroup.mental.creativeTab=Mental
+
+## Adamantine
+
 item.adamantine_armor_head.name=Adamantine Helmet
 item.adamantine_armor_chest.name=Adamantine Chestplate
 item.adamantine_armor_legs.name=Adamantine Leggings
@@ -20,7 +26,7 @@ item.adamantine_sword.name=Adamantine Sword
 tile.adamantine_block.name=Adamantine Block
 tile.adamantine_ore.name=Adamantine Ore
 
-
+## Adlourite
 
 item.adlourite_armor_head.name=Adlourite Helmet
 item.adlourite_armor_chest.name=Adlourite Chestplate
@@ -43,3 +49,27 @@ item.adlourite_sword.name=Adlourite Sword
 
 tile.adlourite_block.name=Adlourite Block
 tile.adlourite_ore.name=Adlourite Ore
+
+## Agricite
+
+item.agricite_armor_head.name=Agricite Helmet
+item.agricite_armor_chest.name=Agricite Chestplate
+item.agricite_armor_legs.name=Agricite Leggings
+item.agricite_armor_feet.name=Agricite Boots
+
+item.agricite_chunk.name=Agricite Chunk
+item.agricite_dust.name=Agricite Dust
+item.agricite_ingot.name=Agricite Ingot
+item.agricite_nugget.name=Agricite Nugget
+item.agricite_plate.name=Agricite Plate
+
+item.agricite_axe.name=Agricite Axe
+item.agricite_bow.name=Agricite Bow
+item.agricite_hoe.name=Agricite Hoe
+item.agricite_pickaxe.name=Agricite Pickaxe
+item.agricite_shears.name=Agricite Shears
+item.agricite_shovel.name=Agricite Shovel
+item.agricite_sword.name=Agricite Sword
+
+tile.agricite_block.name=Agricite Block
+tile.agricite_ore.name=Agricite Ore
