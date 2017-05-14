@@ -26,14 +26,8 @@ package com.github.txuritan.mental.core.common
 
 import com.github.txuritan.mental.core.common.config.ConfigHandler
 import com.github.txuritan.mental.core.common.handler.EventHandlers
-import com.github.txuritan.mental.core.common.util.References
-import com.github.txuritan.mental.material.common.Elements
-import com.github.txuritan.mental.material.common.IElement
-import com.github.txuritan.mental.material.common.Material
-import com.github.txuritan.mental.tree.common.Tree
 import net.minecraft.item.Item
 import net.minecraftforge.common.config.Configuration
-import net.minecraftforge.fml.common.ModMetadata
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -43,25 +37,25 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 open class CommonProxy {
 
-    var modules: Modules = Modules
+    var modules : Modules = Modules
 
-    open fun registerItemRenderer(item: Item, meta: Int, id: String) {
+    open fun registerItemRenderer(item : Item, meta : Int, id : String) {
 
     }
 
-    open fun preInit(event: FMLPreInitializationEvent) {
+    open fun preInit(event : FMLPreInitializationEvent) {
         ConfigHandler.config(Configuration(event.suggestedConfigurationFile))
 
         modules.modules.filterIsInstance<IModule>().forEach { it.preInit(event) }
     }
 
-    open fun init(event: FMLInitializationEvent) {
+    open fun init(event : FMLInitializationEvent) {
         EventHandlers.events()
 
         modules.modules.filterIsInstance<IModule>().forEach { it.init(event) }
     }
 
-    open fun postInit(event: FMLPostInitializationEvent) {
+    open fun postInit(event : FMLPostInitializationEvent) {
         modules.modules.filterIsInstance<IModule>().forEach { it.postInit(event) }
     }
 }

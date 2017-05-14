@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.core.event
+package com.github.txuritan.mental.core.common.event
 
 import com.github.txuritan.mental.core.common.config.MentalConfig
 import net.minecraft.init.Blocks
@@ -30,15 +30,14 @@ import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import net.minecraftforge.event.world.BlockEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-
-import java.util.Random
+import java.util.*
 
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 class LeafBreakEvent {
     @SubscribeEvent
-    fun onLeafBreak(event: BlockEvent.HarvestDropsEvent) {
+    fun onLeafBreak(event : BlockEvent.HarvestDropsEvent) {
         if (event.state.block === Blocks.LEAVES) {
             if (Random().nextInt(99) >= MentalConfig.stickDropChance) {
                 event.drops.add(ItemStack(Items.STICK))

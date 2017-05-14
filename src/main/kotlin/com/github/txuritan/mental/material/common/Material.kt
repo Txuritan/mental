@@ -37,29 +37,29 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 object Material : IModule {
 
-    var elements: Elements = Elements
+    var elements : Elements = Elements
 
-    override fun setupConfig(configuration: Configuration) {
+    override fun setupConfig(configuration : Configuration) {
         elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
     }
 
-    override fun preInit(event: FMLPreInitializationEvent) {
+    override fun preInit(event : FMLPreInitializationEvent) {
         elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
 
-        val modMetadata: ModMetadata = event.modMetadata
+        val modMetadata : ModMetadata = event.modMetadata
         modMetadata.modId = References.MOD_ID
-        var description: String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
+        var description : String = "§fTons of ores.\n\nMoths too.\n\nEnabled elements\n"
         elements.elements.filterIsInstance<IElement>().forEach {
-            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll!!) "§2True§f" else "§4False§f"}\n"
+            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
         }
         modMetadata.description = description
     }
 
-    override fun init(event: FMLInitializationEvent) {
+    override fun init(event : FMLInitializationEvent) {
         elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
     }
 
-    override fun postInit(event: FMLPostInitializationEvent) {
+    override fun postInit(event : FMLPostInitializationEvent) {
         elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
     }
 

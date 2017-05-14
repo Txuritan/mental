@@ -31,6 +31,6 @@ import net.minecraft.item.Item
  */
 interface IItemModelProvider {
 
-    fun registerItemModel(item: Item)
+    fun registerItemModel(item : Item)
 
 }

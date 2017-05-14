@@ -34,16 +34,16 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 interface IElement {
 
-    val ELEMENT: String
+    val ELEMENT : String
 
-    var configEnabledAll: Boolean?
+    var configEnabledAll : Boolean?
 
-    fun setupConfig(configuration: Configuration)
+    fun setupConfig(configuration : Configuration)
 
-    fun preInit(event: FMLPreInitializationEvent)
+    fun preInit(event : FMLPreInitializationEvent)
 
-    fun init(event: FMLInitializationEvent)
+    fun init(event : FMLInitializationEvent)
 
-    fun postInit(event: FMLPostInitializationEvent)
+    fun postInit(event : FMLPostInitializationEvent)
 
 }

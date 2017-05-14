@@ -35,23 +35,23 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 object Tree : IModule {
 
-    var trees: Trees = Trees
+    var trees : Trees = Trees
 
-    override fun setupConfig(configuration: Configuration) {
+    override fun setupConfig(configuration : Configuration) {
 
     }
 
-    override fun preInit(event: FMLPreInitializationEvent) {
+    override fun preInit(event : FMLPreInitializationEvent) {
         trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
     }
 
 
-    override fun init(event: FMLInitializationEvent) {
+    override fun init(event : FMLInitializationEvent) {
         trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
     }
 
 
-    override fun postInit(event: FMLPostInitializationEvent) {
+    override fun postInit(event : FMLPostInitializationEvent) {
         trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
     }
 }

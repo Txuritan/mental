@@ -40,28 +40,28 @@ import java.util.*
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 class YuRecipes : IRecipe {
-    override fun getRemainingItems(inv: InventoryCrafting?): NonNullList<ItemStack> = TODO("not implemented")
+    override fun getRemainingItems(inv : InventoryCrafting?) : NonNullList<ItemStack> = TODO("not implemented")
 
-    override fun matches(inv: InventoryCrafting, world: World): Boolean {
+    override fun matches(inv : InventoryCrafting, world : World) : Boolean {
         val player = findPlayer(inv)
         return player != null && player.uniqueID == UUID.fromString("cff87b25-3d9c-4f44-accf-cecbbf2e4b15") && hasDirt(inv)
     }
 
-    override fun getCraftingResult(inv: InventoryCrafting): ItemStack = ItemStack(Items.DIAMOND)
+    override fun getCraftingResult(inv : InventoryCrafting) : ItemStack = ItemStack(Items.DIAMOND)
 
-    override fun getRecipeSize(): Int = 1
+    override fun getRecipeSize() : Int = 1
 
-    override fun getRecipeOutput(): ItemStack = ItemStack(Items.DIAMOND)
+    override fun getRecipeOutput() : ItemStack = ItemStack(Items.DIAMOND)
 
     companion object {
 
-        private fun hasDirt(inv: InventoryCrafting): Boolean = (0..inv.sizeInventory - 1).map { inv.getStackInSlot(it) }.any { it != null && it.item === Item.getItemFromBlock(Blocks.DIRT) }
+        private fun hasDirt(inv : InventoryCrafting) : Boolean = (0 .. inv.sizeInventory - 1).map { inv.getStackInSlot(it) }.any { it != null && it.item === Item.getItemFromBlock(Blocks.DIRT) }
 
         private val eventHandlerField = ReflectionHelper.findField(InventoryCrafting::class.java, "eventHandler")
         private val containerPlayerPlayerField = ReflectionHelper.findField(ContainerPlayer::class.java, "player")
         private val slotCraftingPlayerField = ReflectionHelper.findField(SlotCrafting::class.java, "player")
 
-        private fun findPlayer(inv: InventoryCrafting): EntityPlayer? {
+        private fun findPlayer(inv : InventoryCrafting) : EntityPlayer? {
             try {
                 val container = eventHandlerField.get(inv) as Container
                 if (container is ContainerPlayer) {
@@ -71,7 +71,7 @@ class YuRecipes : IRecipe {
                 } else {
                     return null
                 }
-            } catch (e: Exception) {
+            } catch (e : Exception) {
                 e.stackTrace
                 return null
             }

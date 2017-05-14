@@ -32,13 +32,13 @@ import net.minecraftforge.common.config.Configuration
  */
 object MentalConfig {
 
-    var debug: Boolean = false
+    var debug : Boolean = false
 
-    var stickDrop: Boolean = false
-    var stickDropChance: Int = 0
+    var stickDrop : Boolean = false
+    var stickDropChance : Int = 0
 
     @JvmStatic
-    fun setupConfig(configuration: Configuration) {
+    fun setupConfig(configuration : Configuration) {
 
         debug = configuration.getBoolean("debug", References.MOD_ID, false, "Will log debug information if true")
 

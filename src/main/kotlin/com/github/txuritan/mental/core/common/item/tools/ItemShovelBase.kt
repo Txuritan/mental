@@ -34,14 +34,14 @@ import net.minecraftforge.oredict.OreDictionary
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class ItemShovelBase(material: Item.ToolMaterial, private val name: String, private val oreNames: Array<String>) : ItemSpade(material), IItemModelProvider, IItemOreDict {
+open class ItemShovelBase(material : Item.ToolMaterial, private val name : String, private val oreNames : Array<String>) : ItemSpade(material), IItemModelProvider, IItemOreDict {
 
     init {
         setRegistryName(name)
         unlocalizedName = name
     }
 
-    override fun registerItemModel(item: Item) {
+    override fun registerItemModel(item : Item) {
         Mental.proxy.registerItemRenderer(this, 0, name)
     }
 

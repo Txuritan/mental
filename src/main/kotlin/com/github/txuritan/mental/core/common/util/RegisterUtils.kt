@@ -35,7 +35,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object RegisterUtils {
-    fun <T : Item> registerItem(item: T): T {
+    fun <T : Item> registerItem(item : T) : T {
         GameRegistry.register(item)
 
         if (item is IItemModelProvider) {
@@ -49,7 +49,7 @@ object RegisterUtils {
         return item
     }
 
-    fun <T : Block> registerItemBlock(block: T, itemBlock: ItemBlock): T {
+    fun <T : Block> registerItemBlock(block : T, itemBlock : ItemBlock) : T {
         GameRegistry.register(block)
         GameRegistry.register(itemBlock)
 
@@ -68,9 +68,9 @@ object RegisterUtils {
         return block
     }
 
-    fun <T : Block> registerBlock(block: T): T {
+    fun <T : Block> registerBlock(block : T) : T {
         val itemBlock = ItemBlock(block)
-        itemBlock.registryName = block.registryName!!
+        itemBlock.registryName = block.registryName !!
         return registerItemBlock(block, itemBlock)
     }
 }

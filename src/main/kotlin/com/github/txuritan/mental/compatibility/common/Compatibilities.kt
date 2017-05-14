@@ -30,7 +30,7 @@ import com.github.txuritan.mental.compatibility.common.compatibilities.TConstruc
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Compatibilities {
-    var compatibilities: MutableList<Any> = mutableListOf(
+    var compatibilities : MutableList<Any> = mutableListOf(
         TConstructCompatibility
     )
 }

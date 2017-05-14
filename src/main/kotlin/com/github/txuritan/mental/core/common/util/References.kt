@@ -39,14 +39,14 @@ import java.io.IOException
 object References {
 
     @JvmStatic
-    val LOGGER = LogManager.getLogger(Mental::class.java.simpleName)!!
+    val LOGGER = LogManager.getLogger(Mental::class.java.simpleName) !!
 
-    lateinit var minecraft: File
+    lateinit var minecraft : File
 
     init {
         try {
             minecraft = Minecraft.getMinecraft().mcDataDir.canonicalFile
-        } catch (ioException: IOException) {
+        } catch (ioException : IOException) {
             LOGGER.error("Tried to get Minecraft's CanonicalFile threw IOException", ioException)
         }
 
@@ -58,16 +58,20 @@ object References {
     const val VERSION = BUILD
     const val CLIENT_PROXY_CLASS = "com.github.txuritan.mental.core.client.ClientProxy"
     const val COMMON_PROXY_CLASS = "com.github.txuritan.mental.core.common.CommonProxy"
-    val URL_BASE = "https://txuritan.github.io/mental/"
-    const val UPDATE_URL = "https://txuritan.github.io/mental/update.json"
+    const val URL_BASE = "https://txuritan.github.io/mental/"
+    const val UPDATE_URL = "${URL_BASE}update.json"
 
     @JvmStatic
-    var MENTAL_CREATIVE_TAB: CreativeTabs = object : CreativeTabs("mental.creativeTab") {
-        override fun getTabIconItem(): ItemStack {
+    var MENTAL_CREATIVE_TAB : CreativeTabs = object : CreativeTabs("mental.creativeTab") {
+        init {
+            backgroundImageName = "mental.png"
+        }
+
+        override fun getTabIconItem() : ItemStack {
             return ItemStack(Items.BLAZE_ROD)
         }
 
-        override fun hasSearchBar(): Boolean {
+        override fun hasSearchBar() : Boolean {
             return true
         }
     }

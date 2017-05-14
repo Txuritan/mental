@@ -50,23 +50,23 @@ object Mental {
         clientSide = References.CLIENT_PROXY_CLASS,
         modId = References.MOD_ID
     )
-    lateinit var proxy: CommonProxy
+    lateinit var proxy : CommonProxy
 
     @Mod.Instance(References.MOD_ID)
-    lateinit var instance: Mental
+    lateinit var instance : Mental
 
     @Mod.EventHandler
-    fun preInit(event: FMLPreInitializationEvent) {
+    fun preInit(event : FMLPreInitializationEvent) {
         proxy.preInit(event)
     }
 
     @Mod.EventHandler
-    fun init(event: FMLInitializationEvent) {
+    fun init(event : FMLInitializationEvent) {
         proxy.init(event)
     }
 
     @Mod.EventHandler
-    fun postInit(event: FMLPostInitializationEvent) {
+    fun postInit(event : FMLPostInitializationEvent) {
         proxy.postInit(event)
     }
 

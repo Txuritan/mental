@@ -34,7 +34,7 @@ import net.minecraftforge.common.config.Configuration
  */
 object ConfigHandler {
 
-    fun config(configuration: Configuration) {
+    fun config(configuration : Configuration) {
         try {
 
             configuration.load()
@@ -43,7 +43,7 @@ object ConfigHandler {
 
             Modules.modules.filterIsInstance<IModule>().forEach { it.setupConfig(configuration) }
 
-        } catch (e: Exception) {
+        } catch (e : Exception) {
             References.LOGGER.error("Error Loading Config", e)
         } finally {
             if (configuration.hasChanged()) configuration.save()

@@ -29,13 +29,13 @@ package com.github.txuritan.mental.core.common.exceptions
  */
 class RecipeException : Exception {
 
-    constructor(message: String) : super(message)
+    constructor(message : String) : super(message)
 
-    constructor(cause: Throwable) : super(cause)
+    constructor(cause : Throwable) : super(cause)
 
-    constructor(message: String, cause: Throwable) : super(message, cause)
+    constructor(message : String, cause : Throwable) : super(message, cause)
 
-    constructor(message: String, cause: Throwable, enableSuppression: Boolean, writableStackTrace: Boolean) : super(message, cause, enableSuppression, writableStackTrace)
+    constructor(message : String, cause : Throwable, enableSuppression : Boolean, writableStackTrace : Boolean) : super(message, cause, enableSuppression, writableStackTrace)
 
     companion object {
         private val serialVersionUID = 6317404758307073281L

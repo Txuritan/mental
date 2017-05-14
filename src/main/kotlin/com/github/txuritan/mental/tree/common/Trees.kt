@@ -28,7 +28,7 @@ package com.github.txuritan.mental.tree.common
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Trees {
-    var trees: MutableList<Any> = mutableListOf(
+    var trees : MutableList<Any> = mutableListOf(
 
     )
 }

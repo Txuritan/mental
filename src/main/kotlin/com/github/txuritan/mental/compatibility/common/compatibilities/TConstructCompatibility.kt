@@ -35,19 +35,19 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 object TConstructCompatibility : ICompatibility {
 
-    override fun setupConfig(configuration: Configuration) {
+    override fun setupConfig(configuration : Configuration) {
 
     }
 
-    override fun preInit(event: FMLPreInitializationEvent) {
+    override fun preInit(event : FMLPreInitializationEvent) {
 
     }
 
-    override fun init(event: FMLInitializationEvent) {
+    override fun init(event : FMLInitializationEvent) {
 
     }
 
-    override fun postInit(event: FMLPostInitializationEvent) {
+    override fun postInit(event : FMLPostInitializationEvent) {
 
     }
 

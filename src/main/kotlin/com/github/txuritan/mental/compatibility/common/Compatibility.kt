@@ -35,21 +35,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 object Compatibility : IModule {
 
-    var compatibilities: Compatibilities = Compatibilities
+    var compatibilities : Compatibilities = Compatibilities
 
-    override fun setupConfig(configuration: Configuration) {
+    override fun setupConfig(configuration : Configuration) {
         compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach { it.setupConfig(configuration) }
     }
 
-    override fun preInit(event: FMLPreInitializationEvent) {
+    override fun preInit(event : FMLPreInitializationEvent) {
         compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach { it.preInit(event) }
     }
 
-    override fun init(event: FMLInitializationEvent) {
+    override fun init(event : FMLInitializationEvent) {
         compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach { it.init(event) }
     }
 
-    override fun postInit(event: FMLPostInitializationEvent) {
+    override fun postInit(event : FMLPostInitializationEvent) {
         compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach { it.postInit(event) }
     }
 

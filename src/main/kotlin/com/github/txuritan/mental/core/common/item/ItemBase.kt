@@ -32,18 +32,18 @@ import net.minecraftforge.oredict.OreDictionary
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class ItemBase(private val name: String, private val oreNames: Array<String>) : Item(), IItemModelProvider, IItemOreDict {
+open class ItemBase(private val name : String, private val oreNames : Array<String>) : Item(), IItemModelProvider, IItemOreDict {
 
     init {
         unlocalizedName = name
         setRegistryName(name)
     }
 
-    override fun registerItemModel(item: Item) {
+    override fun registerItemModel(item : Item) {
         Mental.proxy.registerItemRenderer(item, 0, name)
     }
 
-    override fun setCreativeTab(creativeTab: CreativeTabs): ItemBase {
+    override fun setCreativeTab(creativeTab : CreativeTabs) : ItemBase {
         super.setCreativeTab(creativeTab)
         return this
     }

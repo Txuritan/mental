@@ -204,6 +204,7 @@ object Agricite : IElement {
             }
         }
 
+        @Suppress("UNUSED_PARAMETER")
         fun generateEnd(random : Random, chunkX : Int, chunkZ : Int, world : World, chunkGenerator : IChunkGenerator, chunkProvider : IChunkProvider) {
             generateOre(Agricite.ore !!.defaultState, world, random, chunkX * 16, chunkZ * 16, minY !!, maxY !!, size !! + random.nextInt(sizeBound !!), chance !!)
         }

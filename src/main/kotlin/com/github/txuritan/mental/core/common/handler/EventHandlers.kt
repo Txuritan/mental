@@ -25,7 +25,7 @@
 package com.github.txuritan.mental.core.common.handler
 
 import com.github.txuritan.mental.core.common.config.MentalConfig
-import com.github.txuritan.mental.core.event.LeafBreakEvent
+import com.github.txuritan.mental.core.common.event.LeafBreakEvent
 import net.minecraftforge.common.MinecraftForge
 
 /**

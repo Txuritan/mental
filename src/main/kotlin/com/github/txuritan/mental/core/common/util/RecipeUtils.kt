@@ -35,7 +35,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe
  */
 object RecipeUtils {
     @Throws(RecipeException::class)
-    fun configRecipe(property: Property): IRecipe {
+    fun configRecipe(property : Property) : IRecipe {
         val recipeLength = property.stringList.size
         val recipeList = property.stringList
 

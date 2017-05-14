@@ -37,18 +37,18 @@ import net.minecraftforge.oredict.OreDictionary
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class BlockBase(material: Material, private val name: String, private val oreNames: Array<String>) : Block(material), IItemModelProvider, IItemOreDict {
+open class BlockBase(material : Material, private val name : String, private val oreNames : Array<String>) : Block(material), IItemModelProvider, IItemOreDict {
 
     init {
         unlocalizedName = name
         setRegistryName(name)
     }
 
-    override fun registerItemModel(item: Item) {
+    override fun registerItemModel(item : Item) {
         Mental.proxy.registerItemRenderer(item, 0, name)
     }
 
-    override fun setCreativeTab(creativeTab: CreativeTabs): BlockBase {
+    override fun setCreativeTab(creativeTab : CreativeTabs) : BlockBase {
         super.setCreativeTab(creativeTab)
         return this
     }
@@ -59,7 +59,7 @@ open class BlockBase(material: Material, private val name: String, private val o
         }
     }
 
-    override fun getBlockLayer(): BlockRenderLayer {
+    override fun getBlockLayer() : BlockRenderLayer {
         return BlockRenderLayer.CUTOUT
     }
 

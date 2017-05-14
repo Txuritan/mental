@@ -34,16 +34,16 @@ import net.minecraftforge.oredict.OreDictionary
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class ItemBowBase(maxDamage: Int?, private val name: String, private val oreNames: Array<String>) : ItemBow(), IItemModelProvider, IItemOreDict {
+open class ItemBowBase(maxDamage : Int?, private val name : String, private val oreNames : Array<String>) : ItemBow(), IItemModelProvider, IItemOreDict {
 
     init {
-        this.setMaxDamage(maxDamage!!)
+        this.setMaxDamage(maxDamage !!)
         this.setMaxStackSize(1)
         setRegistryName(name)
         unlocalizedName = name
     }
 
-    override fun registerItemModel(item: Item) {
+    override fun registerItemModel(item : Item) {
         Mental.proxy.registerItemRenderer(this, 0, name)
     }
 
