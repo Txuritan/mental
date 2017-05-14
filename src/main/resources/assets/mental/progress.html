@@ -427,122 +427,88 @@
             }
         ];
 
-        var tableElements = document.createElement("table");
-        var tableElementsBody = document.createElement("tbody");
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
-        for (var elementKey in oreData) {
-            if (oreData.hasOwnProperty(elementKey)) {
-                var tr1 = document.createElement("tr");
-                var tr1_td1 = document.createElement("td");
-                tr1_td1.setAttribute("class", oreData[elementKey].class);
-                tr1_td1.appendChild(document.createTextNode(oreData[elementKey].name));
-                tr1.appendChild(tr1_td1);
-                var tr2_td1 = document.createElement("td");
-                var table1 = document.createElement("table");
-                var table1Body = document.createElement("tbody");
-
-                var blocks_tr = document.createElement("tr");
-                var blocks_td1 = document.createElement("td");
-                blocks_td1.setAttribute("class", oreData[elementKey].blocks_class);
-                blocks_td1.appendChild(document.createTextNode("Blocks"));
-                var blocks_td2 = document.createElement("td");
-                var blocks_td2_table = document.createElement("table");
-                var blocks_td2_table_body = document.createElement("tbody");
-                var blocks_td2_table_body_tr = document.createElement("tr");
-                for (var blockKey in oreData[elementKey].blocks) {
-                    if (oreData[elementKey].blocks.hasOwnProperty(blockKey)) {
-                        var blocks_td = document.createElement("td");
-                        blocks_td.setAttribute("class", oreData[elementKey].blocks[blockKey].class);
-                        blocks_td.appendChild(document.createTextNode(oreData[elementKey].blocks[blockKey].name));
-                        blocks_td2_table_body_tr.appendChild(blocks_td);
+        function db(tag, attribute, child) {
+            var element = document.createElement(tag);
+            if (attribute instanceof Array) {
+                for (var i = 0; i < attribute.length; i++) {
+                    element.setAttribute(attribute[i][0], attribute[i][1]);
+                }
+            }
+            if (child instanceof Array) {
+                for (var j = 0; j < child.length; j++) {
+                    if (child[j] instanceof Node) {
+                        element.appendChild(child[j]);
+                    } else {
+                        element.appendChild(document.createTextNode(child[j]));
                     }
                 }
-                blocks_td2_table_body.appendChild(blocks_td2_table_body_tr);
-                blocks_td2_table.appendChild(blocks_td2_table_body);
-                blocks_td2.appendChild(blocks_td2_table);
-                blocks_tr.appendChild(blocks_td1);
-                blocks_tr.appendChild(blocks_td2);
-                table1Body.appendChild(blocks_tr);
+            }
+            return element;
+        }
 
-                var items_tr = document.createElement("tr");
-                var items_td1 = document.createElement("td");
-                items_td1.setAttribute("class", oreData[elementKey].items_class);
-                items_td1.appendChild(document.createTextNode("Items"));
-                var items_td2 = document.createElement("td");
-                var items_td2_table = document.createElement("table");
-                var items_td2_table_body = document.createElement("tbody");
-                var items_td2_table_body_tr = document.createElement("tr");
-                for (var itemKey in oreData[elementKey].items) {
-                    if (oreData[elementKey].items.hasOwnProperty(itemKey)) {
-                        var items_td = document.createElement("td");
-                        items_td.setAttribute("class", oreData[elementKey].items[itemKey].class);
-                        items_td.appendChild(document.createTextNode(oreData[elementKey].items[itemKey].name));
-                        items_td2_table_body_tr.appendChild(items_td);
+        var elements = [];
+
+        for (var element in oreData) {
+            if (oreData.hasOwnProperty(element)) {
+                var elementItems = [];
+
+                var elementItemItems = [];
+
+                for (var elementItem in oreData[element]) {
+                    if (oreData[element].hasOwnProperty(elementItem)) {
+                        if (elementItem === "blocks" || elementItem === "items" || elementItem === "tools" || elementItem === "weapons") {
+
+                            var items = [];
+
+                            for (var item in oreData[element][elementItem]) {
+                                if (oreData[element][elementItem].hasOwnProperty(item)) {
+                                    items.push(
+                                        db('td', [['class',oreData[element][elementItem][item].class]], [oreData[element][elementItem][item].name])
+                                    );
+                                }
+                            }
+
+                            elementItemItems.push(
+                                db('tr', null, [
+                                    db('td', [['class', oreData[element][elementItem + "_class"]]], [capitalize(elementItem)]),
+                                    db('td', null, [
+                                        db('table', null, [
+                                            db('tbody', null, [
+                                                db('tr', null, items)
+                                            ])
+                                        ])
+                                    ])
+                                ])
+                            );
+
+                        }
                     }
                 }
-                items_td2_table_body.appendChild(items_td2_table_body_tr);
-                items_td2_table.appendChild(items_td2_table_body);
-                items_td2.appendChild(items_td2_table);
-                items_tr.appendChild(items_td1);
-                items_tr.appendChild(items_td2);
-                table1Body.appendChild(items_tr);
 
-                var tools_tr = document.createElement("tr");
-                var tools_td1 = document.createElement("td");
-                tools_td1.setAttribute("class", oreData[elementKey].tools_class);
-                tools_td1.appendChild(document.createTextNode("Tools"));
-                var tools_td2 = document.createElement("td");
-                var tools_td2_table = document.createElement("table");
-                var tools_td2_table_body = document.createElement("tbody");
-                var tools_td2_table_body_tr = document.createElement("tr");
-                for (var toolKey in oreData[elementKey].tools) {
-                    if (oreData[elementKey].tools.hasOwnProperty(toolKey)) {
-                        var tools_td = document.createElement("td");
-                        tools_td.setAttribute("class", oreData[elementKey].tools[toolKey].class);
-                        tools_td.appendChild(document.createTextNode(oreData[elementKey].tools[toolKey].name));
-                        tools_td2_table_body_tr.appendChild(tools_td);
-                    }
-                }
-                tools_td2_table_body.appendChild(tools_td2_table_body_tr);
-                tools_td2_table.appendChild(tools_td2_table_body);
-                tools_td2.appendChild(tools_td2_table);
-                tools_tr.appendChild(tools_td1);
-                tools_tr.appendChild(tools_td2);
-                table1Body.appendChild(tools_tr);
+                elementItems.push(
+                    db('table', null, [
+                        db('tbody', null, elementItemItems)
+                    ])
+                );
 
-                var weapons_tr = document.createElement("tr");
-                var weapons_td1 = document.createElement("td");
-                weapons_td1.setAttribute("class", oreData[elementKey].weapons_class);
-                weapons_td1.appendChild(document.createTextNode("Weapons"));
-                var weapons_td2 = document.createElement("td");
-                var weapons_td2_table = document.createElement("table");
-                var weapons_td2_table_body = document.createElement("tbody");
-                var weapons_td2_table_body_tr = document.createElement("tr");
-                for (var weaponKey in oreData[elementKey].weapons) {
-                    if (oreData[elementKey].weapons.hasOwnProperty(weaponKey)) {
-                        var weapons_td = document.createElement("td");
-                        weapons_td.setAttribute("class", oreData[elementKey].weapons[weaponKey].class);
-                        weapons_td.appendChild(document.createTextNode(oreData[elementKey].weapons[weaponKey].name));
-                        weapons_td2_table_body_tr.appendChild(weapons_td);
-                    }
-                }
-                weapons_td2_table_body.appendChild(weapons_td2_table_body_tr);
-                weapons_td2_table.appendChild(weapons_td2_table_body);
-                weapons_td2.appendChild(weapons_td2_table);
-                weapons_tr.appendChild(weapons_td1);
-                weapons_tr.appendChild(weapons_td2);
-                table1Body.appendChild(weapons_tr);
-
-                table1.appendChild(table1Body);
-                tr2_td1.appendChild(table1);
-                tr1.appendChild(tr2_td1);
-                tableElementsBody.appendChild(tr1);
+                elements.push(
+                    db('tr', null, [
+                        db('td', [['class', oreData[element].class]], [oreData[element].name]),
+                        db('td', null, elementItems)
+                    ])
+                );
             }
         }
 
-        tableElements.appendChild(tableElementsBody);
-        tableElements.setAttribute("id", "elements");
-        document.body.appendChild(tableElements);
+        document.body.appendChild(
+            db('table', null, [
+                db('tbody', null, elements)
+            ])
+        );
     </script>
 
 </body>
