@@ -213,7 +213,7 @@ object Alkahest : IElement {
             val deltaY = maxY - minY
             for (i in 0 .. chances - 1) {
                 val pos = BlockPos(x + random.nextInt(16), minY + random.nextInt(deltaY), z + random.nextInt(16))
-                val generator = WorldGenMinable(ore, size, BlockStateMatcher.forBlock(Blocks.END_STONE))
+                val generator = WorldGenMinable(ore, size, BlockStateMatcher.forBlock(Blocks.NETHERRACK))
                 generator.generate(world, random, pos)
             }
         }

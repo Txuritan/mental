@@ -199,9 +199,9 @@ object Adlourite : IElement {
 
         override fun generate(random : Random, chunkX : Int, chunkZ : Int, world : World, chunkGenerator : IChunkGenerator, chunkProvider : IChunkProvider) {
             when (world.provider.dimensionType) {
-                DimensionType.NETHER -> generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider)
-                DimensionType.OVERWORLD -> System.out.println("OVERWORLD: what")
                 DimensionType.THE_END -> System.out.println("THE_END: what")
+                DimensionType.OVERWORLD -> System.out.println("OVERWORLD: what")
+                DimensionType.NETHER -> generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider)
                 null -> System.out.println("null: what")
             }
         }

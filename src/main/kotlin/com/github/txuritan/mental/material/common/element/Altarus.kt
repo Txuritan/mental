@@ -197,15 +197,15 @@ object Altarus  : IElement {
 
         override fun generate(random : Random, chunkX : Int, chunkZ : Int, world : World, chunkGenerator : IChunkGenerator, chunkProvider : IChunkProvider) {
             when (world.provider.dimensionType) {
-                DimensionType.THE_END -> System.out.println("THE_END: what")
+                DimensionType.THE_END -> generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider)
                 DimensionType.OVERWORLD -> System.out.println("OVERWORLD: what")
-                DimensionType.NETHER -> generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider)
+                DimensionType.NETHER -> System.out.println("NETHER: what")
                 null -> System.out.println("null: what")
             }
         }
 
         @Suppress("UNUSED_PARAMETER")
-        fun generateNether(random : Random, chunkX : Int, chunkZ : Int, world : World, chunkGenerator : IChunkGenerator, chunkProvider : IChunkProvider) {
+        fun generateEnd(random : Random, chunkX : Int, chunkZ : Int, world : World, chunkGenerator : IChunkGenerator, chunkProvider : IChunkProvider) {
             generateOre(Altarus.ore !!.defaultState, world, random, chunkX * 16, chunkZ * 16, minY !!, maxY !!, size !! + random.nextInt(sizeBound !!), chance !!)
         }
 
