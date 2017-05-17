@@ -26,6 +26,7 @@ package com.github.txuritan.mental.core.common
 
 import com.github.txuritan.mental.compatibility.common.Compatibility
 import com.github.txuritan.mental.material.common.Material
+import com.github.txuritan.mental.moth.common.Moth
 import com.github.txuritan.mental.tree.common.Tree
 
 /**
@@ -35,6 +36,7 @@ object Modules {
     var modules : MutableList<Any> = mutableListOf(
         Material,
         Tree,
+        Moth,
         Compatibility
     )
 }

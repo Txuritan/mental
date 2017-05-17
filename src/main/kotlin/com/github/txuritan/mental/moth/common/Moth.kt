@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.material.common
+package com.github.txuritan.mental.moth.common
 
 import com.github.txuritan.mental.core.common.IModule
 import com.github.txuritan.mental.core.common.util.References
@@ -35,32 +35,32 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Material : IModule {
+object Moth : IModule {
 
-    var elements : Elements = Elements
+    var moths : Moths = Moths
 
     override fun setupConfig(configuration : Configuration) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
+        moths.moths.filterIsInstance<IMoth>().forEach { it.setupConfig(configuration) }
     }
 
     override fun preInit(event : FMLPreInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
+        moths.moths.filterIsInstance<IMoth>().forEach { it.preInit(event) }
 
         val modMetadata : ModMetadata = event.modMetadata
         modMetadata.modId = References.MOD_ID
-        var description : String = "§fTons of ores.\n\nMoth too.\n\nEnabled elements\n"
-        elements.elements.filterIsInstance<IElement>().forEach {
-            description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
+        var description : String = modMetadata.description
+        description += "\n\nEnabled moths\n"
+        moths.moths.filterIsInstance<IMoth>().forEach {
+            description += "    * ${it.MOTH.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
         }
         modMetadata.description = description
     }
 
     override fun init(event : FMLInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
+        moths.moths.filterIsInstance<IMoth>().forEach { it.init(event) }
     }
 
     override fun postInit(event : FMLPostInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
+        moths.moths.filterIsInstance<IMoth>().forEach { it.postInit(event) }
     }
-
 }

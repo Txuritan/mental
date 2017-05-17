@@ -132,18 +132,18 @@ object Alkahest : IElement {
         }
     }
 
-    private val ELEMENT_ORE_DIC_ARMOR = "${ELEMENT}Armor"
-    private val ELEMENT_ORE_DIC_ARMOR_HEAD = "${ELEMENT}ArmorHead"
-    private val ELEMENT_ORE_DIC_ARMOR_CHEST = "${ELEMENT}ArmorChest"
-    private val ELEMENT_ORE_DIC_ARMOR_LEGS = ELEMENT + "ArmorLegs"
-    private val ELEMENT_ORE_DIC_ARMOR_FEET = "${ELEMENT}ArmorFeet"
-    private val ELEMENT_ORE_DIC_AXE = "${ELEMENT}Axe"
-    private val ELEMENT_ORE_DIC_BOW = "${ELEMENT}Bow"
-    private val ELEMENT_ORE_DIC_HOE = "${ELEMENT}Hoe"
-    private val ELEMENT_ORE_DIC_PICKAXE = "${ELEMENT}Pickaxe"
-    private val ELEMENT_ORE_DIC_SHEARS = "${ELEMENT}Shears"
-    private val ELEMENT_ORE_DIC_SHOVEL = "${ELEMENT}Shovel"
-    private val ELEMENT_ORE_DIC_SWORD = "${ELEMENT}Sword"
+    private val ELEMENT_ORE_DIC_ARMOR : String = "${ELEMENT}Armor"
+    private val ELEMENT_ORE_DIC_ARMOR_HEAD : String = "${ELEMENT_ORE_DIC_ARMOR}Head"
+    private val ELEMENT_ORE_DIC_ARMOR_CHEST : String = "${ELEMENT_ORE_DIC_ARMOR}Chest"
+    private val ELEMENT_ORE_DIC_ARMOR_LEGS : String = "${ELEMENT_ORE_DIC_ARMOR}Legs"
+    private val ELEMENT_ORE_DIC_ARMOR_FEET : String = "${ELEMENT_ORE_DIC_ARMOR}Feet"
+    private val ELEMENT_ORE_DIC_AXE : String = "${ELEMENT}Axe"
+    private val ELEMENT_ORE_DIC_BOW : String = "${ELEMENT}Bow"
+    private val ELEMENT_ORE_DIC_HOE : String = "${ELEMENT}Hoe"
+    private val ELEMENT_ORE_DIC_PICKAXE : String = "${ELEMENT}Pickaxe"
+    private val ELEMENT_ORE_DIC_SHEARS : String = "${ELEMENT}Shears"
+    private val ELEMENT_ORE_DIC_SHOVEL : String = "${ELEMENT}Shovel"
+    private val ELEMENT_ORE_DIC_SWORD : String = "${ELEMENT}Sword"
 
     internal class Armor(material : ItemArmor.ArmorMaterial, slot : EntityEquipmentSlot) : ItemArmorBase(material, slot, "${ELEMENT}_armor_" + slot.getName(), arrayOf(ELEMENT_ORE_DIC_ARMOR + slot.getName().capitalize())) {
         init {

@@ -30,6 +30,7 @@ import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import java.io.File
 import java.io.IOException
 
@@ -39,7 +40,7 @@ import java.io.IOException
 object References {
 
     @JvmStatic
-    val LOGGER = LogManager.getLogger(Mental::class.java.simpleName) !!
+    val LOGGER : Logger = LogManager.getLogger(Mental::class.java.simpleName) !!
 
     lateinit var minecraft : File
 
@@ -52,14 +53,14 @@ object References {
 
     }
 
-    const val MOD_ID = "mental"
-    const val MOD_NAME = "Mental"
-    const val BUILD = "GRADLE:BUILD"
-    const val VERSION = BUILD
-    const val CLIENT_PROXY_CLASS = "com.github.txuritan.mental.core.client.ClientProxy"
-    const val COMMON_PROXY_CLASS = "com.github.txuritan.mental.core.common.CommonProxy"
-    const val URL_BASE = "https://txuritan.github.io/mental/"
-    const val UPDATE_URL = "${URL_BASE}update.json"
+    const val MOD_ID : String = "mental"
+    const val MOD_NAME : String = "Mental"
+    const val BUILD : String = "GRADLE:BUILD"
+    const val VERSION : String = BUILD
+    const val CLIENT_PROXY_CLASS : String = "com.github.txuritan.mental.core.client.ClientProxy"
+    const val COMMON_PROXY_CLASS : String = "com.github.txuritan.mental.core.common.CommonProxy"
+    const val URL_BASE : String = "https://txuritan.github.io/mental/"
+    const val UPDATE_URL : String = "${URL_BASE}update.json"
 
     @JvmStatic
     var MENTAL_CREATIVE_TAB : CreativeTabs = object : CreativeTabs("mental.creativeTab") {

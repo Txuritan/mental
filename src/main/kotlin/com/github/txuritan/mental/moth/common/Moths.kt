@@ -22,22 +22,13 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.core.common.exceptions
+package com.github.txuritan.mental.moth.common
 
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-class RecipeException : Exception {
+object Moths {
+    var moths : MutableList<Any> = mutableListOf(
 
-    constructor(message : String) : super(message)
-
-    constructor(cause : Throwable) : super(cause)
-
-    constructor(message : String, cause : Throwable) : super(message, cause)
-
-    constructor(message : String, cause : Throwable, enableSuppression : Boolean, writableStackTrace : Boolean) : super(message, cause, enableSuppression, writableStackTrace)
-
-    companion object {
-        private val serialVersionUID : Long = 6317404758307073281L
-    }
+    )
 }
