@@ -25,7 +25,9 @@
 package com.github.txuritan.mental.compatibility.common
 
 import com.github.txuritan.mental.core.common.IModule
+import com.github.txuritan.mental.core.common.util.References
 import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.ModMetadata
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -43,6 +45,15 @@ object Compatibility : IModule {
 
     override fun preInit(event : FMLPreInitializationEvent) {
         compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach { it.preInit(event) }
+
+        val modMetadata : ModMetadata = event.modMetadata
+        modMetadata.modId = References.MOD_ID
+        var description : String = modMetadata.description
+        description += "\nEnabled compatibilities\n"
+        compatibilities.compatibilities.filterIsInstance<ICompatibility>().forEach {
+            description += "    * ${it.COMPATIBILITY.replace("-"," ").capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
+        }
+        modMetadata.description = description
     }
 
     override fun init(event : FMLInitializationEvent) {

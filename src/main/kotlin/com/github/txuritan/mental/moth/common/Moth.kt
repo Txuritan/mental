@@ -49,7 +49,7 @@ object Moth : IModule {
         val modMetadata : ModMetadata = event.modMetadata
         modMetadata.modId = References.MOD_ID
         var description : String = modMetadata.description
-        description += "\n\nEnabled moths\n"
+        description += "\nEnabled moths\n"
         moths.moths.filterIsInstance<IMoth>().forEach {
             description += "    * ${it.MOTH.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
         }

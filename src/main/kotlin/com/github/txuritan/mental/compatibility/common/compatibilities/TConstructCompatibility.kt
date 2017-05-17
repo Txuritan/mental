@@ -35,6 +35,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 object TConstructCompatibility : ICompatibility {
 
+    override val COMPATIBILITY : String = "tinkers-construct"
+
+    override var configEnabledAll : Boolean? = false
+
     override fun setupConfig(configuration : Configuration) {
 
     }

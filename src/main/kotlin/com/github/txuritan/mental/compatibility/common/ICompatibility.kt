@@ -34,6 +34,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
  */
 interface ICompatibility {
 
+    val COMPATIBILITY : String
+
+    var configEnabledAll : Boolean?
+
     fun setupConfig(configuration : Configuration)
 
     fun preInit(event : FMLPreInitializationEvent)
