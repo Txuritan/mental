@@ -1,0 +1,10 @@
+{
+    "homepage": "https://txuritan.github.io",
+    "promos": {
+        "1.11.2-recommended": "1.11.2-0.0.1.0-beta",
+        "1.11.2-latest": "1.11.2-0.0.1.0-beta"
+    },
+    "1.11.2": {
+        "1.11.2-0.0.1.0-beta": "* [Pipes] Fixed ConcurrentModificationException in item update packet\n* [Wires] Fix redstone propagation bug\n"
+    }
+}
