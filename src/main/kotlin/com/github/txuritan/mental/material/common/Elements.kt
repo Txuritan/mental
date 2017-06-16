@@ -35,6 +35,13 @@ object Elements {
         Adlourite,
         Agricite,
         Alkahest,
-        Altarus
+        Altarus,
+        Alumite,
+        Am2,
+        Arcanite,
+        Arnmonium,
+        Astral_Silver,
+        Atmospherium,
+        Axonite
     )
 }

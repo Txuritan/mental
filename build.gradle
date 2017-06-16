@@ -9,8 +9,9 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2-2'
         classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2-2"
     }
 }
 
@@ -64,7 +65,7 @@ dependencies {
     //compile "mezz.jei:jei_1.11.2:4.2.9.247:api"
     //deobfCompile "info.amerifrance.guideapi:Guide-API:1.11-2.1.0-51"
 
-    compile group: "net.shadowfacts", name: "Forgelin", version: "1.4.1"
+    compile group: "net.shadowfacts", name: "Forgelin", version: "1.5.0"
 
     //compile 'com.getsentry.raven:raven:7.8.6'
     //compile 'com.google.apis:google-api-services-analytics:v3-rev139-1.22.0'

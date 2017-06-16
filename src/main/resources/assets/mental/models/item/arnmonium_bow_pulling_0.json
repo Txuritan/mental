@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "mental:items/arnmonium_bow_pulling_0"
+  }
+}

@@ -38,29 +38,43 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 object Material : IModule {
 
     var elements : Elements = Elements
+    var alloys : Alloys = Alloys
 
     override fun setupConfig(configuration : Configuration) {
         elements.elements.filterIsInstance<IElement>().forEach { it.setupConfig(configuration) }
+        alloys.alloys.filterIsInstance<IAlloy>().forEach { it.setupConfig(configuration) }
     }
 
     override fun preInit(event : FMLPreInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
 
         val modMetadata : ModMetadata = event.modMetadata
         modMetadata.modId = References.MOD_ID
+
+        elements.elements.filterIsInstance<IElement>().forEach { it.preInit(event) }
+
         var description : String = "§fTons of ores.\n\nMoth too.\n\nEnabled elements\n"
         elements.elements.filterIsInstance<IElement>().forEach {
             description += "    * ${it.ELEMENT.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
         }
+
+        alloys.alloys.filterIsInstance<IAlloy>().forEach { it.preInit(event) }
+
+        description += "\nEnabled alloys\n"
+        alloys.alloys.filterIsInstance<IAlloy>().forEach {
+            description += "    * ${it.ALLOY.capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
+        }
+
         modMetadata.description = description
     }
 
     override fun init(event : FMLInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.init(event) }
+        alloys.alloys.filterIsInstance<IElement>().forEach { it.init(event) }
+        alloys.alloys.filterIsInstance<IAlloy>().forEach { it.init(event) }
     }
 
     override fun postInit(event : FMLPostInitializationEvent) {
-        elements.elements.filterIsInstance<IElement>().forEach { it.postInit(event) }
+        alloys.alloys.filterIsInstance<IElement>().forEach { it.postInit(event) }
+        alloys.alloys.filterIsInstance<IAlloy>().forEach { it.postInit(event) }
     }
 
 }

@@ -98,3 +98,219 @@ item.agricite_sword.name=Agricite Sword
 
 tile.agricite_block.name=Agricite Block
 tile.agricite_ore.name=Agricite Ore
+
+## Alkahest
+
+item.alkahest_armor_head.name=Alkahest Helmet
+item.alkahest_armor_chest.name=Alkahest Chestplate
+item.alkahest_armor_legs.name=Alkahest Leggings
+item.alkahest_armor_feet.name=Alkahest Boots
+
+item.alkahest_chunk.name=Alkahest Chunk
+item.alkahest_dust.name=Alkahest Dust
+item.alkahest_ingot.name=Alkahest Ingot
+item.alkahest_nugget.name=Alkahest Nugget
+item.alkahest_plate.name=Alkahest Plate
+
+item.alkahest_axe.name=Alkahest Axe
+item.alkahest_bow.name=Alkahest Bow
+item.alkahest_hoe.name=Alkahest Hoe
+item.alkahest_pickaxe.name=Alkahest Pickaxe
+item.alkahest_shears.name=Alkahest Shears
+item.alkahest_shovel.name=Alkahest Shovel
+item.alkahest_sword.name=Alkahest Sword
+
+tile.alkahest_block.name=Alkahest Block
+tile.alkahest_ore.name=Alkahest Ore
+
+## Altarus
+
+item.altarus_armor_head.name=Altarus Helmet
+item.altarus_armor_chest.name=Altarus Chestplate
+item.altarus_armor_legs.name=Altarus Leggings
+item.altarus_armor_feet.name=Altarus Boots
+
+item.altarus_chunk.name=Altarus Chunk
+item.altarus_dust.name=Altarus Dust
+item.altarus_ingot.name=Altarus Ingot
+item.altarus_nugget.name=Altarus Nugget
+item.altarus_plate.name=Altarus Plate
+
+item.altarus_axe.name=Altarus Axe
+item.altarus_bow.name=Altarus Bow
+item.altarus_hoe.name=Altarus Hoe
+item.altarus_pickaxe.name=Altarus Pickaxe
+item.altarus_shears.name=Altarus Shears
+item.altarus_shovel.name=Altarus Shovel
+item.altarus_sword.name=Altarus Sword
+
+tile.altarus_block.name=Altarus Block
+tile.altarus_ore.name=Altarus Ore
+
+## Alumite
+
+item.alumite_armor_head.name=Alumite Helmet
+item.alumite_armor_chest.name=Alumite Chestplate
+item.alumite_armor_legs.name=Alumite Leggings
+item.alumite_armor_feet.name=Alumite Boots
+
+item.alumite_chunk.name=Alumite Chunk
+item.alumite_dust.name=Alumite Dust
+item.alumite_ingot.name=Alumite Ingot
+item.alumite_nugget.name=Alumite Nugget
+item.alumite_plate.name=Alumite Plate
+
+item.alumite_axe.name=Alumite Axe
+item.alumite_bow.name=Alumite Bow
+item.alumite_hoe.name=Alumite Hoe
+item.alumite_pickaxe.name=Alumite Pickaxe
+item.alumite_shears.name=Alumite Shears
+item.alumite_shovel.name=Alumite Shovel
+item.alumite_sword.name=Alumite Sword
+
+tile.alumite_block.name=Alumite Block
+tile.alumite_ore.name=Alumite Ore
+
+## AM2
+
+item.am2_armor_head.name=AM2 Helmet
+item.am2_armor_chest.name=AM2 Chestplate
+item.am2_armor_legs.name=AM2 Leggings
+item.am2_armor_feet.name=AM2 Boots
+
+item.am2_chunk.name=AM2 Chunk
+item.am2_dust.name=AM2 Dust
+item.am2_ingot.name=AM2 Ingot
+item.am2_nugget.name=AM2 Nugget
+item.am2_plate.name=AM2 Plate
+
+item.am2_axe.name=AM2 Axe
+item.am2_bow.name=AM2 Bow
+item.am2_hoe.name=AM2 Hoe
+item.am2_pickaxe.name=AM2 Pickaxe
+item.am2_shears.name=AM2 Shears
+item.am2_shovel.name=AM2 Shovel
+item.am2_sword.name=AM2 Sword
+
+tile.am2_block.name=AM2 Block
+tile.am2_ore.name=AM2 Ore
+
+## Arcanite
+
+item.arcanite_armor_head.name=Arcanite Helmet
+item.arcanite_armor_chest.name=Arcanite Chestplate
+item.arcanite_armor_legs.name=Arcanite Leggings
+item.arcanite_armor_feet.name=Arcanite Boots
+
+item.arcanite_chunk.name=Arcanite Chunk
+item.arcanite_dust.name=Arcanite Dust
+item.arcanite_ingot.name=Arcanite Ingot
+item.arcanite_nugget.name=Arcanite Nugget
+item.arcanite_plate.name=Arcanite Plate
+
+item.arcanite_axe.name=Arcanite Axe
+item.arcanite_bow.name=Arcanite Bow
+item.arcanite_hoe.name=Arcanite Hoe
+item.arcanite_pickaxe.name=Arcanite Pickaxe
+item.arcanite_shears.name=Arcanite Shears
+item.arcanite_shovel.name=Arcanite Shovel
+item.arcanite_sword.name=Arcanite Sword
+
+tile.arcanite_block.name=Arcanite Block
+tile.arcanite_ore.name=Arcanite Ore
+
+## Arnmonium
+
+item.arnmonium_armor_head.name=Arnmonium Helmet
+item.arnmonium_armor_chest.name=Arnmonium Chestplate
+item.arnmonium_armor_legs.name=Arnmonium Leggings
+item.arnmonium_armor_feet.name=Arnmonium Boots
+
+item.arnmonium_chunk.name=Arnmonium Chunk
+item.arnmonium_dust.name=Arnmonium Dust
+item.arnmonium_ingot.name=Arnmonium Ingot
+item.arnmonium_nugget.name=Arnmonium Nugget
+item.arnmonium_plate.name=Arnmonium Plate
+
+item.arnmonium_axe.name=Arnmonium Axe
+item.arnmonium_bow.name=Arnmonium Bow
+item.arnmonium_hoe.name=Arnmonium Hoe
+item.arnmonium_pickaxe.name=Arnmonium Pickaxe
+item.arnmonium_shears.name=Arnmonium Shears
+item.arnmonium_shovel.name=Arnmonium Shovel
+item.arnmonium_sword.name=Arnmonium Sword
+
+tile.arnmonium_block.name=Arnmonium Block
+tile.arnmonium_ore.name=Arnmonium Ore
+
+## Astral Silver
+
+item.astral_silver_armor_head.name=Astral Silver Helmet
+item.astral_silver_armor_chest.name=Astral Silver Chestplate
+item.astral_silver_armor_legs.name=Astral Silver Leggings
+item.astral_silver_armor_feet.name=Astral Silver Boots
+
+item.astral_silver_chunk.name=Astral Silver Chunk
+item.astral_silver_dust.name=Astral Silver Dust
+item.astral_silver_ingot.name=Astral Silver Ingot
+item.astral_silver_nugget.name=Astral Silver Nugget
+item.astral_silver_plate.name=Astral Silver Plate
+
+item.astral_silver_axe.name=Astral Silver Axe
+item.astral_silver_bow.name=Astral Silver Bow
+item.astral_silver_hoe.name=Astral Silver Hoe
+item.astral_silver_pickaxe.name=Astral Silver Pickaxe
+item.astral_silver_shears.name=Astral Silver Shears
+item.astral_silver_shovel.name=Astral Silver Shovel
+item.astral_silver_sword.name=Astral Silver Sword
+
+tile.astral_silver_block.name=Astral Silver Block
+tile.astral_silver_ore.name=Astral Silver Ore
+
+## Atmospherium
+
+item.atmospherium_armor_head.name=Atmospherium Helmet
+item.atmospherium_armor_chest.name=Atmospherium Chestplate
+item.atmospherium_armor_legs.name=Atmospherium Leggings
+item.atmospherium_armor_feet.name=Atmospherium Boots
+
+item.atmospherium_chunk.name=Atmospherium Chunk
+item.atmospherium_dust.name=Atmospherium Dust
+item.atmospherium_ingot.name=Atmospherium Ingot
+item.atmospherium_nugget.name=Atmospherium Nugget
+item.atmospherium_plate.name=Atmospherium Plate
+
+item.atmospherium_axe.name=Atmospherium Axe
+item.atmospherium_bow.name=Atmospherium Bow
+item.atmospherium_hoe.name=Atmospherium Hoe
+item.atmospherium_pickaxe.name=Atmospherium Pickaxe
+item.atmospherium_shears.name=Atmospherium Shears
+item.atmospherium_shovel.name=Atmospherium Shovel
+item.atmospherium_sword.name=Atmospherium Sword
+
+tile.atmospherium_block.name=Atmospherium Block
+tile.atmospherium_ore.name=Atmospherium Ore
+
+## Axonite
+
+item.axonite_armor_head.name=Axonite Helmet
+item.axonite_armor_chest.name=Axonite Chestplate
+item.axonite_armor_legs.name=Axonite Leggings
+item.axonite_armor_feet.name=Axonite Boots
+
+item.axonite_chunk.name=Axonite Chunk
+item.axonite_dust.name=Axonite Dust
+item.axonite_ingot.name=Axonite Ingot
+item.axonite_nugget.name=Axonite Nugget
+item.axonite_plate.name=Axonite Plate
+
+item.axonite_axe.name=Axonite Axe
+item.axonite_bow.name=Axonite Bow
+item.axonite_hoe.name=Axonite Hoe
+item.axonite_pickaxe.name=Axonite Pickaxe
+item.axonite_shears.name=Axonite Shears
+item.axonite_shovel.name=Axonite Shovel
+item.axonite_sword.name=Axonite Sword
+
+tile.axonite_block.name=Axonite Block
+tile.axonite_ore.name=Axonite Ore
