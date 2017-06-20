@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mental Progress</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #ECF0F1;
+        }
+
+        table {
+            color: #ECF0F1;
+            font-family: "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: none;
+            width: 100%;
+        }
+
+        table, td, th {
+            border: 0 solid #95A5A6;
+            padding: 0;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid #2B2B2B;
+            padding: 5px;
+        }
+
+        td.green {
+            background-color: #2ECC71;
+        }
+
+        td.orange {
+            background-color: #E67E22;
+        }
+
+        td.red {
+            background-color: #E74C3C;
+        }
+
+        td.disabled {
+            background-color: #745EC5;
+        }
+
+        @media screen and (max-width: 600px) {
+            tr td tr td tr td {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2017 Ian Cronkright
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<body>
+
+    <h1>Mental Progress</h1>
+
+    <h2>Key</h2>
+
+    <table>
+        <tbody>
+            <tr>
+                <td class="disabled">Not being added</td>
+                <td class="red">No Progress</td>
+                <td class="orange">Some Progress</td>
+                <td class="green">Done</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Progress</h2>
+
+    <script>
+
+        var oreData = [
+            {
+                "name": "Adamantine",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Adlourite",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Agricite",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Alkahest",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Altarus",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Alumite",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "AM2",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Arcanite",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Arnmonium",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Astral Silver",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Atmospherium",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            },
+            {
+                "name": "Axonite",
+                "class": "orange",
+                "blocks": [
+                    {"name": "Ore", "class": "green"},
+                    {"name": "Whole", "class": "green"}
+                ], "blocks_class": "green",
+                "items": [
+                    {"name": "Chunk", "class": "green"},
+                    {"name": "Dust", "class": "green"},
+                    {"name": "Ingot", "class": "green"},
+                    {"name": "Nugget", "class": "green"},
+                    {"name": "Plate", "class": "green"}
+                ], "items_class": "green",
+                "tools": [
+                    {"name": "Axe", "class": "green"},
+                    {"name": "Hoe", "class": "green"},
+                    {"name": "Pickaxe", "class": "green"},
+                    {"name": "Shears", "class": "green"},
+                    {"name": "Shovel", "class": "green"}
+                ], "tools_class": "green",
+                "weapons": [
+                    {"name": "Armor", "class": "green"},
+                    {"name": "Bow and Arrow", "class": "green"},
+                    {"name": "Sword", "class": "green"}
+                ], "weapons_class": "green"
+            }
+        ];
+
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function db(tag, attribute, child) {
+            var element = document.createElement(tag);
+            if (attribute instanceof Array) {
+                for (var i = 0; i < attribute.length; i++) {
+                    element.setAttribute(attribute[i][0], attribute[i][1]);
+                }
+            }
+            if (child instanceof Array) {
+                for (var j = 0; j < child.length; j++) {
+                    if (child[j] instanceof Node) {
+                        element.appendChild(child[j]);
+                    } else {
+                        element.appendChild(document.createTextNode(child[j]));
+                    }
+                }
+            }
+            return element;
+        }
+
+        var elements = [];
+
+        for (var element in oreData) {
+            if (oreData.hasOwnProperty(element)) {
+                var elementItems = [];
+
+                var elementItemItems = [];
+
+                for (var elementItem in oreData[element]) {
+                    if (oreData[element].hasOwnProperty(elementItem)) {
+                        if (elementItem === "blocks" || elementItem === "items" || elementItem === "tools" || elementItem === "weapons") {
+
+                            var items = [];
+
+                            for (var item in oreData[element][elementItem]) {
+                                if (oreData[element][elementItem].hasOwnProperty(item)) {
+                                    items.push(
+                                        db('td', [['class',oreData[element][elementItem][item].class]], [oreData[element][elementItem][item].name])
+                                    );
+                                }
+                            }
+
+                            elementItemItems.push(
+                                db('tr', null, [
+                                    db('td', [['class', oreData[element][elementItem + "_class"]]], [capitalize(elementItem)]),
+                                    db('td', null, [
+                                        db('table', null, [
+                                            db('tbody', null, [
+                                                db('tr', null, items)
+                                            ])
+                                        ])
+                                    ])
+                                ])
+                            );
+
+                        }
+                    }
+                }
+
+                elementItems.push(
+                    db('table', null, [
+                        db('tbody', null, elementItemItems)
+                    ])
+                );
+
+                elements.push(
+                    db('tr', null, [
+                        db('td', [['class', oreData[element].class]], [oreData[element].name]),
+                        db('td', null, elementItems)
+                    ])
+                );
+            }
+        }
+
+        document.body.appendChild(
+            db('table', null, [
+                db('tbody', null, elements)
+            ])
+        );
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "mental:items/adlourite_bow_pulling_1"
+  }
+}

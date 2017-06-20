@@ -1,0 +1,1 @@
+gradlew.bat setupDevWorkspace setupDecompWorkspace idea genIntellijRuns

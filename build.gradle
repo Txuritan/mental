@@ -1,0 +1,106 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2-2'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'kotlin'
+
+// https://mcforge.readthedocs.io/en/latest/conventions/versioning/
+// MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH-RELEASE
+version = "1.11.2-0.0.1.0-beta"
+group = "com.github.txuritan"
+archivesBaseName = "mental"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+minecraft {
+    version = "1.12-14.21.0.2338"
+    runDir = "run"
+    mappings = "snapshot_20170617"
+    makeObfSourceJar = false
+
+    replace 'GRADLE:BUILD', project.version
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+
+    maven { url "https://raw.githubusercontent.com/Txuritan/maven-repository/master/" }
+    maven { url "http://dvs1.progwml6.com/files/maven" }
+    maven { url "http://tehnut.info/maven" }
+    maven { url "http://mvn.rx14.co.uk/list/repo/" }
+    maven { url "http://mvn.rx14.co.uk/shadowfacts/" }
+}
+
+configurations {
+    extraLibs
+    extraLibs.transitive = false
+    compile.extendsFrom(extraLibs)
+}
+
+dependencies {
+
+    //compile name: 'Chisel-MC1.11.2-0.0.9.11'
+    //compile name: 'mcflux-2.5.1-dev'
+    //deobfCompile 'com.wayoftime.bloodmagic:BloodMagic:1.11-2.1.7-76'
+    //compile "mezz.jei:jei_1.11.2:4.2.9.247:api"
+    //deobfCompile "info.amerifrance.guideapi:Guide-API:1.11-2.1.0-51"
+
+    compile group: "net.shadowfacts", name: "Forgelin", version: "1.5.0"
+
+    extraLibs 'org.luaj:luaj-jse:3.0.1'
+
+    extraLibs 'com.esotericsoftware.yamlbeans:yamlbeans:1.12'
+
+    //compile 'com.getsentry.raven:raven:7.8.6'
+    //compile 'com.google.apis:google-api-services-analytics:v3-rev139-1.22.0'
+
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+idea {
+    module {
+        inheritOutputDirs = true
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
