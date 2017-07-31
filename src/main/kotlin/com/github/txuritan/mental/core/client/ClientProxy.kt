@@ -53,5 +53,7 @@ class ClientProxy : CommonProxy() {
 
     override fun postInit(event : FMLPostInitializationEvent) {
         super.postInit(event)
+
+        //MinecraftForge.EVENT_BUS.register(HUDEvent())
     }
 }

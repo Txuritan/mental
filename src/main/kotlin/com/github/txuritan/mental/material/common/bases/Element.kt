@@ -66,11 +66,11 @@ import java.util.*
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class Element : IElement {
+open class Element(element : String, dimension : String) : IElement {
 
-    override val ELEMENT : String = "adamantine"
+    override final val ELEMENT : String = element
 
-    open val GENERATION : String = "overworld"
+    val GENERATION : String = dimension
 
     open val MOD_ID : String = References.MOD_ID
 

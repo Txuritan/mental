@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Agricite : Element() {
-
-    override val ELEMENT : String = "agricite"
-
-    override var GENERATION : String = "end"
-
-}
+object Agricite : Element("agricite", "end")

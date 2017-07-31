@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Adlourite : Element() {
-
-    override val ELEMENT : String = "adlourite"
-
-    override var GENERATION : String = "nether"
-
-}
+object Adlourite : Element("adlourite", "nether")

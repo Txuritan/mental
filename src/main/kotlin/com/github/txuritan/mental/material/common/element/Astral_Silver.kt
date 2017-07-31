@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Astral_Silver : Element() {
-
-    override val ELEMENT : String = "astral_silver"
-
-    override var GENERATION : String = "nether"
-
-}
+object Astral_Silver : Element("astral_silver", "nether")

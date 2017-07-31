@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Arnmonium : Element() {
-
-    override val ELEMENT : String = "arnmonium"
-
-    override var GENERATION : String = "nether"
-
-}
+object Arnmonium : Element("arnmonium", "nether")

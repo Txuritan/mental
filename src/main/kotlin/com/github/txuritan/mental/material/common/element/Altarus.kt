@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Altarus : Element() {
-
-    override val ELEMENT : String = "altarus"
-
-    override var GENERATION : String = "end"
-
-}
+object Altarus : Element("altarus", "end")

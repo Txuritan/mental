@@ -22,35 +22,71 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.tree.common
+package com.github.txuritan.mental.script.common
 
 import com.github.txuritan.mental.core.common.IModule
+import com.github.txuritan.mental.core.common.util.References
+import com.github.txuritan.mental.script.common.utils.Recipe
 import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.ProgressManager
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
+import org.luaj.vm2.Globals
+import org.luaj.vm2.LuaValue
+import org.luaj.vm2.lib.jse.CoerceJavaToLua
+import org.luaj.vm2.lib.jse.JsePlatform
+import java.io.File
 
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Tree : IModule {
+object Script : IModule {
 
-    var trees : Trees = Trees
+    val globalFunctions : MutableList<Any> = mutableListOf(
+        Recipe()
+    )
 
     override fun setupConfig(configuration : Configuration) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.setupConfig(configuration) }
+
     }
 
     override fun preInit(event : FMLPreInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
+
     }
 
+
     override fun init(event : FMLInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
+        File("${References.minecraft.canonicalPath}${File.separatorChar}scripts${File.separatorChar}").mkdirs()
+
+        val files = File("${References.minecraft.canonicalPath}${File.separatorChar}scripts${File.separatorChar}").listFiles()
+        val scriptAmount : Int = files.size
+
+        val results = ArrayList<String>()
+        files
+            .filter { it.isFile }
+            .mapTo(results) { it.name }
+
+        val progressbar : ProgressManager.ProgressBar = ProgressManager.push("Mental Script Loader: ", scriptAmount)
+        val globals : Globals = JsePlatform.standardGlobals()
+
+        globalFunctions.filterIsInstance<IGlobal>().forEach { globals.set(it.name, CoerceJavaToLua.coerce(it)) }
+
+        results.forEach {
+            progressbar.step("[Loading: $it]")
+
+            println("Mental Script Loader: [Loading: $it]")
+
+            val chunk : LuaValue = globals.loadfile("${References.minecraft.canonicalPath}${File.separatorChar}scripts${File.separatorChar}$it")
+            chunk.call()
+
+            println("Mental Script Loader: [Loaded: $it]")
+        }
+        ProgressManager.pop(progressbar)
     }
 
 
     override fun postInit(event : FMLPostInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
+
     }
 }

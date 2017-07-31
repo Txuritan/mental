@@ -7,9 +7,12 @@
     <bytecodeTargetLevel>
       <module name="generator_main" target="1.8" />
       <module name="generator_test" target="1.8" />
-      <module name="mental_api" target="1.8" />
-      <module name="mental_main" target="1.8" />
-      <module name="mental_test" target="1.8" />
+      <module name="mental-kotlin_api" target="1.6" />
+      <module name="mental-kotlin_main" target="1.6" />
+      <module name="mental-kotlin_test" target="1.6" />
+      <module name="mental_api" target="1.6" />
+      <module name="mental_main" target="1.6" />
+      <module name="mental_test" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

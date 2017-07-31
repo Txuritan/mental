@@ -22,35 +22,13 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.core.common.item.weapons
-
-import com.github.txuritan.mental.core.common.Mental
-import com.github.txuritan.mental.core.common.item.IItemModelProvider
-import com.github.txuritan.mental.core.common.item.IItemOreDict
-import net.minecraft.item.Item
-import net.minecraft.item.ItemBow
-import net.minecraftforge.oredict.OreDictionary
+package com.github.txuritan.mental.butterfly.common
 
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class ItemBowBase(maxDamage : Int?, private val name : String, private val oreNames : Array<String>) : ItemBow(), IItemModelProvider, IItemOreDict {
+object Butterflies {
+    var butterflies : MutableList<Any> = mutableListOf(
 
-    init {
-        this.maxDamage = maxDamage !!
-        this.setMaxStackSize(1)
-        setRegistryName(name)
-        unlocalizedName = name
-    }
-
-    override fun registerItemModel(item : Item) {
-        Mental.proxy.registerItemRenderer(this, 0, name)
-    }
-
-    override fun initOreDict() {
-        for (oreName in oreNames) {
-            OreDictionary.registerOre(oreName, this)
-        }
-    }
-
+    )
 }

@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Arcanite : Element() {
-
-    override val ELEMENT : String = "arcanite"
-
-    override var GENERATION : String = "end"
-
-}
+object Arcanite : Element("arcanite", "end")

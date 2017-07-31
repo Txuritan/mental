@@ -22,10 +22,12 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.tree.common
+package com.github.txuritan.mental.butterfly.common
 
 import com.github.txuritan.mental.core.common.IModule
+import com.github.txuritan.mental.core.common.util.References
 import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.ModMetadata
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -33,24 +35,33 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Tree : IModule {
+object Butterfly : IModule {
 
-    var trees : Trees = Trees
+    var butterflies : Butterflies = Butterflies
 
     override fun setupConfig(configuration : Configuration) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.setupConfig(configuration) }
+        butterflies.butterflies.filterIsInstance<IButterfly>().forEach { it.setupConfig(configuration) }
     }
 
     override fun preInit(event : FMLPreInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.preInit(event) }
+        butterflies.butterflies.filterIsInstance<IButterfly>().forEach { it.preInit(event) }
+
+        val modMetadata : ModMetadata = event.modMetadata
+        modMetadata.modId = References.MOD_ID
+        var description : String = modMetadata.description
+        description += "\nEnabled butterflies\n"
+        butterflies.butterflies.filterIsInstance<IButterfly>().forEach {
+            description += "    * ${it.BUTTERFLY.replace("-"," ").capitalize()}: ${if (it.configEnabledAll !!) "§2True§f" else "§4False§f"}\n"
+        }
+        modMetadata.description = description
     }
 
     override fun init(event : FMLInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.init(event) }
+        butterflies.butterflies.filterIsInstance<IButterfly>().forEach { it.init(event) }
     }
 
 
     override fun postInit(event : FMLPostInitializationEvent) {
-        trees.trees.filterIsInstance<ITree>().forEach { it.postInit(event) }
+        butterflies.butterflies.filterIsInstance<IButterfly>().forEach { it.postInit(event) }
     }
 }

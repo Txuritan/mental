@@ -22,35 +22,28 @@
  * SOFTWARE.
  */
 
-package com.github.txuritan.mental.core.common.item.weapons
+package com.github.txuritan.mental.fish.common
 
-import com.github.txuritan.mental.core.common.Mental
-import com.github.txuritan.mental.core.common.item.IItemModelProvider
-import com.github.txuritan.mental.core.common.item.IItemOreDict
-import net.minecraft.item.Item
-import net.minecraft.item.ItemBow
-import net.minecraftforge.oredict.OreDictionary
+import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-open class ItemBowBase(maxDamage : Int?, private val name : String, private val oreNames : Array<String>) : ItemBow(), IItemModelProvider, IItemOreDict {
+interface IFish {
 
-    init {
-        this.maxDamage = maxDamage !!
-        this.setMaxStackSize(1)
-        setRegistryName(name)
-        unlocalizedName = name
-    }
+    val FISH : String
 
-    override fun registerItemModel(item : Item) {
-        Mental.proxy.registerItemRenderer(this, 0, name)
-    }
+    var configEnabledAll : Boolean?
 
-    override fun initOreDict() {
-        for (oreName in oreNames) {
-            OreDictionary.registerOre(oreName, this)
-        }
-    }
+    fun setupConfig(configuration : Configuration)
+
+    fun preInit(event : FMLPreInitializationEvent)
+
+    fun init(event : FMLInitializationEvent)
+
+    fun postInit(event : FMLPostInitializationEvent)
 
 }

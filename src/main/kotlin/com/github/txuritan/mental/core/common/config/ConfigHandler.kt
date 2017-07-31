@@ -33,10 +33,8 @@ import net.minecraftforge.common.config.Configuration
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object ConfigHandler {
-
     fun config(configuration : Configuration) {
         try {
-
             configuration.load()
 
             MentalConfig.setupConfig(configuration)

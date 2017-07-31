@@ -31,10 +31,4 @@ import com.github.txuritan.mental.material.common.bases.Element
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-object Alkahest : Element() {
-
-    override val ELEMENT : String = "alkahest"
-
-    override var GENERATION : String = "nether"
-
-}
+object Alkahest : Element("alkahest", "nether")
