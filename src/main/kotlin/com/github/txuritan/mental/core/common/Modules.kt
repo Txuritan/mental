@@ -33,7 +33,7 @@ import com.github.txuritan.mental.script.common.Script
 import com.github.txuritan.mental.tree.common.Tree
 
 /**
- * @author Ian 'Txuritan/Captian Daro'Ma'Sohni Tavia' Cronkright
+ * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
 object Modules {
     var modules : MutableList<Any> = mutableListOf(
