@@ -34,7 +34,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 /**
  * @author Ian 'Txuritan/Captain Daro'Ma'Sohni Tavia' Cronkright
  */
-@Mod(
+/*@Mod(
     modid = References.MOD_ID,
     version = References.VERSION,
     name = References.MOD_NAME,
@@ -42,7 +42,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
     dependencies = "required-after:forgelin@[1.4.1,);",
     modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
     acceptedMinecraftVersions = "1.11.2"
-)
+)*/
 object Mental {
 
     @SidedProxy(

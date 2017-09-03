@@ -1,5 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.minecraftforge.gradle.common.BaseExtension
+import org.gradle.jvm.tasks.Jar
 
 buildscript {
     extra["kotlin-version"] = "1.1.3-2"
@@ -42,8 +43,17 @@ repositories {
     maven { url = uri("http://maven.shadowfacts.net/") }
 }
 
+jar {
+    manifest {
+        attributes.put("FMLCorePlugin", "com.github.txuritan.mental.core.common.coremod.ModCoreMental")
+        attributes.put("FMLCorePluginContainsFMLMod", "true")
+    }
+}
+
+fun Project.jar(setup: Jar.() -> Unit) = (project.tasks.getByName("jar") as Jar).setup()
+
 dependencies {
-    "compile"("net.shadowfacts:Forgelin:1.5.0")
+    "compile"("net.shadowfacts:Forgelin:1.5.1")
 
     "compile"("org.luaj:luaj-jse:3.0.1")
     "shadow"("org.luaj:luaj-jse:3.0.1")

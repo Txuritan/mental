@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "mental:items/atmospherium_bow_pulling_1"
+  }
+}
